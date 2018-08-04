@@ -214,6 +214,16 @@
           </a>
         </li>
       
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
 
       
         <li class="menu-item menu-item-search">
@@ -277,7 +287,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/03/git/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/03/B树/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ZhouYang">
@@ -299,8 +309,8 @@
             
               
                 
-                <a class="post-title-link" href="/2018/08/03/git/" itemprop="url">
-                  Git
+                <a class="post-title-link" href="/2018/08/03/B树/" itemprop="url">
+                  数据库索引 B+ 树
                 </a>
               
             
@@ -354,67 +364,9 @@
       
         
           
-            <blockquote>
-<p>「子路有闻，未之能行，唯恐有闻。」</p>
-<p>深感自己学习中缺乏动手实践，十分惭愧。本文为最近工作中学习踩坑总结，每一个问题情景都是在工作中真实出现，每一条指令都是亲自执行验证过的，记录在此方便日后查阅翻看。</p>
-</blockquote>
-<h3 id="Git-基本概念"><a href="#Git-基本概念" class="headerlink" title="Git 基本概念"></a>Git 基本概念</h3><h4 id="Git-专用名词："><a href="#Git-专用名词：" class="headerlink" title="Git 专用名词："></a>Git 专用名词：</h4><p><img src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015120901.png" alt=""></p>
-<ul>
-<li>Remote：远程仓库</li>
-<li>Repository：本地仓库</li>
-<li>Stage：暂存区</li>
-<li>Workspace：工作区</li>
-</ul>
-<h4 id="git-版本管理中，文件的四种状态："><a href="#git-版本管理中，文件的四种状态：" class="headerlink" title="git 版本管理中，文件的四种状态："></a>git 版本管理中，文件的四种状态：</h4><p><img src="https://git-scm.com/book/en/v2/book/02-git-basics/images/lifecycle.png" alt=""></p>
-<ul>
-<li>untracked：</li>
-<li>unmodified：</li>
-<li>modified：</li>
-<li>staged：</li>
-</ul>
-<h3 id="Git-实战-Tips"><a href="#Git-实战-Tips" class="headerlink" title="Git 实战 Tips"></a>Git 实战 Tips</h3><h4 id="忽略指定文件「JdbcUrl-java」"><a href="#忽略指定文件「JdbcUrl-java」" class="headerlink" title="忽略指定文件「JdbcUrl.java」:"></a>忽略指定文件「JdbcUrl.java」:</h4><p><em>场景：多个开发小组需要使用不同的 Jdbc 配置（如，我需要通过外网 IP 访问数据库，而测试环境需要内网 IP 访问数据库），项目组规定任何人不得提交修改的 JdbcUrl.java 文件，这样每次提交代码需要手动 revert 该文件，多分支切换开发时很麻烦。</em></p>
-<p><strong>提交代码时忽略此文件</strong>方法如下：</p>
-<ul>
-<li>.gitignore：仅适用于文件从未提交过「.gitignore 规则只能忽略那些 untracked 状态的文件」</li>
-<li><code>git update-index --assume-unchanged PATH</code>：提交时忽略此文件<ul>
-<li>如想恢复该文件：<code>git update-index --no-assume-unchanged -- path</code> </li>
-<li>找出所有被忽略的文件：<code>git ls-files -v | grep &#39;^h\ &#39;</code> </li>
-</ul>
-</li>
-<li><code>git rm --cached PATH</code>：已经推送（push）过的文件，想从git远程库中删除，并在以后的提交中忽略，但是却还想在本地保留这个文件 </li>
-</ul>
-<p><em>注意：使用上述方法只能在提交代码时忽略指定文件，但每次从远程仓库 pull 代码时还是会将 JdbcUrl.java 文件合并到当前本地分支引起冲突，如何解决呢？</em></p>
-<p><strong>合并代码时忽略指定文件</strong>方法如下：</p>
-<ul>
-<li>选定 ours 驱动，<code>git config --global merge.ours.driver true</code> </li>
-<li>在要被 merge 的分支上创建 .gitattributes 文件（<em>注意：Windows系统无法创建名为「.xx」的文件，可在git bash 里使用 touch 命令创建 .gitattributes 文件</em>），并且在文件中置顶不merge的文件名，.gitattributes 文件内容为：index.php merge=ours </li>
-<li>合并时驱动选择 ours</li>
-</ul>
-<h4 id="当前工作只进行一半，没法提交，但必须切换分支："><a href="#当前工作只进行一半，没法提交，但必须切换分支：" class="headerlink" title="当前工作只进行一半，没法提交，但必须切换分支："></a>当前工作只进行一半，没法提交，但必须切换分支：</h4><p><em>场景：需求分支上的开发工作进行一半，突然收到紧急 bug，需要放下当前工作切换分支修复 bug，此时可以将当前工作暂存到 stash</em></p>
-<ul>
-<li>git stash：工作现场保存到 stash，此时 Workspace 就是干净的，便能成功切换分支</li>
-<li>git stash list：查看 stash</li>
-<li>git stash pop：将当前分支的最后一次缓存内容释放出来，但刚才的记录不存在 list 中</li>
-<li>git stash apply：将当前分支的最后一次缓存内容释放出来，但刚才的记录还在 list 中</li>
-<li>git stash drop stash@{0} ：删除第一个队列</li>
-<li>git stash clear ：清空所有内容 </li>
-</ul>
-<h4 id="本地和远程仓库的文件冲突"><a href="#本地和远程仓库的文件冲突" class="headerlink" title="本地和远程仓库的文件冲突"></a>本地和远程仓库的文件冲突</h4><p><em>push 代码时发生冲突，这是由于之前 push 的代码在远端发生改变，它不允许你直接把你的代码覆盖上去。此时在提交之前你需要将远端的改变合并到本地上。</em></p>
-<ol>
-<li>git fetch origin feature/RBWMII-612:tmpRBWMII-612：将远程 origin 仓库的 feature/RBWMII-612 分支代码下载到本地 tmpRBWMII-612 分支</li>
-<li>git diff tempRBWMII-612 </li>
-<li>git merge tempRBWMII-612 </li>
-<li>解决冲突：Git用&lt;&lt;&lt;&lt;&lt;&lt;&lt;，=======，&gt;&gt;&gt;&gt;&gt;&gt;&gt;标记出不同分支的内容，修改后保存，再提交</li>
-<li>最后删除 tmpRBWMII-612 分支</li>
-</ol>
-<h4 id="Git-文件回滚"><a href="#Git-文件回滚" class="headerlink" title="Git 文件回滚"></a>Git 文件回滚</h4><ul>
-<li><code>git reset --hard commit_id \&lt;path\&gt;</code> ：指定文件退/进到指定 commit 的 sha 码 </li>
-<li><code>git reset --hard HEAD^</code> ：回退到上个版本</li>
-</ul>
-<h4 id="从其他分支-merge-指定文件到当前分支"><a href="#从其他分支-merge-指定文件到当前分支" class="headerlink" title="从其他分支 merge 指定文件到当前分支"></a>从其他分支 merge 指定文件到当前分支</h4><p><code>git checkout source_branch \&lt;path\&gt;</code></p>
-<p>注意：<em>使用 git checkout 某文件到当前分支时，会将当前分支的对应文件强行覆盖</em></p>
-<h3 id="学习参考链接："><a href="#学习参考链接：" class="headerlink" title="学习参考链接："></a>学习参考链接：</h3><p><a href="http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html" target="_blank" rel="noopener">常用 Git 命令</a></p>
-<p><a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b00" target="_blank" rel="noopener">廖雪峰 Git 教程</a></p>
+            <h4 id="红黑树"><a href="#红黑树" class="headerlink" title="红黑树"></a>红黑树</h4><h4 id="B-树"><a href="#B-树" class="headerlink" title="B 树"></a>B 树</h4><h4 id="B-树-1"><a href="#B-树-1" class="headerlink" title="B+ 树"></a>B+ 树</h4><p><a href="https://www.zhihu.com/question/65628840" target="_blank" rel="noopener">在 SSD 相对在服务器端普及的今天，为什么大部分数据库还是用 B/B+ 树实现的？</a></p>
+<p>B+树的设计：把树的上面几层放在内存里，尽量减少外存访问次数；然后把数据按页存储，每次读写单元都是一个页。这两点现在依然很好的贴合SSD的特征。 </p>
+<p><a href="http://www.pulpcode.cn/2017/04/22/from-hdd-to-ssd-how-b-tree/" target="_blank" rel="noopener">从机械硬盘到固态硬盘后，b树怎么办？</a></p>
 
           
         
@@ -450,7 +402,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -495,7 +447,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-count">16</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -503,6 +455,15 @@
 
           
 
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
           
 
         </nav>
