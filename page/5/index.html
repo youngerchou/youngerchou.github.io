@@ -287,7 +287,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/03/为何网上垃圾资讯泛滥/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/03/数据库锁表怎么办/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ZhouYang">
@@ -309,8 +309,8 @@
             
               
                 
-                <a class="post-title-link" href="/2018/08/03/为何网上垃圾资讯泛滥/" itemprop="url">
-                  为何网上垃圾资讯越来越多
+                <a class="post-title-link" href="/2018/08/03/数据库锁表怎么办/" itemprop="url">
+                  数据库锁表怎么办？
                 </a>
               
             
@@ -365,15 +365,34 @@
         
           
             <blockquote>
-<p>某种程度上讲，互联网使得我们小老百姓的权力相比过去有所增加，使得普通人的需求得到关注和满足，而大部分人的天性就是懒于思考的，迷恋于那些非常容易就能获得满足感的事物……</p>
+<p>日常开发中出现数据库锁表的情况时，不但影响自己开发，还会影响他人的开发测试，应当立即定位到被锁的表，并执行解锁操作。</p>
 </blockquote>
-<p>互联网的快速发展，使得我们每个人都有了发声的渠道，有了表达自己的平台，「再小的个体，也有自己的品牌」。</p>
-<p>某种程度上讲，相比过去，我们的权力在变大，我们的需求在被各种公司关注研究，他们做市场调研、做技术积累沉淀、做大数据分析、做人工智能，他们费尽心力努力打造出我们需要的产品，来满足我们的需求。我们似乎真的在网络上得到了「顾客就是上帝」般的高质量服务，我们吃喝玩乐都能轻轻松松的在手机上的几个 APP 里完成。当然，公司设计出这些满足我们需求的产品，就是为了赚钱，赚钱也是现在社会的主旋律，而要想打造出用户喜爱的产品，就一定弄清用户的需求、了解用户的心理。</p>
-<p>互联网公司的用户就是普罗大众，要弄懂普通人的需求，得先了解人性。</p>
-<p>回想一下，每当我们忍不住刷手机时，到底是在想获得什么？刷微博、刷朋友圈、刷各种圈子、看新闻、读公号文章、小视频，在刷手机的那一刻，仿佛时间过的很充实，我又看到了好多新鲜事、学到了好多知识、还有朋友圈里获得的不真实的优越感或认同感、游戏中得到的成就感，总结起来，其实都是为了获得一种「满足感」。</p>
-<p>而我们大部分人天性懒于思考（包括此刻的我，这些文字我写的很慢很艰难），这也导致了我们对很多的东西缺乏辨别能力，很容易被一些标题党或泛滥的爱国主义民族大义等垃圾新闻内容戳中 G 点，这些资讯内容并没有任何价值，甚至很多的新闻内容都是伪造的假新闻，却大量的占用了我们的时间。如今信息技术水平高速发展，这些资讯内容的生产也已经形成的完善的产业化，按照一定的套路拼凑点素材就能快速写出一篇文章，甚至很多新闻稿子是机器流水化生产的按照一定的套路拼凑点素材就能快速写出一篇文章，甚至很多新闻稿子是机器流水化生产的（参见微信公众号「我就 BB 怎么了」的文章<a href="https://mp.weixin.qq.com/s/CgqADXVWTJaUKXTfN88mkw" target="_blank" rel="noopener">说点劲爆的</a>）。</p>
-<p>如今，以「头条」系为代表的产品，今日头条、趣头条等各种资讯类 APP，里面充满着标题党、爱国主义、民族大义等垃圾内容，真正有价值的新闻却少之又少，还有像抖音、快手一类的短视频 APP，这些小视频看完了简直让我怀疑人生，爽了一时，却毫无收获。这些科技公司通过技术手段分析用户行为，从而提供智能推送服务，牢牢抓住用户的空闲时间，阻碍用户真正的思考，侵占用户宝贵的时间。</p>
-<p>我认为，「独立思考」是我们生而为人的尊严之一，然而如今却有越来越多的人放弃了它，甚至还有些「聪明的家伙」为了私利在助长人们放弃它。</p>
+<h3 id="Oracle-数据库锁表查询及解锁"><a href="#Oracle-数据库锁表查询及解锁" class="headerlink" title="Oracle 数据库锁表查询及解锁"></a>Oracle 数据库锁表查询及解锁</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">-- 查询 SQL 如下：</span><br><span class="line">select dbaobj.owner, dbaobj.object_name, s.sid, s.serial#, lckobj.locked_mode </span><br><span class="line">from v$locked_object lckobj, dba_objects dbaobj, v$session s</span><br><span class="line">where lckobj.object_id = dbaobj.object_id </span><br><span class="line">and lckobj.session_id = s.sid</span><br><span class="line">order by s.logon_time;</span><br><span class="line">-- 解锁方法：</span><br><span class="line">alter system kill session &apos;sid,serial#&apos;;</span><br></pre></td></tr></table></figure>
+<p><strong>dba_objects 视图</strong>：记录数据库中所有对象</p>
+<p><strong>v$locked_object 视图 </strong>：记录当前系统中哪些对象正被锁定</p>
+<p><strong>v$session 视图</strong>：记录所有会话信息</p>
+<h3 id="数据库锁分类"><a href="#数据库锁分类" class="headerlink" title="数据库锁分类"></a>数据库锁分类</h3><p>按照锁的内容上区分：表锁、页锁、行锁</p>
+<p>按照锁的性质上区分：共享锁、排他锁 / 独占锁、更新锁</p>
+<p>当执行 select 时，加共享锁，当执行 insert，update，delete 等操作时，加排他锁</p>
+<h3 id="数据库隔离级别"><a href="#数据库隔离级别" class="headerlink" title="数据库隔离级别"></a>数据库隔离级别</h3><ul>
+<li><strong>脏读</strong>：对于两个事务T1，T2，T1读取了已经被T2更新但还没有提交的字段，之后，若T2回滚，T1读取到的内容就是临时无效的内容。 </li>
+<li><strong>不可重复读</strong>：对于事务T1，T2，T1需要读取一个字段两次，在第一次和第二次读取之间，T2更新了该字段，导致T1第二次读取到的内容值不同。</li>
+<li><strong>幻读</strong>： 事务A读取与搜索条件相匹配的若干行。事务B以插入或删除行等方式来修改事务A的结果集，然后再提交。 幻读与不可重复读之间的区别是幻读强调的是新增或删除,而不可重复读强调的是修改。比如Mary两次查工资，中间有人改过工资，则两次结果不一样，这就是不可重复读。Mary要查工资一千的人数，第一次查到了10个，中间有人增加了一条工资为一千的人，下次查的时候就变成了11个，好像第一次查询的是幻觉一样。</li>
+</ul>
+<p>事务的 4 个隔离级别：</p>
+<ol>
+<li><strong>read uncommitted</strong>：可以读取已由其他事务修改但未提交的行；</li>
+<li><strong>read committed</strong>：不能读取已由其他事务修改但未提交的行；其他事务可以在当前事务的各个语句之间更改数据，从而产生不可重复读取和幻读数据；</li>
+<li><strong>repeatable read</strong>：不能读取已由其他事务修改但未提交的行，并且指定，其他任何事务都不能在当前事务完成之前修改当前事务读取的数据；其他事务可以插入与当前事务语句的搜索条件相匹配的新行，如果当前事务随后重复执行该语句，会检索新行，产生幻读；</li>
+<li><strong>serializable</strong>：所有事务只能一个接一个串行执行，不能并发。</li>
+</ol>
+<p><em>Oracle 支持两种隔离级别：read commited、serializable，默认的事务隔离级别是 read commited</em></p>
+<h3 id="乐观锁与悲观锁"><a href="#乐观锁与悲观锁" class="headerlink" title="乐观锁与悲观锁"></a>乐观锁与悲观锁</h3><p><em>Java 开发中经常看到乐观锁，那么到底什么是乐观锁，什么是悲观锁呢？</em></p>
+<p>悲观锁：数据库实现。共享锁、排他锁都属于悲观锁，Java 关键字 synchronized  也属于悲观锁。</p>
+<p>乐观锁：自己实现。操作数据时，不加锁，进行更新后，再去判断是否冲突了。举例如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. 查询出商品信息，select (status,version) from t_goods where id=#&#123;id&#125;</span><br><span class="line">2. 根据商品信息生成订单</span><br><span class="line">3. 修改商品 status 为 2，update t_goods set status=2,version=version+1 where id=#&#123;id&#125; and version=#&#123;version&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><p><a href="https://troywu0.gitbooks.io/spark/content/%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB.html" target="_blank" rel="noopener">Oracle 锁表问题处理</a></p>
+<p><a href="https://troywu0.gitbooks.io/spark/content/%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB.html" target="_blank" rel="noopener">数据库隔离级别</a></p>
 
           
         
@@ -409,7 +428,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -454,7 +473,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -467,7 +486,7 @@
             
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">tags</span>
               
             </div>

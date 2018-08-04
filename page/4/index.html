@@ -287,7 +287,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/03/为何项目启动失败/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/03/为何网上垃圾资讯泛滥/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ZhouYang">
@@ -309,8 +309,8 @@
             
               
                 
-                <a class="post-title-link" href="/2018/08/03/为何项目启动失败/" itemprop="url">
-                  梦魇：项目启动失败
+                <a class="post-title-link" href="/2018/08/03/为何网上垃圾资讯泛滥/" itemprop="url">
+                  为何网上垃圾资讯越来越多
                 </a>
               
             
@@ -365,54 +365,15 @@
         
           
             <blockquote>
-<p>刚从事软件开发工作时，某踩坑无数的同事告诉我：软件开发嘛，一开始就是熟悉各种工具的使用和踩坑。而启动项目失败就是 newbie  的梦魇，记得第一天入职搭建项目就花了我整整一天，加班搞到晚上才将项目勉强启起来。</p>
+<p>某种程度上讲，互联网使得我们小老百姓的权力相比过去有所增加，使得普通人的需求得到关注和满足，而大部分人的天性就是懒于思考的，迷恋于那些非常容易就能获得满足感的事物……</p>
 </blockquote>
-<h3 id="项目启动失败怎么办："><a href="#项目启动失败怎么办：" class="headerlink" title="项目启动失败怎么办："></a>项目启动失败怎么办：</h3><p>项目启动失败可以说是没有经验的新人的梦魇，为什么别人可以正常启动运行的项目一放到我的电脑上就会报各种神奇的错误，明明代码一样，运行环境一样。今天也来总结一波我的踩坑之旅，将那些曾经踩过的坑及解决方法总结记录下来。</p>
-<p>其实，项目启动中的大部分的报错都是可以在网上找到解决方法的，遇到报错不要紧张、不要慌，冷静而有条理的一步步排查，总能解决的。踩的坑多了，并时常自我总结，自然就会有解决问题的方法和思路了。</p>
-<p><strong>Q：导入 Java 项目出现 JRE System Library(unbound)</strong></p>
-<p><img src="../../../../images/001.png" alt="img"> </p>
-<p>A：<a href="https://blog.csdn.net/cnzyyh/article/details/51115377" target="_blank" rel="noopener">绑定 JRE 即可</a></p>
-<p><strong>Q：eclipse 同一 workspace 下的多个工程使用的 jdk 版本不一致</strong></p>
-<p>A： eclipse 可以给每个工程单独配置 jdk，<a href="https://blog.csdn.net/ting0fdnb/article/details/77605765" target="_blank" rel="noopener">修改 eclipse 工程 jdk 版本</a></p>
-<p><strong>Q： Tomcat 端口被占用</strong></p>
-<p>A：以管理员身份运行 cmd，执行命令，找出占用 8080 端口的进程：<code>netstat -ano | findstr 8080</code>，杀死该进程：<code>taskkill /F /pid 3484</code></p>
-<p><strong>Q：tomcat启动时出现了Failed to start component [StandardEngine[Catalina].StandardHost[localhost]] </strong> </p>
-<p>A：<a href="https://blog.csdn.net/imjcoder/article/details/78725267 " target="_blank" rel="noopener">servlet-api.jar 包与 tomcat/lib 下的包冲突</a></p>
-<p><strong>Q： Tomcat启动异常：A child container failed during start</strong> </p>
-<p>A：检查是否缺少 jar 包，曾经一次缺少 jsp-api.jar 包报了这个错误</p>
-<p><strong>Q：tomcat 启动时某个类找不到</strong></p>
-<p>A：该类对应的 jar 包是否有部署到 tomcat，是否改类的 .java 文件没有编译成 .class 文件</p>
-<p><strong>Q：The resource is not on the build path of a javascript project</strong></p>
-<p>A：<a href="https://stackoverflow.com/questions/24505993/the-resource-is-not-on-the-build-path-of-a-javascript-project" target="_blank" rel="noopener">Configure &gt; Convert to JavaScript Project…. </a></p>
-<p><strong>Q：eclipse 无法编译项目，各种配置都检查了没有问题</strong></p>
-<p>A：关闭当前 workspace，重新新建一个 workspace 并导入项目，然后就 ok 了。所以啊，有的时候重启大法、更换 eclipse、更换 tomcat 等简单粗暴的方法是真的可以解决不少问题的。</p>
-<h3 id="下面是使用-eclipse-工具踩过的坑："><a href="#下面是使用-eclipse-工具踩过的坑：" class="headerlink" title="下面是使用 eclipse 工具踩过的坑："></a>下面是使用 eclipse 工具踩过的坑：</h3><p><strong>Q：eclipse debug 不起作用：突然，eclipse工具无论怎么设置断点，debug不起作用。</strong></p>
-<p>A：关闭 skip all breakpoints 即可，如图：<img src="../../../../images/002.png" alt="img"> </p>
-<p><strong>Q：eclipse出现updating error reports database一直运行解决方案</strong> </p>
-<p>A：<img src="../../../../images/003.png" alt="img"> </p>
-<p><strong>Q：Eclipse的卡顿、启动慢、一直 building</strong></p>
-<p>A：这篇博文写的不错：<a href="https://blog.csdn.net/zhangxichao100/article/details/53761882" target="_blank" rel="noopener">Eclipse的设置、调优、使用（解决启动卡顿等问题）</a></p>
-<h3 id="神奇的-Maven，你不想了解下么"><a href="#神奇的-Maven，你不想了解下么" class="headerlink" title="神奇的 Maven，你不想了解下么"></a>神奇的 Maven，你不想了解下么</h3><p>大神牛逼，写的通俗易懂，直接贴过来，<a href="https://www.cnblogs.com/hzg110/p/6936101.html" target="_blank" rel="noopener"><a href="https://www.cnblogs.com/hzg110/p/6936101.html" target="_blank" rel="noopener">跟着刚哥深入学maven（通俗易懂）</a></a></p>
-<p><strong>maven 镜像配置的两种方式：</strong></p>
-<ol>
-<li>setting.xml 中配置，对所有 maven 工程有效；</li>
-<li>pom.xml 中配置，只对当前工程有效。</li>
-</ol>
-<p><strong>工作项目中一般会在 pom.xml 里配置多个环境</strong>，如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;profiles&gt;</span><br><span class="line">	&lt;profile&gt;</span><br><span class="line">		&lt;!-- 开发环境 --&gt;</span><br><span class="line">		&lt;id&gt;DEV&lt;/id&gt;</span><br><span class="line">		&lt;properties&gt;</span><br><span class="line">			&lt;EnvID&gt;DEV&lt;/EnvID&gt;</span><br><span class="line">			&lt;variable2&gt;value2&lt;/variable2&gt;</span><br><span class="line">			……</span><br><span class="line">		&lt;/properties&gt;</span><br><span class="line">		&lt;!-- 默认激活本环境 --&gt;</span><br><span class="line">		&lt;activation&gt;</span><br><span class="line">			&lt;activeByDefault&gt;true&lt;/activeByDefault&gt;</span><br><span class="line">		&lt;/activation&gt;</span><br><span class="line">	&lt;/profile&gt;</span><br><span class="line">	&lt;profile&gt;</span><br><span class="line">		&lt;!--集成环境 --&gt;</span><br><span class="line">		&lt;id&gt;SIT&lt;/id&gt;</span><br><span class="line">		&lt;properties&gt;</span><br><span class="line">			&lt;EnvID&gt;SIT&lt;/EnvID&gt;</span><br><span class="line">			&lt;variable2&gt;value2&lt;/variable2&gt;</span><br><span class="line">			……</span><br><span class="line">		&lt;/properties&gt;</span><br><span class="line">		&lt;activation&gt;</span><br><span class="line">			&lt;activeByDefault&gt;false&lt;/activeByDefault&gt;</span><br><span class="line">		&lt;/activation&gt;</span><br><span class="line">	&lt;/profile&gt;</span><br><span class="line">	……</span><br><span class="line">&lt;/profiles&gt;</span><br></pre></td></tr></table></figure>
-<p>SysConst.properties 文件如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">EnvID=$&#123;EnvID&#125;</span><br><span class="line">variable2=$&#123;variable2&#125;</span><br><span class="line">……</span><br></pre></td></tr></table></figure>
-<p>在资源文件(SysConst.properties)中放置 pom.xml 预先设置的变量，在执行 mvn package 时就会自动将变量替换为真实值。</p>
-<h4 id="日常报错总结："><a href="#日常报错总结：" class="headerlink" title="日常报错总结："></a>日常报错总结：</h4><p><strong>ERROR：Unsupported major.minor version 52.0</strong> </p>
-<p>Solution：<a href="https://blog.csdn.net/qq_36769100/article/details/78880341" target="_blank" rel="noopener">执行代码的 jdk 版本 低于 编译的 jdk 版本 </a></p>
-<p><strong>ERROR：Excel 导入（POI）异常 Cannot get a text value from a numeric cell </strong></p>
-<p>Solution：<a href="https://blog.csdn.net/ysughw/article/details/9288307" target="_blank" rel="noopener">试图从一个数字类型的Cell读取出一个字符串并写入数据库时，就会出现Cannot get a text value from a numeric cell的异常错误。 </a></p>
-<p><strong>ERROR：java.sql.SQLException: ORA-01830: 日期格式图片在转换整个输入字符串之前结束:</strong></p>
-<p>Solution：<a href="https://blog.csdn.net/wskvmm/article/details/16822491" target="_blank" rel="noopener">如果程序或者数据库报错信息这个的话，一定是其中一个字段或者属性的值出现类似于 2005-10-01 12:01:01.0’  后面多了一个 .0 这个格式。解决方法就是干掉后面的 .0 </a></p>
-<p><strong>参见文章如下：</strong></p>
-<p>「<a href="https://blog.csdn.net/d124939312/article/details/79364535" target="_blank" rel="noopener">如何在properties文件中获取maven的 pom.xml 的键值</a>」</p>
-<p>「<a href="https://blog.csdn.net/yuan487639/article/details/76204139" target="_blank" rel="noopener">pom.xml使用多套环境及变量获取</a>」</p>
-<p>「<a href="https://blog.csdn.net/wusunshine/article/details/52904062" target="_blank" rel="noopener">使用Eclipse新建一个Maven Project时settings配置的mirror仓库地址无法覆盖默认地址导致打包失败</a>」</p>
+<p>互联网的快速发展，使得我们每个人都有了发声的渠道，有了表达自己的平台，「再小的个体，也有自己的品牌」。</p>
+<p>某种程度上讲，相比过去，我们的权力在变大，我们的需求在被各种公司关注研究，他们做市场调研、做技术积累沉淀、做大数据分析、做人工智能，他们费尽心力努力打造出我们需要的产品，来满足我们的需求。我们似乎真的在网络上得到了「顾客就是上帝」般的高质量服务，我们吃喝玩乐都能轻轻松松的在手机上的几个 APP 里完成。当然，公司设计出这些满足我们需求的产品，就是为了赚钱，赚钱也是现在社会的主旋律，而要想打造出用户喜爱的产品，就一定弄清用户的需求、了解用户的心理。</p>
+<p>互联网公司的用户就是普罗大众，要弄懂普通人的需求，得先了解人性。</p>
+<p>回想一下，每当我们忍不住刷手机时，到底是在想获得什么？刷微博、刷朋友圈、刷各种圈子、看新闻、读公号文章、小视频，在刷手机的那一刻，仿佛时间过的很充实，我又看到了好多新鲜事、学到了好多知识、还有朋友圈里获得的不真实的优越感或认同感、游戏中得到的成就感，总结起来，其实都是为了获得一种「满足感」。</p>
+<p>而我们大部分人天性懒于思考（包括此刻的我，这些文字我写的很慢很艰难），这也导致了我们对很多的东西缺乏辨别能力，很容易被一些标题党或泛滥的爱国主义民族大义等垃圾新闻内容戳中 G 点，这些资讯内容并没有任何价值，甚至很多的新闻内容都是伪造的假新闻，却大量的占用了我们的时间。如今信息技术水平高速发展，这些资讯内容的生产也已经形成的完善的产业化，按照一定的套路拼凑点素材就能快速写出一篇文章，甚至很多新闻稿子是机器流水化生产的按照一定的套路拼凑点素材就能快速写出一篇文章，甚至很多新闻稿子是机器流水化生产的（参见微信公众号「我就 BB 怎么了」的文章<a href="https://mp.weixin.qq.com/s/CgqADXVWTJaUKXTfN88mkw" target="_blank" rel="noopener">说点劲爆的</a>）。</p>
+<p>如今，以「头条」系为代表的产品，今日头条、趣头条等各种资讯类 APP，里面充满着标题党、爱国主义、民族大义等垃圾内容，真正有价值的新闻却少之又少，还有像抖音、快手一类的短视频 APP，这些小视频看完了简直让我怀疑人生，爽了一时，却毫无收获。这些科技公司通过技术手段分析用户行为，从而提供智能推送服务，牢牢抓住用户的空闲时间，阻碍用户真正的思考，侵占用户宝贵的时间。</p>
+<p>我认为，「独立思考」是我们生而为人的尊严之一，然而如今却有越来越多的人放弃了它，甚至还有些「聪明的家伙」为了私利在助长人们放弃它。</p>
 
           
         
@@ -448,7 +409,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -493,7 +454,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -506,7 +467,7 @@
             
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">tags</span>
               
             </div>
