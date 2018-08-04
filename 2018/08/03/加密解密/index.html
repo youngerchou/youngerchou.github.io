@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 
 
 
@@ -10,6 +10,13 @@
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
 
 
 
@@ -24,7 +31,6 @@
 
 
 
-  <meta name="baidu-site-verification" content="HbehtlMdUd" />
 
 
 
@@ -39,38 +45,27 @@
 
 
 
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
 
 
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
 
 
   <meta name="keywords" content="Java,密码学," />
@@ -82,11 +77,6 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
-
-
-
-
 
 
 <meta name="description" content="对称加密使用的密钥只有一个，加密解密使用同一密钥。数据发送方将明文与密钥经加密算法处理后发送出去，数据接收方使用密钥及相同算法的逆算法解密密文。常用的对称加密算法： DESDES（Data Encryption Standard）：数据加密标准，速度较快，适用于加密大量数据的场合。DES 使用 56 位密钥，24 小时内即可被破解，但还是可以在某些简单应用中使用 DES 加密算法。注意：DES 密">
@@ -94,11 +84,11 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="加密解密技术">
 <meta property="og:url" content="http://yoursite.com/2018/08/03/加密解密/index.html">
-<meta property="og:site_name" content="咸鱼晒干了">
+<meta property="og:site_name" content="莫敢言">
 <meta property="og:description" content="对称加密使用的密钥只有一个，加密解密使用同一密钥。数据发送方将明文与密钥经加密算法处理后发送出去，数据接收方使用密钥及相同算法的逆算法解密密文。常用的对称加密算法： DESDES（Data Encryption Standard）：数据加密标准，速度较快，适用于加密大量数据的场合。DES 使用 56 位密钥，24 小时内即可被破解，但还是可以在某些简单应用中使用 DES 加密算法。注意：DES 密">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/images/006.png">
-<meta property="og:updated_time" content="2018-08-03T23:57:15.992Z">
+<meta property="og:updated_time" content="2018-08-04T06:10:57.678Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="加密解密技术">
 <meta name="twitter:description" content="对称加密使用的密钥只有一个，加密解密使用同一密钥。数据发送方将明文与密钥经加密算法处理后发送出去，数据接收方使用密钥及相同算法的逆算法解密密文。常用的对称加密算法： DESDES（Data Encryption Standard）：数据加密标准，速度较快，适用于加密大量数据的场合。DES 使用 56 位密钥，24 小时内即可被破解，但还是可以在某些简单应用中使用 DES 加密算法。注意：DES 密">
@@ -111,9 +101,11 @@
   var CONFIG = {
     root: '/',
     scheme: 'Mist',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
-    motion: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
       author: 'Author'
@@ -136,11 +128,7 @@
 
 
 
-  <title> 加密解密技术 | 咸鱼晒干了 </title>
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="default">
-
+  <title>加密解密技术 | 莫敢言</title>
   
 
 
@@ -150,18 +138,16 @@
 
 
 
+</head>
 
-
-
-
-
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
 
   
   
     
   
 
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -172,7 +158,7 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">咸鱼晒干了</span>
+        <span class="site-title">莫敢言</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -207,22 +193,22 @@
         </li>
       
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            Archives
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
+          <a href="/tags/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
           </a>
         </li>
       
@@ -254,7 +240,7 @@
       <i class="fa fa-times-circle"></i>
     </span>
     <div class="local-search-input-wrapper">
-      <input autocapitalize="off" autocomplete="off" autocorrect="off"
+      <input autocomplete="off"
              placeholder="Searching..." spellcheck="false"
              type="text" id="local-search-input">
     </div>
@@ -288,7 +274,11 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/03/加密解密/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -298,7 +288,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="咸鱼晒干了">
+      <meta itemprop="name" content="莫敢言">
     </span>
 
     
@@ -306,14 +296,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                加密解密技术
-              
-            
-          </h1>
+          <h1 class="post-title" itemprop="name headline">加密解密技术</h1>
         
 
         <div class="post-meta">
@@ -354,7 +337,9 @@
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -363,9 +348,9 @@
       
         <h3 id="对称加密"><a href="#对称加密" class="headerlink" title="对称加密"></a>对称加密</h3><p><strong>使用的密钥只有一个，加密解密使用同一密钥。</strong>数据发送方将明文与密钥经加密算法处理后发送出去，数据接收方使用密钥及相同算法的逆算法解密密文。常用的对称加密算法：</p>
 <h3 id="DES"><a href="#DES" class="headerlink" title="DES"></a>DES</h3><p>DES（Data Encryption Standard）：数据加密标准，速度较快，适用于加密大量数据的场合。DES 使用 56 位密钥，24 小时内即可被破解，但还是可以在某些简单应用中使用 DES 加密算法。注意：DES 密钥的长度必须是 8 的倍数。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DES</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 测试</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">		<span class="comment">// 待加密内容</span></span><br><span class="line">		String str = <span class="string">"TEST"</span>;</span><br><span class="line">		<span class="comment">// 密码，长度要是8的倍数</span></span><br><span class="line">		String password = <span class="string">"12345678"</span>;</span><br><span class="line">		<span class="keyword">byte</span>[] result = DES.encrypt(str.getBytes(), password);</span><br><span class="line">		System.out.println(<span class="string">"加密后："</span> + <span class="keyword">new</span> String(result)); <span class="comment">//加密后：�b\:p�7L</span></span><br><span class="line">		<span class="comment">// 直接将如上内容解密</span></span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			<span class="keyword">byte</span>[] decryResult = DES.decrypt(result, password);</span><br><span class="line">			System.out.println(<span class="string">"解密后："</span> + <span class="keyword">new</span> String(decryResult)); <span class="comment">//解密后：TEST</span></span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e1) &#123;</span><br><span class="line">			e1.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">// key1(SecretKeyFactory)：3132323434373738</span></span><br><span class="line">		<span class="comment">// key2(KeyGenerator)：85ABC12F54AB676E</span></span><br><span class="line">		<span class="comment">// key3(SecretKeySpec)：3132333435363738</span></span><br><span class="line">		printKey(password.getBytes());</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">byte</span>[] encrypt(<span class="keyword">byte</span>[] datasource, String password) &#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			<span class="comment">//密钥</span></span><br><span class="line">			DESKeySpec desKey = <span class="keyword">new</span> DESKeySpec(password.getBytes());</span><br><span class="line">			SecretKeyFactory keyFactory = SecretKeyFactory.getInstance(<span class="string">"DES"</span>);</span><br><span class="line">			SecretKey securekey = keyFactory.generateSecret(desKey);</span><br><span class="line">			<span class="comment">// Cipher对象实际完成加密操作</span></span><br><span class="line">			Cipher cipher = Cipher.getInstance(<span class="string">"DES"</span>);</span><br><span class="line">			SecureRandom random = <span class="keyword">new</span> SecureRandom();</span><br><span class="line">			cipher.init(Cipher.ENCRYPT_MODE, securekey, random);</span><br><span class="line">			<span class="comment">// 正式执行加密操作</span></span><br><span class="line">			<span class="keyword">return</span> cipher.doFinal(datasource);</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Throwable e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">byte</span>[] decrypt(<span class="keyword">byte</span>[] src, String password) <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">		<span class="comment">// 创建一个DESKeySpec对象</span></span><br><span class="line">		DESKeySpec desKey = <span class="keyword">new</span> DESKeySpec(password.getBytes());</span><br><span class="line">		<span class="comment">// 创建一个密匙工厂</span></span><br><span class="line">		SecretKeyFactory keyFactory = SecretKeyFactory.getInstance(<span class="string">"DES"</span>);</span><br><span class="line">		<span class="comment">// 将DESKeySpec对象转换成SecretKey对象</span></span><br><span class="line">		SecretKey securekey = keyFactory.generateSecret(desKey);</span><br><span class="line">		<span class="comment">// Cipher对象实际完成解密操作</span></span><br><span class="line">		Cipher cipher = Cipher.getInstance(<span class="string">"DES"</span>);</span><br><span class="line">		<span class="comment">// DES算法要求有一个可信任的随机数源</span></span><br><span class="line">		SecureRandom random = <span class="keyword">new</span> SecureRandom();</span><br><span class="line">		<span class="comment">// 用密匙初始化Cipher对象</span></span><br><span class="line">		cipher.init(Cipher.DECRYPT_MODE, securekey, random);</span><br><span class="line">		<span class="comment">// 真正开始解密操作</span></span><br><span class="line">		<span class="keyword">return</span> cipher.doFinal(src);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">printKey</span><span class="params">(<span class="keyword">byte</span>[] keyBytes)</span></span>&#123;</span><br><span class="line">		<span class="keyword">try</span>&#123;</span><br><span class="line">			<span class="comment">//第一种，Factory</span></span><br><span class="line">			DESKeySpec keySpec=<span class="keyword">new</span> DESKeySpec(keyBytes);</span><br><span class="line">			SecretKeyFactory keyFactory=SecretKeyFactory.getInstance(<span class="string">"DES"</span>);			</span><br><span class="line">			SecretKey key1=keyFactory.generateSecret(keySpec);	</span><br><span class="line">			</span><br><span class="line">			<span class="comment">//第二种, Generator</span></span><br><span class="line">			KeyGenerator keyGenerator=KeyGenerator.getInstance(<span class="string">"DES"</span>);</span><br><span class="line">			keyGenerator.init(<span class="number">56</span>, <span class="keyword">new</span> SecureRandom(keyBytes));<span class="comment">//key为8个字节，实际用了56位； 后面随机数用key作为种子seed生成</span></span><br><span class="line">			SecretKey key2=keyGenerator.generateKey();</span><br><span class="line">			</span><br><span class="line">			<span class="comment">//第三种， SecretKeySpec</span></span><br><span class="line">			SecretKey key3=<span class="keyword">new</span> SecretKeySpec(keyBytes, <span class="string">"DES"</span>);<span class="comment">//SecretKeySpec类同时实现了Key和KeySpec接口</span></span><br><span class="line">			</span><br><span class="line">			<span class="comment">//打印</span></span><br><span class="line">			System.out.println(<span class="string">"key1(SecretKeyFactory)："</span>+byteToHexString(key1.getEncoded()));</span><br><span class="line">			System.out.println(<span class="string">"key2(KeyGenerator)："</span>+byteToHexString(key2.getEncoded()));</span><br><span class="line">			System.out.println(<span class="string">"key3(SecretKeySpec)："</span>+byteToHexString(key3.getEncoded()));</span><br><span class="line">			</span><br><span class="line">		&#125;<span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">			System.out.println(e.toString());</span><br><span class="line">		&#125;	</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">byteToHexString</span><span class="params">(<span class="keyword">byte</span>[] bytes)</span> </span>&#123;</span><br><span class="line">		StringBuffer sb = <span class="keyword">new</span> StringBuffer(bytes.length);</span><br><span class="line">		String sTemp;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; bytes.length; i++) &#123;</span><br><span class="line">			sTemp = Integer.toHexString(<span class="number">0xFF</span> &amp; bytes[i]);</span><br><span class="line">			<span class="keyword">if</span> (sTemp.length() &lt; <span class="number">2</span>)</span><br><span class="line">				sb.append(<span class="number">0</span>);</span><br><span class="line">			sb.append(sTemp.toUpperCase());</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> sb.toString();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">byte</span> <span class="title">toByte</span><span class="params">(<span class="keyword">char</span> c)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">byte</span> b = (<span class="keyword">byte</span>) <span class="string">"0123456789ABCDEF"</span>.indexOf(c);</span><br><span class="line">		<span class="keyword">return</span> b;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DES</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 测试</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">		<span class="comment">// 待加密内容</span></span><br><span class="line">		String str = <span class="string">"TEST"</span>;</span><br><span class="line">		<span class="comment">// 密码，长度要是8的倍数</span></span><br><span class="line">		String password = <span class="string">"12345678"</span>;</span><br><span class="line">		<span class="keyword">byte</span>[] result = DES.encrypt(str.getBytes(), password);</span><br><span class="line">		System.out.println(<span class="string">"加密后："</span> + <span class="keyword">new</span> String(result)); <span class="comment">//加密后：</span></span><br><span class="line">		<span class="comment">// 直接将如上内容解密</span></span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			<span class="keyword">byte</span>[] decryResult = DES.decrypt(result, password);</span><br><span class="line">			System.out.println(<span class="string">"解密后："</span> + <span class="keyword">new</span> String(decryResult)); <span class="comment">//解密后：TEST</span></span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e1) &#123;</span><br><span class="line">			e1.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">// key1(SecretKeyFactory)：3132323434373738</span></span><br><span class="line">		<span class="comment">// key2(KeyGenerator)：85ABC12F54AB676E</span></span><br><span class="line">		<span class="comment">// key3(SecretKeySpec)：3132333435363738</span></span><br><span class="line">		printKey(password.getBytes());</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">byte</span>[] encrypt(<span class="keyword">byte</span>[] datasource, String password) &#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			<span class="comment">//密钥</span></span><br><span class="line">			DESKeySpec desKey = <span class="keyword">new</span> DESKeySpec(password.getBytes());</span><br><span class="line">			SecretKeyFactory keyFactory = SecretKeyFactory.getInstance(<span class="string">"DES"</span>);</span><br><span class="line">			SecretKey securekey = keyFactory.generateSecret(desKey);</span><br><span class="line">			<span class="comment">// Cipher对象实际完成加密操作</span></span><br><span class="line">			Cipher cipher = Cipher.getInstance(<span class="string">"DES"</span>);</span><br><span class="line">			SecureRandom random = <span class="keyword">new</span> SecureRandom();</span><br><span class="line">			cipher.init(Cipher.ENCRYPT_MODE, securekey, random);</span><br><span class="line">			<span class="comment">// 正式执行加密操作</span></span><br><span class="line">			<span class="keyword">return</span> cipher.doFinal(datasource);</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Throwable e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">byte</span>[] decrypt(<span class="keyword">byte</span>[] src, String password) <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">		<span class="comment">// 创建一个DESKeySpec对象</span></span><br><span class="line">		DESKeySpec desKey = <span class="keyword">new</span> DESKeySpec(password.getBytes());</span><br><span class="line">		<span class="comment">// 创建一个密匙工厂</span></span><br><span class="line">		SecretKeyFactory keyFactory = SecretKeyFactory.getInstance(<span class="string">"DES"</span>);</span><br><span class="line">		<span class="comment">// 将DESKeySpec对象转换成SecretKey对象</span></span><br><span class="line">		SecretKey securekey = keyFactory.generateSecret(desKey);</span><br><span class="line">		<span class="comment">// Cipher对象实际完成解密操作</span></span><br><span class="line">		Cipher cipher = Cipher.getInstance(<span class="string">"DES"</span>);</span><br><span class="line">		<span class="comment">// DES算法要求有一个可信任的随机数源</span></span><br><span class="line">		SecureRandom random = <span class="keyword">new</span> SecureRandom();</span><br><span class="line">		<span class="comment">// 用密匙初始化Cipher对象</span></span><br><span class="line">		cipher.init(Cipher.DECRYPT_MODE, securekey, random);</span><br><span class="line">		<span class="comment">// 真正开始解密操作</span></span><br><span class="line">		<span class="keyword">return</span> cipher.doFinal(src);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">printKey</span><span class="params">(<span class="keyword">byte</span>[] keyBytes)</span></span>&#123;</span><br><span class="line">		<span class="keyword">try</span>&#123;</span><br><span class="line">			<span class="comment">//第一种，Factory</span></span><br><span class="line">			DESKeySpec keySpec=<span class="keyword">new</span> DESKeySpec(keyBytes);</span><br><span class="line">			SecretKeyFactory keyFactory=SecretKeyFactory.getInstance(<span class="string">"DES"</span>);			</span><br><span class="line">			SecretKey key1=keyFactory.generateSecret(keySpec);	</span><br><span class="line">			</span><br><span class="line">			<span class="comment">//第二种, Generator</span></span><br><span class="line">			KeyGenerator keyGenerator=KeyGenerator.getInstance(<span class="string">"DES"</span>);</span><br><span class="line">			keyGenerator.init(<span class="number">56</span>, <span class="keyword">new</span> SecureRandom(keyBytes));<span class="comment">//key为8个字节，实际用了56位； 后面随机数用key作为种子seed生成</span></span><br><span class="line">			SecretKey key2=keyGenerator.generateKey();</span><br><span class="line">			</span><br><span class="line">			<span class="comment">//第三种， SecretKeySpec</span></span><br><span class="line">			SecretKey key3=<span class="keyword">new</span> SecretKeySpec(keyBytes, <span class="string">"DES"</span>);<span class="comment">//SecretKeySpec类同时实现了Key和KeySpec接口</span></span><br><span class="line">			</span><br><span class="line">			<span class="comment">//打印</span></span><br><span class="line">			System.out.println(<span class="string">"key1(SecretKeyFactory)："</span>+byteToHexString(key1.getEncoded()));</span><br><span class="line">			System.out.println(<span class="string">"key2(KeyGenerator)："</span>+byteToHexString(key2.getEncoded()));</span><br><span class="line">			System.out.println(<span class="string">"key3(SecretKeySpec)："</span>+byteToHexString(key3.getEncoded()));</span><br><span class="line">			</span><br><span class="line">		&#125;<span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">			System.out.println(e.toString());</span><br><span class="line">		&#125;	</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">byteToHexString</span><span class="params">(<span class="keyword">byte</span>[] bytes)</span> </span>&#123;</span><br><span class="line">		StringBuffer sb = <span class="keyword">new</span> StringBuffer(bytes.length);</span><br><span class="line">		String sTemp;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; bytes.length; i++) &#123;</span><br><span class="line">			sTemp = Integer.toHexString(<span class="number">0xFF</span> &amp; bytes[i]);</span><br><span class="line">			<span class="keyword">if</span> (sTemp.length() &lt; <span class="number">2</span>)</span><br><span class="line">				sb.append(<span class="number">0</span>);</span><br><span class="line">			sb.append(sTemp.toUpperCase());</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> sb.toString();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">byte</span> <span class="title">toByte</span><span class="params">(<span class="keyword">char</span> c)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">byte</span> b = (<span class="keyword">byte</span>) <span class="string">"0123456789ABCDEF"</span>.indexOf(c);</span><br><span class="line">		<span class="keyword">return</span> b;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="AES"><a href="#AES" class="headerlink" title="AES"></a>AES</h3><p>AES（Advanced Encryption Standard）：高级加密标准，是下一代的加密算法标准，速度快，安全级别高。AES 使用 128、192 或 256 位密钥，代码如下，与 DES 实现类似：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AES</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="comment">// 待加密内容</span></span><br><span class="line">		String str = <span class="string">"TEST"</span>;</span><br><span class="line">		<span class="comment">// 密码，长度要是8的倍数</span></span><br><span class="line">		String password = <span class="string">"12345678"</span>;</span><br><span class="line">		<span class="keyword">byte</span>[] encryptResult = AES.encrypt(str.getBytes(), password);</span><br><span class="line">		System.out.println(<span class="string">"加密后："</span> + <span class="keyword">new</span> String(encryptResult)); <span class="comment">// 加密后：�[o�g@�煞�kr��</span></span><br><span class="line">		<span class="keyword">byte</span>[] decryptResult = AES.decrypt(encryptResult, password);</span><br><span class="line">		System.out.println(<span class="string">"解密后："</span> + <span class="keyword">new</span> String(decryptResult)); <span class="comment">// 解密后：TEST</span></span><br><span class="line">		<span class="comment">// key1(KeyGenerator)：84AAC12F54AB666ECFC2A83C676908C8</span></span><br><span class="line">		<span class="comment">// key2(SecretKey)：3132333435363738</span></span><br><span class="line">		printKey(password.getBytes());</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">byte</span>[] encrypt(<span class="keyword">byte</span>[] datasource, String password) &#123;</span><br><span class="line">		KeyGenerator kgen;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			kgen = KeyGenerator.getInstance(<span class="string">"AES"</span>);</span><br><span class="line">			kgen.init(<span class="number">128</span>, <span class="keyword">new</span> SecureRandom(password.getBytes()));</span><br><span class="line">			SecretKey secretKey = kgen.generateKey();</span><br><span class="line">			<span class="keyword">byte</span>[] enCodeFormat = secretKey.getEncoded();</span><br><span class="line">			<span class="comment">// 转换为AES专用密钥</span></span><br><span class="line">			SecretKeySpec key = <span class="keyword">new</span> SecretKeySpec(enCodeFormat, <span class="string">"AES"</span>);</span><br><span class="line">			<span class="comment">// 创建密码器</span></span><br><span class="line">			Cipher cipher = Cipher.getInstance(<span class="string">"AES"</span>);</span><br><span class="line">			cipher.init(Cipher.ENCRYPT_MODE, key);	</span><br><span class="line">			<span class="keyword">return</span> cipher.doFinal(datasource);</span><br><span class="line">		&#125; <span class="keyword">catch</span> (NoSuchAlgorithmException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125; <span class="keyword">catch</span> (NoSuchPaddingException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125; <span class="keyword">catch</span> (InvalidKeyException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125; <span class="keyword">catch</span> (IllegalBlockSizeException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125; <span class="keyword">catch</span> (BadPaddingException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">byte</span>[] decrypt(<span class="keyword">byte</span>[] src, String password) &#123;</span><br><span class="line">		KeyGenerator kgen;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			kgen = KeyGenerator.getInstance(<span class="string">"AES"</span>);</span><br><span class="line">			kgen.init(<span class="number">128</span>, <span class="keyword">new</span> SecureRandom(password.getBytes()));</span><br><span class="line">			SecretKey secretKey = kgen.generateKey();</span><br><span class="line">			<span class="keyword">byte</span>[] enCodeFormat = secretKey.getEncoded();</span><br><span class="line">			<span class="comment">// 转换为AES专用密钥</span></span><br><span class="line">			SecretKeySpec key = <span class="keyword">new</span> SecretKeySpec(enCodeFormat, <span class="string">"AES"</span>);</span><br><span class="line">			<span class="comment">// 创建密码器</span></span><br><span class="line">			Cipher cipher = Cipher.getInstance(<span class="string">"AES"</span>);</span><br><span class="line">			cipher.init(Cipher.DECRYPT_MODE, key);</span><br><span class="line">			<span class="keyword">return</span> cipher.doFinal(src);</span><br><span class="line">		&#125; <span class="keyword">catch</span> (NoSuchAlgorithmException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125; <span class="keyword">catch</span> (NoSuchPaddingException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125; <span class="keyword">catch</span> (InvalidKeyException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125; <span class="keyword">catch</span> (IllegalBlockSizeException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125; <span class="keyword">catch</span> (BadPaddingException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">byteToHexString</span><span class="params">(<span class="keyword">byte</span>[] bytes)</span> </span>&#123;</span><br><span class="line">		StringBuffer sb = <span class="keyword">new</span> StringBuffer(bytes.length);</span><br><span class="line">		String sTemp;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; bytes.length; i++) &#123;</span><br><span class="line">			sTemp = Integer.toHexString(<span class="number">0xFF</span> &amp; bytes[i]);</span><br><span class="line">			<span class="keyword">if</span> (sTemp.length() &lt; <span class="number">2</span>)</span><br><span class="line">				sb.append(<span class="number">0</span>);</span><br><span class="line">			sb.append(sTemp.toUpperCase());</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> sb.toString();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">printKey</span><span class="params">(<span class="keyword">byte</span>[] keyBytes)</span></span>&#123;</span><br><span class="line">		<span class="keyword">try</span>&#123;		</span><br><span class="line">			<span class="comment">// KeyGenerator</span></span><br><span class="line">			KeyGenerator keyGenerator=KeyGenerator.getInstance(<span class="string">"AES"</span>);</span><br><span class="line">			keyGenerator.init(<span class="number">128</span>, <span class="keyword">new</span> SecureRandom(keyBytes));<span class="comment">//key为128, 192 or 256</span></span><br><span class="line">			SecretKey key2=keyGenerator.generateKey();			</span><br><span class="line">			<span class="comment">// SecretKeySpec</span></span><br><span class="line">			SecretKey key3=<span class="keyword">new</span> SecretKeySpec(keyBytes, <span class="string">"AES"</span>);<span class="comment">//SecretKeySpec类同时实现了Key和KeySpec接口			</span></span><br><span class="line">			<span class="comment">//打印</span></span><br><span class="line">			System.out.println(<span class="string">"key1(KeyGenerator)："</span>+byteToHexString(key2.getEncoded()));</span><br><span class="line">			System.out.println(<span class="string">"key2(SecretKey)："</span>+byteToHexString(key3.getEncoded()));			</span><br><span class="line">		&#125;<span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">			System.out.println(e.toString());</span><br><span class="line">		&#125;	</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AES</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="comment">// 待加密内容</span></span><br><span class="line">		String str = <span class="string">"TEST"</span>;</span><br><span class="line">		<span class="comment">// 密码，长度要是8的倍数</span></span><br><span class="line">		String password = <span class="string">"12345678"</span>;</span><br><span class="line">		<span class="keyword">byte</span>[] encryptResult = AES.encrypt(str.getBytes(), password);</span><br><span class="line">		System.out.println(<span class="string">"加密后："</span> + <span class="keyword">new</span> String(encryptResult)); <span class="comment">// 加密后：</span></span><br><span class="line">		<span class="keyword">byte</span>[] decryptResult = AES.decrypt(encryptResult, password);</span><br><span class="line">		System.out.println(<span class="string">"解密后："</span> + <span class="keyword">new</span> String(decryptResult)); <span class="comment">// 解密后：TEST</span></span><br><span class="line">		<span class="comment">// key1(KeyGenerator)：84AAC12F54AB666ECFC2A83C676908C8</span></span><br><span class="line">		<span class="comment">// key2(SecretKey)：3132333435363738</span></span><br><span class="line">		printKey(password.getBytes());</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">byte</span>[] encrypt(<span class="keyword">byte</span>[] datasource, String password) &#123;</span><br><span class="line">		KeyGenerator kgen;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			kgen = KeyGenerator.getInstance(<span class="string">"AES"</span>);</span><br><span class="line">			kgen.init(<span class="number">128</span>, <span class="keyword">new</span> SecureRandom(password.getBytes()));</span><br><span class="line">			SecretKey secretKey = kgen.generateKey();</span><br><span class="line">			<span class="keyword">byte</span>[] enCodeFormat = secretKey.getEncoded();</span><br><span class="line">			<span class="comment">// 转换为AES专用密钥</span></span><br><span class="line">			SecretKeySpec key = <span class="keyword">new</span> SecretKeySpec(enCodeFormat, <span class="string">"AES"</span>);</span><br><span class="line">			<span class="comment">// 创建密码器</span></span><br><span class="line">			Cipher cipher = Cipher.getInstance(<span class="string">"AES"</span>);</span><br><span class="line">			cipher.init(Cipher.ENCRYPT_MODE, key);	</span><br><span class="line">			<span class="keyword">return</span> cipher.doFinal(datasource);</span><br><span class="line">		&#125; <span class="keyword">catch</span> (NoSuchAlgorithmException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125; <span class="keyword">catch</span> (NoSuchPaddingException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125; <span class="keyword">catch</span> (InvalidKeyException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125; <span class="keyword">catch</span> (IllegalBlockSizeException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125; <span class="keyword">catch</span> (BadPaddingException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">byte</span>[] decrypt(<span class="keyword">byte</span>[] src, String password) &#123;</span><br><span class="line">		KeyGenerator kgen;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			kgen = KeyGenerator.getInstance(<span class="string">"AES"</span>);</span><br><span class="line">			kgen.init(<span class="number">128</span>, <span class="keyword">new</span> SecureRandom(password.getBytes()));</span><br><span class="line">			SecretKey secretKey = kgen.generateKey();</span><br><span class="line">			<span class="keyword">byte</span>[] enCodeFormat = secretKey.getEncoded();</span><br><span class="line">			<span class="comment">// 转换为AES专用密钥</span></span><br><span class="line">			SecretKeySpec key = <span class="keyword">new</span> SecretKeySpec(enCodeFormat, <span class="string">"AES"</span>);</span><br><span class="line">			<span class="comment">// 创建密码器</span></span><br><span class="line">			Cipher cipher = Cipher.getInstance(<span class="string">"AES"</span>);</span><br><span class="line">			cipher.init(Cipher.DECRYPT_MODE, key);</span><br><span class="line">			<span class="keyword">return</span> cipher.doFinal(src);</span><br><span class="line">		&#125; <span class="keyword">catch</span> (NoSuchAlgorithmException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125; <span class="keyword">catch</span> (NoSuchPaddingException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125; <span class="keyword">catch</span> (InvalidKeyException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125; <span class="keyword">catch</span> (IllegalBlockSizeException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125; <span class="keyword">catch</span> (BadPaddingException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">byteToHexString</span><span class="params">(<span class="keyword">byte</span>[] bytes)</span> </span>&#123;</span><br><span class="line">		StringBuffer sb = <span class="keyword">new</span> StringBuffer(bytes.length);</span><br><span class="line">		String sTemp;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; bytes.length; i++) &#123;</span><br><span class="line">			sTemp = Integer.toHexString(<span class="number">0xFF</span> &amp; bytes[i]);</span><br><span class="line">			<span class="keyword">if</span> (sTemp.length() &lt; <span class="number">2</span>)</span><br><span class="line">				sb.append(<span class="number">0</span>);</span><br><span class="line">			sb.append(sTemp.toUpperCase());</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> sb.toString();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">printKey</span><span class="params">(<span class="keyword">byte</span>[] keyBytes)</span></span>&#123;</span><br><span class="line">		<span class="keyword">try</span>&#123;		</span><br><span class="line">			<span class="comment">// KeyGenerator</span></span><br><span class="line">			KeyGenerator keyGenerator=KeyGenerator.getInstance(<span class="string">"AES"</span>);</span><br><span class="line">			keyGenerator.init(<span class="number">128</span>, <span class="keyword">new</span> SecureRandom(keyBytes));<span class="comment">//key为128, 192 or 256</span></span><br><span class="line">			SecretKey key2=keyGenerator.generateKey();			</span><br><span class="line">			<span class="comment">// SecretKeySpec</span></span><br><span class="line">			SecretKey key3=<span class="keyword">new</span> SecretKeySpec(keyBytes, <span class="string">"AES"</span>);<span class="comment">//SecretKeySpec类同时实现了Key和KeySpec接口			</span></span><br><span class="line">			<span class="comment">//打印</span></span><br><span class="line">			System.out.println(<span class="string">"key1(KeyGenerator)："</span>+byteToHexString(key2.getEncoded()));</span><br><span class="line">			System.out.println(<span class="string">"key2(SecretKey)："</span>+byteToHexString(key3.getEncoded()));			</span><br><span class="line">		&#125;<span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">			System.out.println(e.toString());</span><br><span class="line">		&#125;	</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p> PS：</p>
 <p>​    <a href="https://stackoverflow.com/questions/26295437/should-i-use-keygenerator-or-secretkeyfactory" target="_blank" rel="noopener">Should I use KeyGenerator or SecretKeyFactory?</a></p>
 <p>​    <a href="https://blog.csdn.net/qq_18870023/article/details/52180768" target="_blank" rel="noopener">产生密钥的四个类的区别： KeyGenerator， KeyPairGenerator，KeyFactory，SecretKeyFactory</a></p>
@@ -437,21 +422,15 @@
 
       
     </div>
+    
+    
+    
 
-    <div>
-      
-        
+    
 
-      
-    </div>
+    
 
-    <div>
-      
-        
-
-      
-    </div>
-
+    
 
     <footer class="post-footer">
       
@@ -465,7 +444,7 @@
       
 
       
-        
+      
       
 
       
@@ -493,30 +472,28 @@
       
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
 
     <div class="post-spread">
       
-        
-<script>
-  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
-</script>
-
-      
     </div>
   </div>
 
-          
+
           </div>
           
 
 
           
-  <div class="comments" id="comments">
-    
-  </div>
+
+  
+
 
 
         </div>
@@ -532,72 +509,75 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
+    
     <div class="sidebar-inner">
 
       
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
             Table of Contents
           </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
             Overview
           </li>
         </ul>
       
 
-      <section class="site-overview sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/avatar.jpg"
-               alt="ZhouYang" />
-          <p class="site-author-name" itemprop="name">ZhouYang</p>
-           
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="ZhouYang" />
+            
+              <p class="site-author-name" itemprop="name">ZhouYang</p>
               <p class="site-description motion-element" itemprop="description">talking is cheap, let's do it!</p>
-          
-        </div>
-        <nav class="site-state motion-element">
+          </div>
 
-          
-            <div class="site-state-item site-state-posts">
-              <a href="/archives">
-                <span class="site-state-item-count">14</span>
-                <span class="site-state-item-name">posts</span>
-              </a>
-            </div>
-          
+          <nav class="site-state motion-element">
 
-          
-
-          
             
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
             
-            <div class="site-state-item site-state-tags">
+
+            
+
+            
               
-                <span class="site-state-item-count">7</span>
-                <span class="site-state-item-name">tags</span>
               
-            </div>
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
           
 
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
           
+
+          
+          
+
+          
+          
+
+          
+
         </div>
-
-        
-        
-
-        
-        
-
-        
-
-
       </section>
 
       
@@ -630,30 +610,36 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy; 
-  <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
-    <i class="fa fa-heart"></i>
+    <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">ZhouYang</span>
+
+  
 </div>
 
 
-<div class="powered-by">
-  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
-</div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
-<div class="theme-info">
-  Theme -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
-  </a>
-</div>
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
 
 
         
+
+
+
+
+
+
 
         
       </div>
@@ -665,7 +651,9 @@
         
       </div>
     
+
     
+
   </div>
 
   
@@ -689,52 +677,71 @@
 
 
 
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
-  
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
 
 
 
   
   
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
-
-
-
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
   
 
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
 
 
 
   
 
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
 
 
   
@@ -760,140 +767,335 @@
 
 
 
-  
 
 
 
+
+
+
+
   
-  
+
   <script type="text/javascript">
     // Popup Window;
     var isfetched = false;
+    var isXml = true;
     // Search DB path;
     var search_path = "search.xml";
-    if (search_path.length == 0) {
+    if (search_path.length === 0) {
       search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
     }
     var path = "/" + search_path;
     // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
 
     function proceedsearch() {
       $("body")
         .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
         .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
       $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
     }
+
     // search function;
     var searchFunc = function(path, search_id, content_id) {
       'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
       $.ajax({
         url: path,
-        dataType: "xml",
+        dataType: isXml ? "xml" : "json",
         async: true,
-        success: function( xmlResponse ) {
+        success: function(res) {
           // get the contents from search data
           isfetched = true;
           $('.popup').detach().appendTo('.header-inner');
-          var datas = $( "entry", xmlResponse ).map(function() {
+          var datas = isXml ? $("entry", res).map(function() {
             return {
-              title: $( "title", this ).text(),
+              title: $("title", this).text(),
               content: $("content",this).text(),
-              url: $( "url" , this).text()
+              url: $("url" , this).text()
             };
-          }).get();
-          var $input = document.getElementById(search_id);
-          var $resultContent = document.getElementById(content_id);
-          $input.addEventListener('input', function(){
-            var matchcounts = 0;
-            var str='<ul class=\"search-result-list\">';
-            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
-            $resultContent.innerHTML = "";
-            if (this.value.trim().length > 1) {
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
               // perform local searching
               datas.forEach(function(data) {
                 var isMatch = false;
-                var content_index = [];
-                var data_title = data.title.trim().toLowerCase();
-                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
-                var data_url = decodeURIComponent(data.url);
-                var index_title = -1;
-                var index_content = -1;
-                var first_occur = -1;
-                // only match artiles with not empty titles and contents
-                if(data_title != '') {
-                  keywords.forEach(function(keyword, i) {
-                    index_title = data_title.indexOf(keyword);
-                    index_content = data_content.indexOf(keyword);
-                    if( index_title >= 0 || index_content >= 0 ){
-                      isMatch = true;
-                      if (i == 0) {
-                        first_occur = index_content;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
                       }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
                     }
 
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
                   });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
                 }
+
                 // show search results
+
                 if (isMatch) {
-                  matchcounts += 1;
-                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
-                  var content = data.content.trim().replace(/<[^>]+>/g,"");
-                  if (first_occur >= 0) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
                     // cut out 100 characters
-                    var start = first_occur - 20;
-                    var end = first_occur + 80;
+                    var start = position - 20;
+                    var end = position + 80;
                     if(start < 0){
                       start = 0;
                     }
-                    if(start == 0){
-                      end = 50;
+                    if (end < position + word.length) {
+                      end = position + word.length;
                     }
                     if(end > content.length){
                       end = content.length;
                     }
-                    var match_content = content.substring(start, end);
-                    // highlight all keywords
-                    keywords.forEach(function(keyword){
-                      var regS = new RegExp(keyword, "gi");
-                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
-                    });
-
-                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
                   }
-                  str += "</li>";
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
                 }
-              })};
-            str += "</ul>";
-            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
-            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
-            $resultContent.innerHTML = str;
-          });
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === '') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
           proceedsearch();
         }
-      });}
+      });
+    }
 
     // handle and trigger popup window;
     $('.popup-trigger').click(function(e) {
       e.stopPropagation();
-      if (isfetched == false) {
+      if (isfetched === false) {
         searchFunc(path, 'local-search-input', 'local-search-result');
       } else {
         proceedsearch();
       };
     });
 
-    $('.popup-btn-close').click(function(e){
-      $('.popup').hide();
-      $(".local-search-pop-overlay").remove();
-      $('body').css('overflow', '');
-    });
+    $('.popup-btn-close').click(onPopupClose);
     $('.popup').click(function(e){
       e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
     });
   </script>
 
 
-  
+
+
 
   
 
@@ -901,6 +1103,12 @@
 
   
 
+  
+  
+
+  
+
+  
 
   
 

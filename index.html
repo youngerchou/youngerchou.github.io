@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 
 
 
@@ -10,6 +10,13 @@
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
 
 
 
@@ -24,7 +31,6 @@
 
 
 
-  <meta name="baidu-site-verification" content="HbehtlMdUd" />
 
 
 
@@ -39,38 +45,27 @@
 
 
 
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
 
 
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
 
 
   <meta name="keywords" content="Hexo, NexT" />
@@ -82,22 +77,17 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
-
-
-
-
 
 
 <meta name="description" content="talking is cheap, let&apos;s do it!">
 <meta property="og:type" content="website">
-<meta property="og:title" content="咸鱼晒干了">
+<meta property="og:title" content="莫敢言">
 <meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="咸鱼晒干了">
+<meta property="og:site_name" content="莫敢言">
 <meta property="og:description" content="talking is cheap, let&apos;s do it!">
 <meta property="og:locale" content="default">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="咸鱼晒干了">
+<meta name="twitter:title" content="莫敢言">
 <meta name="twitter:description" content="talking is cheap, let&apos;s do it!">
 
 
@@ -107,9 +97,11 @@
   var CONFIG = {
     root: '/',
     scheme: 'Mist',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
-    motion: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
       author: 'Author'
@@ -132,11 +124,7 @@
 
 
 
-  <title> 咸鱼晒干了 </title>
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="default">
-
+  <title>莫敢言</title>
   
 
 
@@ -146,20 +134,17 @@
 
 
 
+</head>
 
-
-
-
-
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
 
   
   
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container sidebar-position-left 
+  page-home">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -170,7 +155,7 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">咸鱼晒干了</span>
+        <span class="site-title">莫敢言</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -205,22 +190,22 @@
         </li>
       
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            Archives
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
+          <a href="/tags/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
           </a>
         </li>
       
@@ -252,7 +237,7 @@
       <i class="fa fa-times-circle"></i>
     </span>
     <div class="local-search-input-wrapper">
-      <input autocapitalize="off" autocomplete="off" autocorrect="off"
+      <input autocomplete="off"
              placeholder="Searching..." spellcheck="false"
              type="text" id="local-search-input">
     </div>
@@ -286,8 +271,12 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/03/B树/">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/03/git/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ZhouYang">
@@ -296,7 +285,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="咸鱼晒干了">
+      <meta itemprop="name" content="莫敢言">
     </span>
 
     
@@ -305,16 +294,8 @@
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2018/08/03/B树/" itemprop="url">
-                  数据库索引 B+ 树
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2018/08/03/git/" itemprop="url">Git</a></h1>
         
 
         <div class="post-meta">
@@ -355,7 +336,9 @@
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -364,23 +347,81 @@
       
         
           
-            <h4 id="红黑树"><a href="#红黑树" class="headerlink" title="红黑树"></a>红黑树</h4><h4 id="B-树"><a href="#B-树" class="headerlink" title="B 树"></a>B 树</h4><h4 id="B-树-1"><a href="#B-树-1" class="headerlink" title="B+ 树"></a>B+ 树</h4><p><a href="https://www.zhihu.com/question/65628840" target="_blank" rel="noopener">在 SSD 相对在服务器端普及的今天，为什么大部分数据库还是用 B/B+ 树实现的？</a></p>
-<p>B+树的设计：把树的上面几层放在内存里，尽量减少外存访问次数；然后把数据按页存储，每次读写单元都是一个页。这两点现在依然很好的贴合SSD的特征。 </p>
-<p><a href="http://www.pulpcode.cn/2017/04/22/from-hdd-to-ssd-how-b-tree/" target="_blank" rel="noopener">从机械硬盘到固态硬盘后，b树怎么办？</a></p>
+            <blockquote>
+<p>「子路有闻，未之能行，唯恐有闻。」</p>
+<p>深感自己学习中缺乏动手实践，十分惭愧。本文为最近工作中学习踩坑总结，每一个问题情景都是在工作中真实出现，每一条指令都是亲自执行验证过的，记录在此方便日后查阅翻看。</p>
+</blockquote>
+<h3 id="Git-基本概念"><a href="#Git-基本概念" class="headerlink" title="Git 基本概念"></a>Git 基本概念</h3><h4 id="Git-专用名词："><a href="#Git-专用名词：" class="headerlink" title="Git 专用名词："></a>Git 专用名词：</h4><p><img src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015120901.png" alt=""></p>
+<ul>
+<li>Remote：远程仓库</li>
+<li>Repository：本地仓库</li>
+<li>Stage：暂存区</li>
+<li>Workspace：工作区</li>
+</ul>
+<h4 id="git-版本管理中，文件的四种状态："><a href="#git-版本管理中，文件的四种状态：" class="headerlink" title="git 版本管理中，文件的四种状态："></a>git 版本管理中，文件的四种状态：</h4><p><img src="https://git-scm.com/book/en/v2/book/02-git-basics/images/lifecycle.png" alt=""></p>
+<ul>
+<li>untracked：</li>
+<li>unmodified：</li>
+<li>modified：</li>
+<li>staged：</li>
+</ul>
+<h3 id="Git-实战-Tips"><a href="#Git-实战-Tips" class="headerlink" title="Git 实战 Tips"></a>Git 实战 Tips</h3><h4 id="忽略指定文件「JdbcUrl-java」"><a href="#忽略指定文件「JdbcUrl-java」" class="headerlink" title="忽略指定文件「JdbcUrl.java」:"></a>忽略指定文件「JdbcUrl.java」:</h4><p><em>场景：多个开发小组需要使用不同的 Jdbc 配置（如，我需要通过外网 IP 访问数据库，而测试环境需要内网 IP 访问数据库），项目组规定任何人不得提交修改的 JdbcUrl.java 文件，这样每次提交代码需要手动 revert 该文件，多分支切换开发时很麻烦。</em></p>
+<p><strong>提交代码时忽略此文件</strong>方法如下：</p>
+<ul>
+<li>.gitignore：仅适用于文件从未提交过「.gitignore 规则只能忽略那些 untracked 状态的文件」</li>
+<li><code>git update-index --assume-unchanged PATH</code>：提交时忽略此文件<ul>
+<li>如想恢复该文件：<code>git update-index --no-assume-unchanged -- path</code> </li>
+<li>找出所有被忽略的文件：<code>git ls-files -v | grep &#39;^h\ &#39;</code> </li>
+</ul>
+</li>
+<li><code>git rm --cached PATH</code>：已经推送（push）过的文件，想从git远程库中删除，并在以后的提交中忽略，但是却还想在本地保留这个文件 </li>
+</ul>
+<p><em>注意：使用上述方法只能在提交代码时忽略指定文件，但每次从远程仓库 pull 代码时还是会将 JdbcUrl.java 文件合并到当前本地分支引起冲突，如何解决呢？</em></p>
+<p><strong>合并代码时忽略指定文件</strong>方法如下：</p>
+<ul>
+<li>选定 ours 驱动，<code>git config --global merge.ours.driver true</code> </li>
+<li>在要被 merge 的分支上创建 .gitattributes 文件（<em>注意：Windows系统无法创建名为「.xx」的文件，可在git bash 里使用 touch 命令创建 .gitattributes 文件</em>），并且在文件中置顶不merge的文件名，.gitattributes 文件内容为：index.php merge=ours </li>
+<li>合并时驱动选择 ours</li>
+</ul>
+<h4 id="当前工作只进行一半，没法提交，但必须切换分支："><a href="#当前工作只进行一半，没法提交，但必须切换分支：" class="headerlink" title="当前工作只进行一半，没法提交，但必须切换分支："></a>当前工作只进行一半，没法提交，但必须切换分支：</h4><p><em>场景：需求分支上的开发工作进行一半，突然收到紧急 bug，需要放下当前工作切换分支修复 bug，此时可以将当前工作暂存到 stash</em></p>
+<ul>
+<li>git stash：工作现场保存到 stash，此时 Workspace 就是干净的，便能成功切换分支</li>
+<li>git stash list：查看 stash</li>
+<li>git stash pop：将当前分支的最后一次缓存内容释放出来，但刚才的记录不存在 list 中</li>
+<li>git stash apply：将当前分支的最后一次缓存内容释放出来，但刚才的记录还在 list 中</li>
+<li>git stash drop stash@{0} ：删除第一个队列</li>
+<li>git stash clear ：清空所有内容 </li>
+</ul>
+<h4 id="本地和远程仓库的文件冲突"><a href="#本地和远程仓库的文件冲突" class="headerlink" title="本地和远程仓库的文件冲突"></a>本地和远程仓库的文件冲突</h4><p><em>push 代码时发生冲突，这是由于之前 push 的代码在远端发生改变，它不允许你直接把你的代码覆盖上去。此时在提交之前你需要将远端的改变合并到本地上。</em></p>
+<ol>
+<li>git fetch origin feature/RBWMII-612:tmpRBWMII-612：将远程 origin 仓库的 feature/RBWMII-612 分支代码下载到本地 tmpRBWMII-612 分支</li>
+<li>git diff tempRBWMII-612 </li>
+<li>git merge tempRBWMII-612 </li>
+<li>解决冲突：Git用&lt;&lt;&lt;&lt;&lt;&lt;&lt;，=======，&gt;&gt;&gt;&gt;&gt;&gt;&gt;标记出不同分支的内容，修改后保存，再提交</li>
+<li>最后删除 tmpRBWMII-612 分支</li>
+</ol>
+<h4 id="Git-文件回滚"><a href="#Git-文件回滚" class="headerlink" title="Git 文件回滚"></a>Git 文件回滚</h4><ul>
+<li><code>git reset --hard commit_id \&lt;path\&gt;</code> ：指定文件退/进到指定 commit 的 sha 码 </li>
+<li><code>git reset --hard HEAD^</code> ：回退到上个版本</li>
+</ul>
+<h4 id="从其他分支-merge-指定文件到当前分支"><a href="#从其他分支-merge-指定文件到当前分支" class="headerlink" title="从其他分支 merge 指定文件到当前分支"></a>从其他分支 merge 指定文件到当前分支</h4><p><code>git checkout source_branch \&lt;path\&gt;</code></p>
+<p>注意：<em>使用 git checkout 某文件到当前分支时，会将当前分支的对应文件强行覆盖</em></p>
+<h3 id="学习参考链接："><a href="#学习参考链接：" class="headerlink" title="学习参考链接："></a>学习参考链接：</h3><p><a href="http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html" target="_blank" rel="noopener">常用 Git 命令</a></p>
+<p><a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b00" target="_blank" rel="noopener">廖雪峰 Git 教程</a></p>
 
           
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
 
+    
 
     <footer class="post-footer">
       
@@ -394,6 +435,10 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -402,11 +447,11 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
-          
+
           </div>
           
 
@@ -426,63 +471,66 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
+    
     <div class="sidebar-inner">
 
       
 
       
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/avatar.jpg"
-               alt="ZhouYang" />
-          <p class="site-author-name" itemprop="name">ZhouYang</p>
-           
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="ZhouYang" />
+            
+              <p class="site-author-name" itemprop="name">ZhouYang</p>
               <p class="site-description motion-element" itemprop="description">talking is cheap, let's do it!</p>
-          
-        </div>
-        <nav class="site-state motion-element">
+          </div>
 
-          
-            <div class="site-state-item site-state-posts">
-              <a href="/archives">
-                <span class="site-state-item-count">14</span>
-                <span class="site-state-item-name">posts</span>
-              </a>
-            </div>
-          
+          <nav class="site-state motion-element">
 
-          
-
-          
             
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
             
-            <div class="site-state-item site-state-tags">
+
+            
+
+            
               
-                <span class="site-state-item-count">7</span>
-                <span class="site-state-item-name">tags</span>
               
-            </div>
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
           
 
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
           
+
+          
+          
+
+          
+          
+
+          
+
         </div>
-
-        
-        
-
-        
-        
-
-        
-
-
       </section>
 
       
@@ -499,30 +547,36 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy; 
-  <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
-    <i class="fa fa-heart"></i>
+    <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">ZhouYang</span>
+
+  
 </div>
 
 
-<div class="powered-by">
-  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
-</div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
-<div class="theme-info">
-  Theme -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
-  </a>
-</div>
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
 
 
         
+
+
+
+
+
+
 
         
       </div>
@@ -534,7 +588,9 @@
         
       </div>
     
+
     
+
   </div>
 
   
@@ -558,48 +614,67 @@
 
 
 
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
-  
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
 
 
 
   
   
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
 
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
   
 
   
 
+  
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
 
 
 
   
-
 
 
   
@@ -625,140 +700,335 @@
 
 
 
-  
 
 
 
+
+
+
+
   
-  
+
   <script type="text/javascript">
     // Popup Window;
     var isfetched = false;
+    var isXml = true;
     // Search DB path;
     var search_path = "search.xml";
-    if (search_path.length == 0) {
+    if (search_path.length === 0) {
       search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
     }
     var path = "/" + search_path;
     // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
 
     function proceedsearch() {
       $("body")
         .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
         .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
       $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
     }
+
     // search function;
     var searchFunc = function(path, search_id, content_id) {
       'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
       $.ajax({
         url: path,
-        dataType: "xml",
+        dataType: isXml ? "xml" : "json",
         async: true,
-        success: function( xmlResponse ) {
+        success: function(res) {
           // get the contents from search data
           isfetched = true;
           $('.popup').detach().appendTo('.header-inner');
-          var datas = $( "entry", xmlResponse ).map(function() {
+          var datas = isXml ? $("entry", res).map(function() {
             return {
-              title: $( "title", this ).text(),
+              title: $("title", this).text(),
               content: $("content",this).text(),
-              url: $( "url" , this).text()
+              url: $("url" , this).text()
             };
-          }).get();
-          var $input = document.getElementById(search_id);
-          var $resultContent = document.getElementById(content_id);
-          $input.addEventListener('input', function(){
-            var matchcounts = 0;
-            var str='<ul class=\"search-result-list\">';
-            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
-            $resultContent.innerHTML = "";
-            if (this.value.trim().length > 1) {
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
               // perform local searching
               datas.forEach(function(data) {
                 var isMatch = false;
-                var content_index = [];
-                var data_title = data.title.trim().toLowerCase();
-                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
-                var data_url = decodeURIComponent(data.url);
-                var index_title = -1;
-                var index_content = -1;
-                var first_occur = -1;
-                // only match artiles with not empty titles and contents
-                if(data_title != '') {
-                  keywords.forEach(function(keyword, i) {
-                    index_title = data_title.indexOf(keyword);
-                    index_content = data_content.indexOf(keyword);
-                    if( index_title >= 0 || index_content >= 0 ){
-                      isMatch = true;
-                      if (i == 0) {
-                        first_occur = index_content;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
                       }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
                     }
 
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
                   });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
                 }
+
                 // show search results
+
                 if (isMatch) {
-                  matchcounts += 1;
-                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
-                  var content = data.content.trim().replace(/<[^>]+>/g,"");
-                  if (first_occur >= 0) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
                     // cut out 100 characters
-                    var start = first_occur - 20;
-                    var end = first_occur + 80;
+                    var start = position - 20;
+                    var end = position + 80;
                     if(start < 0){
                       start = 0;
                     }
-                    if(start == 0){
-                      end = 50;
+                    if (end < position + word.length) {
+                      end = position + word.length;
                     }
                     if(end > content.length){
                       end = content.length;
                     }
-                    var match_content = content.substring(start, end);
-                    // highlight all keywords
-                    keywords.forEach(function(keyword){
-                      var regS = new RegExp(keyword, "gi");
-                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
-                    });
-
-                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
                   }
-                  str += "</li>";
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
                 }
-              })};
-            str += "</ul>";
-            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
-            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
-            $resultContent.innerHTML = str;
-          });
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === '') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
           proceedsearch();
         }
-      });}
+      });
+    }
 
     // handle and trigger popup window;
     $('.popup-trigger').click(function(e) {
       e.stopPropagation();
-      if (isfetched == false) {
+      if (isfetched === false) {
         searchFunc(path, 'local-search-input', 'local-search-result');
       } else {
         proceedsearch();
       };
     });
 
-    $('.popup-btn-close').click(function(e){
-      $('.popup').hide();
-      $(".local-search-pop-overlay").remove();
-      $('body').css('overflow', '');
-    });
+    $('.popup-btn-close').click(onPopupClose);
     $('.popup').click(function(e){
       e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
     });
   </script>
 
 
-  
+
+
 
   
 
@@ -766,6 +1036,12 @@
 
   
 
+  
+  
+
+  
+
+  
 
   
 

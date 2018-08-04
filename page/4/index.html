@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 
 
 
@@ -10,6 +10,13 @@
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
 
 
 
@@ -24,7 +31,6 @@
 
 
 
-  <meta name="baidu-site-verification" content="HbehtlMdUd" />
 
 
 
@@ -39,38 +45,27 @@
 
 
 
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
 
 
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
 
 
   <meta name="keywords" content="Hexo, NexT" />
@@ -82,22 +77,17 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
-
-
-
-
 
 
 <meta name="description" content="talking is cheap, let&apos;s do it!">
 <meta property="og:type" content="website">
-<meta property="og:title" content="咸鱼晒干了">
+<meta property="og:title" content="莫敢言">
 <meta property="og:url" content="http://yoursite.com/page/4/index.html">
-<meta property="og:site_name" content="咸鱼晒干了">
+<meta property="og:site_name" content="莫敢言">
 <meta property="og:description" content="talking is cheap, let&apos;s do it!">
 <meta property="og:locale" content="default">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="咸鱼晒干了">
+<meta name="twitter:title" content="莫敢言">
 <meta name="twitter:description" content="talking is cheap, let&apos;s do it!">
 
 
@@ -107,9 +97,11 @@
   var CONFIG = {
     root: '/',
     scheme: 'Mist',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
-    motion: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
       author: 'Author'
@@ -132,11 +124,7 @@
 
 
 
-  <title> 咸鱼晒干了 </title>
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="default">
-
+  <title>莫敢言</title>
   
 
 
@@ -146,20 +134,17 @@
 
 
 
+</head>
 
-
-
-
-
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
 
   
   
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container sidebar-position-left 
+  page-home">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -170,7 +155,7 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">咸鱼晒干了</span>
+        <span class="site-title">莫敢言</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -205,22 +190,22 @@
         </li>
       
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            Archives
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
+          <a href="/tags/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
           </a>
         </li>
       
@@ -252,7 +237,7 @@
       <i class="fa fa-times-circle"></i>
     </span>
     <div class="local-search-input-wrapper">
-      <input autocapitalize="off" autocomplete="off" autocorrect="off"
+      <input autocomplete="off"
              placeholder="Searching..." spellcheck="false"
              type="text" id="local-search-input">
     </div>
@@ -286,8 +271,12 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/03/为何网上垃圾资讯泛滥/">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/03/学习方法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ZhouYang">
@@ -296,7 +285,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="咸鱼晒干了">
+      <meta itemprop="name" content="莫敢言">
     </span>
 
     
@@ -305,16 +294,8 @@
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2018/08/03/为何网上垃圾资讯泛滥/" itemprop="url">
-                  为何网上垃圾资讯越来越多
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2018/08/03/学习方法/" itemprop="url">学习方法</a></h1>
         
 
         <div class="post-meta">
@@ -355,7 +336,9 @@
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -365,29 +348,30 @@
         
           
             <blockquote>
-<p>某种程度上讲，互联网使得我们小老百姓的权力相比过去有所增加，使得普通人的需求得到关注和满足，而大部分人的天性就是懒于思考的，迷恋于那些非常容易就能获得满足感的事物……</p>
+<p>某大 V 说过：「看到好的文章，别收藏，一字不差的认真读一遍」</p>
+<p>微信公众号看到一篇关于「学习方法论」的文章，写的很好，是我认可且适合我的学习方法，记录在这里。</p>
 </blockquote>
-<p>互联网的快速发展，使得我们每个人都有了发声的渠道，有了表达自己的平台，「再小的个体，也有自己的品牌」。</p>
-<p>某种程度上讲，相比过去，我们的权力在变大，我们的需求在被各种公司关注研究，他们做市场调研、做技术积累沉淀、做大数据分析、做人工智能，他们费尽心力努力打造出我们需要的产品，来满足我们的需求。我们似乎真的在网络上得到了「顾客就是上帝」般的高质量服务，我们吃喝玩乐都能轻轻松松的在手机上的几个 APP 里完成。当然，公司设计出这些满足我们需求的产品，就是为了赚钱，赚钱也是现在社会的主旋律，而要想打造出用户喜爱的产品，就一定弄清用户的需求、了解用户的心理。</p>
-<p>互联网公司的用户就是普罗大众，要弄懂普通人的需求，得先了解人性。</p>
-<p>回想一下，每当我们忍不住刷手机时，到底是在想获得什么？刷微博、刷朋友圈、刷各种圈子、看新闻、读公号文章、小视频，在刷手机的那一刻，仿佛时间过的很充实，我又看到了好多新鲜事、学到了好多知识、还有朋友圈里获得的不真实的优越感或认同感、游戏中得到的成就感，总结起来，其实都是为了获得一种「满足感」。</p>
-<p>而我们大部分人天性懒于思考（包括此刻的我，这些文字我写的很慢很艰难），这也导致了我们对很多的东西缺乏辨别能力，很容易被一些标题党或泛滥的爱国主义民族大义等垃圾新闻内容戳中 G 点，这些资讯内容并没有任何价值，甚至很多的新闻内容都是伪造的假新闻，却大量的占用了我们的时间。如今信息技术水平高速发展，这些资讯内容的生产也已经形成的完善的产业化，按照一定的套路拼凑点素材就能快速写出一篇文章，甚至很多新闻稿子是机器流水化生产的按照一定的套路拼凑点素材就能快速写出一篇文章，甚至很多新闻稿子是机器流水化生产的（参见微信公众号「我就 BB 怎么了」的文章<a href="https://mp.weixin.qq.com/s/CgqADXVWTJaUKXTfN88mkw" target="_blank" rel="noopener">说点劲爆的</a>）。</p>
-<p>如今，以「头条」系为代表的产品，今日头条、趣头条等各种资讯类 APP，里面充满着标题党、爱国主义、民族大义等垃圾内容，真正有价值的新闻却少之又少，还有像抖音、快手一类的短视频 APP，这些小视频看完了简直让我怀疑人生，爽了一时，却毫无收获。这些科技公司通过技术手段分析用户行为，从而提供智能推送服务，牢牢抓住用户的空闲时间，阻碍用户真正的思考，侵占用户宝贵的时间。</p>
-<p>我认为，「独立思考」是我们生而为人的尊严之一，然而如今却有越来越多的人放弃了它，甚至还有些「聪明的家伙」为了私利在助长人们放弃它。</p>
+<h3 id="1-深入理解基本概念"><a href="#1-深入理解基本概念" class="headerlink" title="1. 深入理解基本概念"></a>1. 深入理解基本概念</h3><p>学习任何领域新知识，最恰当的做法就是深入学习最基本的概念，单点突破。概念就是在新领域与别人对话的共同语言。比如学习 Java 编程，你当然得知道什么是变量、什么是循环、什么是类、什么是对象、什么是方法……</p>
+<p>如今互联网上信息过载，各类质量参差不齐的学习资源唾手可得，可惜大部分人缺乏辨识胡乱收藏到网盘，看看这个视频又瞄瞄那个网课，最后缺乏系统思考而迟迟无法踏入编程的大门，这也就是我最初自学编程时的窘态，胡乱收藏各种牛逼的文章和开源代码，却因为基础不够扎实，从来没真正弄懂那些牛逼的点。</p>
+<h3 id="2-发现联系，理清脉络"><a href="#2-发现联系，理清脉络" class="headerlink" title="2. 发现联系，理清脉络"></a>2. 发现联系，理清脉络</h3><p>当深入理解了基本概念后，便能跟行业内的人交流并理解他的意思了，这时需要不断的强化练习，将一个个离散的概念点串起来，编织成自己的知识网络，融会贯通。</p>
+<p>这时就可以自己尝试去实现一些东西，将自己所学的知识运用起来，解决工作生活中的实际问题，比如 Java 学完基础语法后自己实现个小的项目，即使只是一些简单的工具类「文件递归查找、字符串处理等」也是可以的。</p>
+<h3 id="3-注重细节，踩坑总结"><a href="#3-注重细节，踩坑总结" class="headerlink" title="3. 注重细节，踩坑总结"></a>3. 注重细节，踩坑总结</h3><p>运用新领域所学知识并去解决实际问题过程中，一定会遇到问题，有些可能是别人遇到过能在网上查到的，也有些可能是别人没遇到过的，这时就需要根据自己的经验判断去摸索解决问题的办法，理清思路，注重细节，一坑一坑的踩过去，最后再将解决此问题的过程方法记录总结下来，与大家分享共同进步。</p>
+<h3 id="4-学习是件有意思的事情"><a href="#4-学习是件有意思的事情" class="headerlink" title="4. 学习是件有意思的事情"></a>4. 学习是件有意思的事情</h3><p>有人说，学习很苦，也有人说，学习很快乐，而我觉得学习是这世上少有的有意思的事情之一，因为学习总能让我发现新的东西，发现更宽广的世界，让自己能从这狭隘的世界抽身出去看到更广阔更美好的事物！</p>
+<h3 id="学习参考链接"><a href="#学习参考链接" class="headerlink" title="学习参考链接"></a>学习参考链接</h3><p><a href="https://mp.weixin.qq.com/s/KohGQwdIa6tjwI1jJaxiag" target="_blank" rel="noopener">方法论|进入数字货币和区块链的路线图</a></p>
 
           
         
       
     </div>
+    
+    
+    
 
-    <div>
-      
-    </div>
+    
 
-    <div>
-      
-    </div>
+    
 
+    
 
     <footer class="post-footer">
       
@@ -401,6 +385,10 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -409,11 +397,11 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
-          
+
           </div>
           
 
@@ -433,63 +421,66 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
+    
     <div class="sidebar-inner">
 
       
 
       
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/avatar.jpg"
-               alt="ZhouYang" />
-          <p class="site-author-name" itemprop="name">ZhouYang</p>
-           
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="ZhouYang" />
+            
+              <p class="site-author-name" itemprop="name">ZhouYang</p>
               <p class="site-description motion-element" itemprop="description">talking is cheap, let's do it!</p>
-          
-        </div>
-        <nav class="site-state motion-element">
+          </div>
 
-          
-            <div class="site-state-item site-state-posts">
-              <a href="/archives">
-                <span class="site-state-item-count">14</span>
-                <span class="site-state-item-name">posts</span>
-              </a>
-            </div>
-          
+          <nav class="site-state motion-element">
 
-          
-
-          
             
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
             
-            <div class="site-state-item site-state-tags">
+
+            
+
+            
               
-                <span class="site-state-item-count">7</span>
-                <span class="site-state-item-name">tags</span>
               
-            </div>
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
           
 
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
           
+
+          
+          
+
+          
+          
+
+          
+
         </div>
-
-        
-        
-
-        
-        
-
-        
-
-
       </section>
 
       
@@ -506,30 +497,36 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy; 
-  <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
-    <i class="fa fa-heart"></i>
+    <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">ZhouYang</span>
+
+  
 </div>
 
 
-<div class="powered-by">
-  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
-</div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
-<div class="theme-info">
-  Theme -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
-  </a>
-</div>
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
 
 
         
+
+
+
+
+
+
 
         
       </div>
@@ -541,7 +538,9 @@
         
       </div>
     
+
     
+
   </div>
 
   
@@ -565,48 +564,67 @@
 
 
 
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
-  
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
 
 
 
   
   
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
 
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
   
 
   
 
+  
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
 
 
 
   
-
 
 
   
@@ -632,140 +650,335 @@
 
 
 
-  
 
 
 
+
+
+
+
   
-  
+
   <script type="text/javascript">
     // Popup Window;
     var isfetched = false;
+    var isXml = true;
     // Search DB path;
     var search_path = "search.xml";
-    if (search_path.length == 0) {
+    if (search_path.length === 0) {
       search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
     }
     var path = "/" + search_path;
     // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
 
     function proceedsearch() {
       $("body")
         .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
         .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
       $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
     }
+
     // search function;
     var searchFunc = function(path, search_id, content_id) {
       'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
       $.ajax({
         url: path,
-        dataType: "xml",
+        dataType: isXml ? "xml" : "json",
         async: true,
-        success: function( xmlResponse ) {
+        success: function(res) {
           // get the contents from search data
           isfetched = true;
           $('.popup').detach().appendTo('.header-inner');
-          var datas = $( "entry", xmlResponse ).map(function() {
+          var datas = isXml ? $("entry", res).map(function() {
             return {
-              title: $( "title", this ).text(),
+              title: $("title", this).text(),
               content: $("content",this).text(),
-              url: $( "url" , this).text()
+              url: $("url" , this).text()
             };
-          }).get();
-          var $input = document.getElementById(search_id);
-          var $resultContent = document.getElementById(content_id);
-          $input.addEventListener('input', function(){
-            var matchcounts = 0;
-            var str='<ul class=\"search-result-list\">';
-            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
-            $resultContent.innerHTML = "";
-            if (this.value.trim().length > 1) {
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
               // perform local searching
               datas.forEach(function(data) {
                 var isMatch = false;
-                var content_index = [];
-                var data_title = data.title.trim().toLowerCase();
-                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
-                var data_url = decodeURIComponent(data.url);
-                var index_title = -1;
-                var index_content = -1;
-                var first_occur = -1;
-                // only match artiles with not empty titles and contents
-                if(data_title != '') {
-                  keywords.forEach(function(keyword, i) {
-                    index_title = data_title.indexOf(keyword);
-                    index_content = data_content.indexOf(keyword);
-                    if( index_title >= 0 || index_content >= 0 ){
-                      isMatch = true;
-                      if (i == 0) {
-                        first_occur = index_content;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
                       }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
                     }
 
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
                   });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
                 }
+
                 // show search results
+
                 if (isMatch) {
-                  matchcounts += 1;
-                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
-                  var content = data.content.trim().replace(/<[^>]+>/g,"");
-                  if (first_occur >= 0) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
                     // cut out 100 characters
-                    var start = first_occur - 20;
-                    var end = first_occur + 80;
+                    var start = position - 20;
+                    var end = position + 80;
                     if(start < 0){
                       start = 0;
                     }
-                    if(start == 0){
-                      end = 50;
+                    if (end < position + word.length) {
+                      end = position + word.length;
                     }
                     if(end > content.length){
                       end = content.length;
                     }
-                    var match_content = content.substring(start, end);
-                    // highlight all keywords
-                    keywords.forEach(function(keyword){
-                      var regS = new RegExp(keyword, "gi");
-                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
-                    });
-
-                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
                   }
-                  str += "</li>";
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
                 }
-              })};
-            str += "</ul>";
-            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
-            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
-            $resultContent.innerHTML = str;
-          });
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === '') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
           proceedsearch();
         }
-      });}
+      });
+    }
 
     // handle and trigger popup window;
     $('.popup-trigger').click(function(e) {
       e.stopPropagation();
-      if (isfetched == false) {
+      if (isfetched === false) {
         searchFunc(path, 'local-search-input', 'local-search-result');
       } else {
         proceedsearch();
       };
     });
 
-    $('.popup-btn-close').click(function(e){
-      $('.popup').hide();
-      $(".local-search-pop-overlay").remove();
-      $('body').css('overflow', '');
-    });
+    $('.popup-btn-close').click(onPopupClose);
     $('.popup').click(function(e){
       e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
     });
   </script>
 
 
-  
+
+
 
   
 
@@ -773,6 +986,12 @@
 
   
 
+  
+  
+
+  
+
+  
 
   
 
