@@ -276,7 +276,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/03/获取properites配置文件信息/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/15/为何网上垃圾资讯泛滥/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ZhouYang">
@@ -295,7 +295,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/08/03/获取properites配置文件信息/" itemprop="url">获取properites配置文件信息</a></h1>
+                <a class="post-title-link" href="/2018/06/15/为何网上垃圾资讯泛滥/" itemprop="url">为何网上垃圾资讯越来越多</a></h1>
         
 
         <div class="post-meta">
@@ -307,8 +307,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-03T22:14:51+08:00">
-                2018-08-03
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-15T00:00:00+08:00">
+                2018-06-15
               </time>
             
 
@@ -348,16 +348,15 @@
         
           
             <blockquote>
-<p>最近在项目中看到别人使用 ResourceBundle 获取 properites 配置文件信息，感觉挺方便的，学习记录于此。</p>
+<p>某种程度上讲，互联网使得我们小老百姓的权力相比过去有所增加，使得普通人的需求得到关注和满足，而大部分人的天性就是懒于思考的，迷恋于那些非常容易就能获得满足感的事物……</p>
 </blockquote>
-<h4 id="通过-getResourceAsStream-方式获取"><a href="#通过-getResourceAsStream-方式获取" class="headerlink" title="通过 getResourceAsStream 方式获取"></a>通过 getResourceAsStream 方式获取</h4><p>getResourceAsStream 这个函数寻找文件的起点是 <strong>JAVA 项目编译之后的根目录</strong> 。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">public class ConfigReader &#123;</span><br><span class="line">    public static String getProperty(final String propertyName) &#123;</span><br><span class="line">        return ConfigReader.reader.properties.getProperty(propertyName);</span><br><span class="line">    &#125;</span><br><span class="line">    private static final Properties properties = new Properties();</span><br><span class="line">    public static final ConfigReader reader = new ConfigReader();</span><br><span class="line"></span><br><span class="line">    private ConfigReader() &#123;</span><br><span class="line">        try &#123;</span><br><span class="line">        	//InputStream in = this.class.getClassLoader().getResourceAsStream(&quot;/config.properties&quot;);</span><br><span class="line">            InputStream in = this.class.getClassLoader().getResourceAsStream(&quot;config.properties&quot;);</span><br><span class="line">            this.properties.load(in);</span><br><span class="line">            in.close();</span><br><span class="line">        &#125; catch (IOException e) &#123;</span><br><span class="line">        	logger.error(e);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>参考链接：<a href="https://www.cnblogs.com/lixuwu/p/7337997.html" target="_blank" rel="noopener">（转）java getResourceAsStream的使用方法</a></p>
-<h4 id="通过-ResourceBundle-方式获取"><a href="#通过-ResourceBundle-方式获取" class="headerlink" title="通过 ResourceBundle 方式获取"></a>通过 ResourceBundle 方式获取</h4><p>只需要下面两行代码就可以搞定：</p>
-<p><code>ResourceBundle bundle = ResourceBundle.getBundle(file);</code> </p>
-<p><code>String value = bundle.getString(key);</code> </p>
-<p>网上说法，「ResourceBundle类通常是用于针对不同的语言来使用的属性文件。根据当前系统的国别语言信息（也可以程序指定），然后获取相应的properties文件的内容」。</p>
-<p><strong>我的理解是：需要程序动态获取 .properties 配置文件时使用 ResourceBundle 更加方便，但如果是获取静态的全局配置文件使用 getResourceAsStream 就好，加载一次，就存储在配置 Java 类里</strong></p>
+<p>互联网的快速发展，使得我们每个人都有了发声的渠道，有了表达自己的平台，「再小的个体，也有自己的品牌」。</p>
+<p>某种程度上讲，相比过去，我们的权力在变大，我们的需求在被各种公司关注研究，他们做市场调研、做技术积累沉淀、做大数据分析、做人工智能，他们费尽心力努力打造出我们需要的产品，来满足我们的需求。我们似乎真的在网络上得到了「顾客就是上帝」般的高质量服务，我们吃喝玩乐都能轻轻松松的在手机上的几个 APP 里完成。当然，公司设计出这些满足我们需求的产品，就是为了赚钱，赚钱也是现在社会的主旋律，而要想打造出用户喜爱的产品，就一定弄清用户的需求、了解用户的心理。</p>
+<p>互联网公司的用户就是普罗大众，要弄懂普通人的需求，得先了解人性。</p>
+<p>回想一下，每当我们忍不住刷手机时，到底是在想获得什么？刷微博、刷朋友圈、刷各种圈子、看新闻、读公号文章、小视频，在刷手机的那一刻，仿佛时间过的很充实，我又看到了好多新鲜事、学到了好多知识、还有朋友圈里获得的不真实的优越感或认同感、游戏中得到的成就感，总结起来，其实都是为了获得一种「满足感」。</p>
+<p>而我们大部分人天性懒于思考（包括此刻的我，这些文字我写的很慢很艰难），这也导致了我们对很多的东西缺乏辨别能力，很容易被一些标题党或泛滥的爱国主义民族大义等垃圾新闻内容戳中 G 点，这些资讯内容并没有任何价值，甚至很多的新闻内容都是伪造的假新闻，却大量的占用了我们的时间。如今信息技术水平高速发展，这些资讯内容的生产也已经形成的完善的产业化，按照一定的套路拼凑点素材就能快速写出一篇文章，甚至很多新闻稿子是机器流水化生产的按照一定的套路拼凑点素材就能快速写出一篇文章，甚至很多新闻稿子是机器流水化生产的（参见微信公众号「我就 BB 怎么了」的文章<a href="https://mp.weixin.qq.com/s/CgqADXVWTJaUKXTfN88mkw" target="_blank" rel="noopener">说点劲爆的</a>）。</p>
+<p>如今，以「头条」系为代表的产品，今日头条、趣头条等各种资讯类 APP，里面充满着标题党、爱国主义、民族大义等垃圾内容，真正有价值的新闻却少之又少，还有像抖音、快手一类的短视频 APP，这些小视频看完了简直让我怀疑人生，爽了一时，却毫无收获。这些科技公司通过技术手段分析用户行为，从而提供智能推送服务，牢牢抓住用户的空闲时间，阻碍用户真正的思考，侵占用户宝贵的时间。</p>
+<p>我认为，「独立思考」是我们生而为人的尊严之一，然而如今却有越来越多的人放弃了它，甚至还有些「聪明的家伙」为了私利在助长人们放弃它。</p>
 
           
         
@@ -397,7 +396,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/10/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/12/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/10/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/12/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -447,7 +446,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -460,7 +459,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

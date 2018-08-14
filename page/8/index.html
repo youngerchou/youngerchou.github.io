@@ -276,7 +276,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/03/数据库锁表怎么办/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/06/Oracle导出表结构表数据/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ZhouYang">
@@ -295,7 +295,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/08/03/数据库锁表怎么办/" itemprop="url">数据库锁表怎么办？</a></h1>
+                <a class="post-title-link" href="/2018/07/06/Oracle导出表结构表数据/" itemprop="url">Oracle 导出 sql 文件乱码</a></h1>
         
 
         <div class="post-meta">
@@ -307,8 +307,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-03T22:14:51+08:00">
-                2018-08-03
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-06T00:00:00+08:00">
+                2018-07-06
               </time>
             
 
@@ -348,34 +348,30 @@
         
           
             <blockquote>
-<p>日常开发中出现数据库锁表的情况时，不但影响自己开发，还会影响他人的开发测试，应当立即定位到被锁的表，并执行解锁操作。</p>
+<p>何为良好生活？陈嘉映说「行之于途而应于心」；路遥也曾说过「只有在无比沉重的劳动中,人才会活得更为充实」。在这个价值流失的年代如何自处，我想很简单，撸起袖子加油干，做好眼前事就行了，在做事行路的过程中自然就会找寻到意义，意义不是空想出来的，而是在实践中产生的。</p>
 </blockquote>
-<h3 id="Oracle-数据库锁表查询及解锁"><a href="#Oracle-数据库锁表查询及解锁" class="headerlink" title="Oracle 数据库锁表查询及解锁"></a>Oracle 数据库锁表查询及解锁</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">-- 查询 SQL 如下：</span><br><span class="line">select dbaobj.owner, dbaobj.object_name, s.sid, s.serial#, lckobj.locked_mode </span><br><span class="line">from v$locked_object lckobj, dba_objects dbaobj, v$session s</span><br><span class="line">where lckobj.object_id = dbaobj.object_id </span><br><span class="line">and lckobj.session_id = s.sid</span><br><span class="line">order by s.logon_time;</span><br><span class="line">-- 解锁方法：</span><br><span class="line">alter system kill session &apos;sid,serial#&apos;;</span><br></pre></td></tr></table></figure>
-<p><strong>dba_objects 视图</strong>：记录数据库中所有对象</p>
-<p><strong>v$locked_object 视图 </strong>：记录当前系统中哪些对象正被锁定</p>
-<p><strong>v$session 视图</strong>：记录所有会话信息</p>
-<h3 id="数据库锁分类"><a href="#数据库锁分类" class="headerlink" title="数据库锁分类"></a>数据库锁分类</h3><p>按照锁的内容上区分：表锁、页锁、行锁</p>
-<p>按照锁的性质上区分：共享锁、排他锁 / 独占锁、更新锁</p>
-<p>当执行 select 时，加共享锁，当执行 insert，update，delete 等操作时，加排他锁</p>
-<h3 id="数据库隔离级别"><a href="#数据库隔离级别" class="headerlink" title="数据库隔离级别"></a>数据库隔离级别</h3><ul>
-<li><strong>脏读</strong>：对于两个事务T1，T2，T1读取了已经被T2更新但还没有提交的字段，之后，若T2回滚，T1读取到的内容就是临时无效的内容。 </li>
-<li><strong>不可重复读</strong>：对于事务T1，T2，T1需要读取一个字段两次，在第一次和第二次读取之间，T2更新了该字段，导致T1第二次读取到的内容值不同。</li>
-<li><strong>幻读</strong>： 事务A读取与搜索条件相匹配的若干行。事务B以插入或删除行等方式来修改事务A的结果集，然后再提交。 幻读与不可重复读之间的区别是幻读强调的是新增或删除,而不可重复读强调的是修改。比如Mary两次查工资，中间有人改过工资，则两次结果不一样，这就是不可重复读。Mary要查工资一千的人数，第一次查到了10个，中间有人增加了一条工资为一千的人，下次查的时候就变成了11个，好像第一次查询的是幻觉一样。</li>
-</ul>
-<p>事务的 4 个隔离级别：</p>
-<ol>
-<li><strong>read uncommitted</strong>：可以读取已由其他事务修改但未提交的行；</li>
-<li><strong>read committed</strong>：不能读取已由其他事务修改但未提交的行；其他事务可以在当前事务的各个语句之间更改数据，从而产生不可重复读取和幻读数据；</li>
-<li><strong>repeatable read</strong>：不能读取已由其他事务修改但未提交的行，并且指定，其他任何事务都不能在当前事务完成之前修改当前事务读取的数据；其他事务可以插入与当前事务语句的搜索条件相匹配的新行，如果当前事务随后重复执行该语句，会检索新行，产生幻读；</li>
-<li><strong>serializable</strong>：所有事务只能一个接一个串行执行，不能并发。</li>
-</ol>
-<p><em>Oracle 支持两种隔离级别：read commited、serializable，默认的事务隔离级别是 read commited</em></p>
-<h3 id="乐观锁与悲观锁"><a href="#乐观锁与悲观锁" class="headerlink" title="乐观锁与悲观锁"></a>乐观锁与悲观锁</h3><p><em>Java 开发中经常看到乐观锁，那么到底什么是乐观锁，什么是悲观锁呢？</em></p>
-<p>悲观锁：数据库实现。共享锁、排他锁都属于悲观锁，Java 关键字 synchronized  也属于悲观锁。</p>
-<p>乐观锁：自己实现。操作数据时，不加锁，进行更新后，再去判断是否冲突了。举例如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. 查询出商品信息，select (status,version) from t_goods where id=#&#123;id&#125;</span><br><span class="line">2. 根据商品信息生成订单</span><br><span class="line">3. 修改商品 status 为 2，update t_goods set status=2,version=version+1 where id=#&#123;id&#125; and version=#&#123;version&#125;;</span><br></pre></td></tr></table></figure>
-<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><p><a href="https://troywu0.gitbooks.io/spark/content/%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB.html" target="_blank" rel="noopener">Oracle 锁表问题处理</a></p>
-<p><a href="https://troywu0.gitbooks.io/spark/content/%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB.html" target="_blank" rel="noopener">数据库隔离级别</a></p>
+<p>这篇文章简单记录 Oracle 导出表结构表数据的关键点，使用常用的 plsql 工具。</p>
+<h4 id="Export-Tables-的三种导出方式"><a href="#Export-Tables-的三种导出方式" class="headerlink" title="Export Tables 的三种导出方式"></a>Export Tables 的三种导出方式</h4><p>使用 plsql 工具导出表结构表数据其实很简单方便，打开 plsql 工具，选择 Tools 菜单栏下面的 Expor Tables 即可。点开你会发现如下界面：</p>
+<p><img src="../../../../images/005.png" alt="img"> </p>
+<p><strong>第一种 Oracle Export 是导出为 .dmp 的文件格式，</strong>.dmp文件是二进制的，可以跨平台，还能包含权限，效率也很不错，用得最广 。 </p>
+<p><strong>第二种 SQL Insert 是导出为.sql文件的，</strong>可用文本编辑器查看，通用性比较好，但效率不如第一种，适合小数据量导入导出。尤其注意的是表中不能有大字段（blob,clob,long），如果有，会提示不能导出(提示如下： table contains one or more LONG columns cannot export in sql format,user Pl/sql developer format instead)。</p>
+<p><strong>第三种是导出为.pde格式的，</strong>.pde为Pl/sql developer自有的文件格式，只能用Pl/sql developer自己导入导出，不能用编辑器查看。</p>
+<p><em>需要注意的是：</em> 就算你选择第一种 Oracle Export 方式导出为 .sql 文件，也是可以的，但是最终导出的 sql 文件打开会有乱码，我一开始并不清楚这三种导出方式的区别，使用第一种方式导出为 .sql 文件一直是乱码，浪费了不少时间。</p>
+<h4 id="导出的-SQL-文件中文乱码"><a href="#导出的-SQL-文件中文乱码" class="headerlink" title="导出的 SQL 文件中文乱码"></a>导出的 SQL 文件中文乱码</h4><p>关于导出乱码的问题，网上有很多教程，但都是抄来抄去也写的不清晰，这里基于自己实际解决乱码问题的经验简单记录下：</p>
+<p>问题的关键就在于 <strong>server、client 端的编码要一致</strong>， 将 client 端的编码方式修改为和 server 端一致即可。</p>
+<p><strong>Oracle 字符集：</strong></p>
+<p>ORACLE的字符集名字由三部分组成：NLS_LANG=\<language>_\<territory>.\<clients characterset="">  </clients></territory></language></p>
+<p>比如常见的 nls_lang=AMERICAN_AMERICA.UTF8 ； nls_lang=SIMPLIFIED CHINESE_AMERICA.UTF8 </p>
+<p><strong>查看 Server 字符集环境：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM NLS_DATABASE_PARAMETERS;</span><br><span class="line">-- 我的查询结果如下：</span><br><span class="line">PARAMETER              VALUE</span><br><span class="line">NLS_LANGUAGE           AMERICAN</span><br><span class="line">NLS_TERRITORY          AMERICA</span><br><span class="line">NLS_CHARACTERSET       AL32UTF8</span><br></pre></td></tr></table></figure>
+<p><strong>数据库可用字符集参数设置：</strong></p>
+<p><code>SELECT * FROM V$NLS_VALID_VALUES</code></p>
+<p><em>注意：</em><code>SELECT * FROM NLS_INSTANCE_PARAMETERS</code> 是表示实例的字符集环境，而不是客户端。</p>
+<p><strong>查看 Client 字符集环境：</strong></p>
+<p><code>SELECT USERENV(&#39;language&#39;) FROM DUAL;</code> </p>
+<p><strong>修改 Client 字符集：</strong></p>
+<p>我使用的开发环境是 Windows，所以只写在 Windows 下的操作方法：修改注册表键值永久设置，HKEY_LOCAL_MACHINE/SOFTWARE/ORACLE/KEY_XXXX_home1/NLS_LANG，将值修改为 AMERICAN_AMERICA.AL32UTF8 后导出的 sql 文件编码正确，显示正常。</p>
+<h4 id="参考文章："><a href="#参考文章：" class="headerlink" title="参考文章："></a>参考文章：</h4><p><a href="https://www.cnblogs.com/kerrycode/p/3749085.html" target="_blank" rel="noopener">Oracle 字符集基础知识</a></p>
 
           
         
@@ -415,7 +411,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -465,7 +461,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -478,7 +474,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

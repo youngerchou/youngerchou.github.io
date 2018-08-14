@@ -276,7 +276,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/03/ResultSet使用总结/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/14/动态规划/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ZhouYang">
@@ -295,7 +295,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/08/03/ResultSet使用总结/" itemprop="url">ResultSet 使用总结</a></h1>
+                <a class="post-title-link" href="/2018/05/14/动态规划/" itemprop="url">动态规划</a></h1>
         
 
         <div class="post-meta">
@@ -307,8 +307,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-03T22:14:51+08:00">
-                2018-08-03
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-14T00:00:00+08:00">
+                2018-05-14
               </time>
             
 
@@ -347,34 +347,8 @@
       
         
           
-            <blockquote>
-<p>唯有疼痛，方可刻骨铭心。</p>
-</blockquote>
-<p><em>通过 ResultSet.getString() 方法取一个 Oracle 数据库中的 Date 类型的字段，取出的值变成了 2018-7-2 12.12.12.0，着实神奇。</em></p>
-<p><img src="../../../../images/1532163826372.png" alt="1532163826372"></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">Statement stm = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);</span><br><span class="line">ResultSet rs = stm.executeQuery(sql);</span><br><span class="line"><span class="keyword">if</span> (rs.next()) &#123;</span><br><span class="line">	System.out.println(rs.getString(<span class="number">2</span>));</span><br><span class="line">	System.out.println(rs.getDate(<span class="number">2</span>));</span><br><span class="line">	System.out.println(rs.getTime(<span class="number">2</span>));</span><br><span class="line">&#125;</span><br><span class="line">		</span><br><span class="line">Statement stm2 = conn.createStatement(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_UPDATABLE);</span><br><span class="line">ResultSet rs2 = stm2.executeQuery(sql);</span><br><span class="line"><span class="keyword">if</span> (rs2.next()) &#123;</span><br><span class="line">	System.out.println(rs2.getString(<span class="number">2</span>));</span><br><span class="line">	System.out.println(rs2.getDate(<span class="number">2</span>));</span><br><span class="line">	System.out.println(rs2.getTime(<span class="number">2</span>));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//运行结果如下：</span></span><br><span class="line"><span class="number">2018</span>-<span class="number">7</span>-<span class="number">2</span> <span class="number">15.34</span>.48.0</span><br><span class="line"><span class="number">2018</span>-<span class="number">07</span>-<span class="number">02</span></span><br><span class="line"><span class="number">15</span>:<span class="number">34</span>:<span class="number">48</span></span><br><span class="line"><span class="number">2018</span>-<span class="number">07</span>-<span class="number">02</span> <span class="number">15</span>:<span class="number">34</span>:<span class="number">48.0</span></span><br><span class="line"><span class="number">2018</span>-<span class="number">07</span>-<span class="number">02</span></span><br><span class="line"><span class="number">15</span>:<span class="number">34</span>:<span class="number">48</span></span><br></pre></td></tr></table></figure>
-<h4 id="ResultSet-的-Type-属性："><a href="#ResultSet-的-Type-属性：" class="headerlink" title="ResultSet 的 Type 属性："></a>ResultSet 的 Type 属性：</h4><p>Connection 的 <code>Statement createStatement(int resultSetType, int resultSetConcurrency) throws SQLException</code> 方法;</p>
-<p><strong>参数 resultSetType:</strong></p>
-<p>​    ResultSet.TYPE_FORWORD_ONLY 结果集的游标只能向下滚动。</p>
-<p>​    ResultSet.TYPE_SCROLL_INSENSITIVE 结果集的游标可以上下移动，当数据库变化时，当前结果集不变。 </p>
-<p>​    ResultSet.TYPE_SCROLL_SENSITIVE 返回可滚动的结果集，当数据库变化时，当前结果集同步改变。 </p>
-<p><strong>参数  resultSetConcurrency：</strong></p>
-<p>​    ResultSet.CONCUR_READ_ONLY 不能用结果集更新数据库中的表 。</p>
-<p>​    ResultSet.CONCUR_UPDATETABLE 能用结果集更新数据库中的表。  </p>
-<p>参考链接：<a href="https://www.cnblogs.com/catkins/p/5604686.html" target="_blank" rel="noopener">ResultSet 的Type属性 TYPE_FORWARD_ONLY</a></p>
-<h4 id="创建-Statement-的三种类型："><a href="#创建-Statement-的三种类型：" class="headerlink" title="创建 Statement 的三种类型："></a>创建 Statement 的三种类型：</h4><p><strong>最基本的 Statement st = conn.CreateStatement()</strong> </p>
-<p>​    只能使用 next() 方法，逐个的读取数据。</p>
-<p><strong>可滚动的、可更新的 ResultSet</strong> </p>
-<p>​    Statement st = conn.createStatement(int resultSetType, int resultSetConcurrency) ；</p>
-<p>​    ResultSet 有 insertRow()、deleteRow()、updateRow() 等各种方法，见 ResultSet 源码。</p>
-<p><strong>可保持的ResultSet</strong> </p>
-<p>​    Statement st = conn.createStatement(int resultsetscrollable,int resultsetupdateable,int resultsetSetHoldability) ，见 Connection 类源码；</p>
-<h4 id="疼痛总结："><a href="#疼痛总结：" class="headerlink" title="疼痛总结："></a>疼痛总结：</h4><ul>
-<li><strong>理论与实践并重。</strong>最初自学编程时总是看得多，动手少，最后学完很容易忘记，上手写代码脑中一片空白，充满挫败感；后来工作繁忙，便放松了基本理论的学习，又导致在项目开发中踩了不少深坑（其实都是些很基础的小问题），耽误了时间。</li>
-<li><strong>注重开发规范。</strong>有些同事（包括自己有时也是这样）写起代码来一把梭，全然不顾读代码人的感受，再加上项目都是多人协作，事先没个规范最后出问题 debug 时就是个深坑，出现各种问题，修复这个 bug 时又会出现另一个 bug，掉入不断修复 bug 的漩涡之中。</li>
-<li><strong>bug 最终还是要自己修复的。</strong>求助他人只是起到点拨作用，开阔自己解决问题的思路，最终问题还是得自己解决的。</li>
-<li><strong>源码里面找方法。</strong></li>
-</ul>
+            <p>分而治之</p>
+<p>动态规划</p>
 
           
         
@@ -414,7 +388,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/15/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><span class="page-number current">16</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/17/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/15/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><span class="page-number current">16</span><a class="page-number" href="/page/17/">17</a><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/17/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -464,7 +438,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -477,7 +451,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

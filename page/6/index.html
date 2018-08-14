@@ -276,7 +276,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/03/为何网上垃圾资讯泛滥/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/15/ResultSet使用总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ZhouYang">
@@ -295,7 +295,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/08/03/为何网上垃圾资讯泛滥/" itemprop="url">为何网上垃圾资讯越来越多</a></h1>
+                <a class="post-title-link" href="/2018/07/15/ResultSet使用总结/" itemprop="url">ResultSet 使用总结</a></h1>
         
 
         <div class="post-meta">
@@ -307,8 +307,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-03T22:14:51+08:00">
-                2018-08-03
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-15T00:00:00+08:00">
+                2018-07-15
               </time>
             
 
@@ -348,15 +348,33 @@
         
           
             <blockquote>
-<p>某种程度上讲，互联网使得我们小老百姓的权力相比过去有所增加，使得普通人的需求得到关注和满足，而大部分人的天性就是懒于思考的，迷恋于那些非常容易就能获得满足感的事物……</p>
+<p>唯有疼痛，方可刻骨铭心。</p>
 </blockquote>
-<p>互联网的快速发展，使得我们每个人都有了发声的渠道，有了表达自己的平台，「再小的个体，也有自己的品牌」。</p>
-<p>某种程度上讲，相比过去，我们的权力在变大，我们的需求在被各种公司关注研究，他们做市场调研、做技术积累沉淀、做大数据分析、做人工智能，他们费尽心力努力打造出我们需要的产品，来满足我们的需求。我们似乎真的在网络上得到了「顾客就是上帝」般的高质量服务，我们吃喝玩乐都能轻轻松松的在手机上的几个 APP 里完成。当然，公司设计出这些满足我们需求的产品，就是为了赚钱，赚钱也是现在社会的主旋律，而要想打造出用户喜爱的产品，就一定弄清用户的需求、了解用户的心理。</p>
-<p>互联网公司的用户就是普罗大众，要弄懂普通人的需求，得先了解人性。</p>
-<p>回想一下，每当我们忍不住刷手机时，到底是在想获得什么？刷微博、刷朋友圈、刷各种圈子、看新闻、读公号文章、小视频，在刷手机的那一刻，仿佛时间过的很充实，我又看到了好多新鲜事、学到了好多知识、还有朋友圈里获得的不真实的优越感或认同感、游戏中得到的成就感，总结起来，其实都是为了获得一种「满足感」。</p>
-<p>而我们大部分人天性懒于思考（包括此刻的我，这些文字我写的很慢很艰难），这也导致了我们对很多的东西缺乏辨别能力，很容易被一些标题党或泛滥的爱国主义民族大义等垃圾新闻内容戳中 G 点，这些资讯内容并没有任何价值，甚至很多的新闻内容都是伪造的假新闻，却大量的占用了我们的时间。如今信息技术水平高速发展，这些资讯内容的生产也已经形成的完善的产业化，按照一定的套路拼凑点素材就能快速写出一篇文章，甚至很多新闻稿子是机器流水化生产的按照一定的套路拼凑点素材就能快速写出一篇文章，甚至很多新闻稿子是机器流水化生产的（参见微信公众号「我就 BB 怎么了」的文章<a href="https://mp.weixin.qq.com/s/CgqADXVWTJaUKXTfN88mkw" target="_blank" rel="noopener">说点劲爆的</a>）。</p>
-<p>如今，以「头条」系为代表的产品，今日头条、趣头条等各种资讯类 APP，里面充满着标题党、爱国主义、民族大义等垃圾内容，真正有价值的新闻却少之又少，还有像抖音、快手一类的短视频 APP，这些小视频看完了简直让我怀疑人生，爽了一时，却毫无收获。这些科技公司通过技术手段分析用户行为，从而提供智能推送服务，牢牢抓住用户的空闲时间，阻碍用户真正的思考，侵占用户宝贵的时间。</p>
-<p>我认为，「独立思考」是我们生而为人的尊严之一，然而如今却有越来越多的人放弃了它，甚至还有些「聪明的家伙」为了私利在助长人们放弃它。</p>
+<p><em>通过 ResultSet.getString() 方法取一个 Oracle 数据库中的 Date 类型的字段，取出的值变成了 2018-7-2 12.12.12.0，着实神奇。</em></p>
+<p><img src="../../../../images/1532163826372.png" alt="1532163826372"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">Statement stm = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);</span><br><span class="line">ResultSet rs = stm.executeQuery(sql);</span><br><span class="line"><span class="keyword">if</span> (rs.next()) &#123;</span><br><span class="line">	System.out.println(rs.getString(<span class="number">2</span>));</span><br><span class="line">	System.out.println(rs.getDate(<span class="number">2</span>));</span><br><span class="line">	System.out.println(rs.getTime(<span class="number">2</span>));</span><br><span class="line">&#125;</span><br><span class="line">		</span><br><span class="line">Statement stm2 = conn.createStatement(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_UPDATABLE);</span><br><span class="line">ResultSet rs2 = stm2.executeQuery(sql);</span><br><span class="line"><span class="keyword">if</span> (rs2.next()) &#123;</span><br><span class="line">	System.out.println(rs2.getString(<span class="number">2</span>));</span><br><span class="line">	System.out.println(rs2.getDate(<span class="number">2</span>));</span><br><span class="line">	System.out.println(rs2.getTime(<span class="number">2</span>));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//运行结果如下：</span></span><br><span class="line"><span class="number">2018</span>-<span class="number">7</span>-<span class="number">2</span> <span class="number">15.34</span>.48.0</span><br><span class="line"><span class="number">2018</span>-<span class="number">07</span>-<span class="number">02</span></span><br><span class="line"><span class="number">15</span>:<span class="number">34</span>:<span class="number">48</span></span><br><span class="line"><span class="number">2018</span>-<span class="number">07</span>-<span class="number">02</span> <span class="number">15</span>:<span class="number">34</span>:<span class="number">48.0</span></span><br><span class="line"><span class="number">2018</span>-<span class="number">07</span>-<span class="number">02</span></span><br><span class="line"><span class="number">15</span>:<span class="number">34</span>:<span class="number">48</span></span><br></pre></td></tr></table></figure>
+<h4 id="ResultSet-的-Type-属性："><a href="#ResultSet-的-Type-属性：" class="headerlink" title="ResultSet 的 Type 属性："></a>ResultSet 的 Type 属性：</h4><p>Connection 的 <code>Statement createStatement(int resultSetType, int resultSetConcurrency) throws SQLException</code> 方法;</p>
+<p><strong>参数 resultSetType:</strong></p>
+<p>​    ResultSet.TYPE_FORWORD_ONLY 结果集的游标只能向下滚动。</p>
+<p>​    ResultSet.TYPE_SCROLL_INSENSITIVE 结果集的游标可以上下移动，当数据库变化时，当前结果集不变。 </p>
+<p>​    ResultSet.TYPE_SCROLL_SENSITIVE 返回可滚动的结果集，当数据库变化时，当前结果集同步改变。 </p>
+<p><strong>参数  resultSetConcurrency：</strong></p>
+<p>​    ResultSet.CONCUR_READ_ONLY 不能用结果集更新数据库中的表 。</p>
+<p>​    ResultSet.CONCUR_UPDATETABLE 能用结果集更新数据库中的表。  </p>
+<p>参考链接：<a href="https://www.cnblogs.com/catkins/p/5604686.html" target="_blank" rel="noopener">ResultSet 的Type属性 TYPE_FORWARD_ONLY</a></p>
+<h4 id="创建-Statement-的三种类型："><a href="#创建-Statement-的三种类型：" class="headerlink" title="创建 Statement 的三种类型："></a>创建 Statement 的三种类型：</h4><p><strong>最基本的 Statement st = conn.CreateStatement()</strong> </p>
+<p>​    只能使用 next() 方法，逐个的读取数据。</p>
+<p><strong>可滚动的、可更新的 ResultSet</strong> </p>
+<p>​    Statement st = conn.createStatement(int resultSetType, int resultSetConcurrency) ；</p>
+<p>​    ResultSet 有 insertRow()、deleteRow()、updateRow() 等各种方法，见 ResultSet 源码。</p>
+<p><strong>可保持的ResultSet</strong> </p>
+<p>​    Statement st = conn.createStatement(int resultsetscrollable,int resultsetupdateable,int resultsetSetHoldability) ，见 Connection 类源码；</p>
+<h4 id="疼痛总结："><a href="#疼痛总结：" class="headerlink" title="疼痛总结："></a>疼痛总结：</h4><ul>
+<li><strong>理论与实践并重。</strong>最初自学编程时总是看得多，动手少，最后学完很容易忘记，上手写代码脑中一片空白，充满挫败感；后来工作繁忙，便放松了基本理论的学习，又导致在项目开发中踩了不少深坑（其实都是些很基础的小问题），耽误了时间。</li>
+<li><strong>注重开发规范。</strong>有些同事（包括自己有时也是这样）写起代码来一把梭，全然不顾读代码人的感受，再加上项目都是多人协作，事先没个规范最后出问题 debug 时就是个深坑，出现各种问题，修复这个 bug 时又会出现另一个 bug，掉入不断修复 bug 的漩涡之中。</li>
+<li><strong>bug 最终还是要自己修复的。</strong>求助他人只是起到点拨作用，开阔自己解决问题的思路，最终问题还是得自己解决的。</li>
+<li><strong>源码里面找方法。</strong></li>
+</ul>
 
           
         
@@ -396,7 +414,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -446,7 +464,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -459,7 +477,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

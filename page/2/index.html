@@ -276,7 +276,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/03/B树/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/03/Spring/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ZhouYang">
@@ -295,7 +295,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/08/03/B树/" itemprop="url">数据库索引 B+ 树</a></h1>
+                <a class="post-title-link" href="/2018/08/03/Spring/" itemprop="url">Spring</a></h1>
         
 
         <div class="post-meta">
@@ -307,7 +307,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-03T22:14:51+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-03T00:00:00+08:00">
                 2018-08-03
               </time>
             
@@ -347,9 +347,28 @@
       
         
           
-            <h4 id="红黑树"><a href="#红黑树" class="headerlink" title="红黑树"></a>红黑树</h4><h4 id="B-树"><a href="#B-树" class="headerlink" title="B 树"></a>B 树</h4><h4 id="B-树-1"><a href="#B-树-1" class="headerlink" title="B+ 树"></a>B+ 树</h4><p><a href="https://www.zhihu.com/question/65628840" target="_blank" rel="noopener">在 SSD 相对在服务器端普及的今天，为什么大部分数据库还是用 B/B+ 树实现的？</a></p>
-<p>B+树的设计：把树的上面几层放在内存里，尽量减少外存访问次数；然后把数据按页存储，每次读写单元都是一个页。这两点现在依然很好的贴合SSD的特征。 </p>
-<p><a href="http://www.pulpcode.cn/2017/04/22/from-hdd-to-ssd-how-b-tree/" target="_blank" rel="noopener">从机械硬盘到固态硬盘后，b树怎么办？</a></p>
+            <h4 id="Spring-优点"><a href="#Spring-优点" class="headerlink" title="Spring 优点"></a>Spring 优点</h4><ul>
+<li>方便解耦，简化开发：将所有对象创建和依赖关系维护交给 Spring 管理；</li>
+<li>AOP 编程的支持；</li>
+<li>声明式事务的支持；</li>
+<li>方便程序的测试：通过注解方便的测试 Spring 程序；</li>
+<li>方便集成各种优秀框架，Struts、Hibernate、MyBatis、Quartz 等。</li>
+</ul>
+<h4 id="IOC-与-DI"><a href="#IOC-与-DI" class="headerlink" title="IOC 与 DI"></a>IOC 与 DI</h4><p>IOC 控制反转，是指对象实例化权利由 spring 容器来管理 ；</p>
+<p>DI 依赖注入，在 spring 创建对象的过程中，对象所依赖的属性通过配置注入对象中。   </p>
+<h4 id="Spring-在-web-开发中应用"><a href="#Spring-在-web-开发中应用" class="headerlink" title="Spring 在 web 开发中应用"></a>Spring 在 web 开发中应用</h4><ol>
+<li>导入 spring-web-4.2.4.RELEASE.jar 包;</li>
+<li>在 web.xml 文件中配置 listener：<code>&lt;listener&gt;&lt;listener-class&gt;org.springframework.web.ContextLoaderListener&lt;/listener-class&gt;&lt;/listener&gt;</code>，这个 ContextLoaderListener 实现了 ServletContextLister，当服务器启动时，将 ApplicationContext(其实是它的实现类 WebApplicationContext)对象存入到 ServletContext 中;</li>
+<li>在 web.xml 文件中配置 applicationContext.xml 文件的位置  ，<code>&lt;context_param&gt;&lt;param-name&gt;contextConfigLocation&lt;/param_name&gt;&lt;param-value&gt;classpath:applicationContext.xml&lt;/param-value&gt;&lt;/context_parm&gt;</code>。</li>
+</ol>
+<h4 id="Spring-事务管理"><a href="#Spring-事务管理" class="headerlink" title="Spring 事务管理"></a>Spring 事务管理</h4><p>Spring 事务管理主要提供三个接口来完成：</p>
+<p><strong>org.springframework.transaction.PlatformTransactionManager</strong> </p>
+<p>​    DataSourceTransactionManger 主要针对于 JdbcTemplate、MyBatis 开发；</p>
+<p>​    HibernateTransactionManasger 主要针对于 Hibernate 开发；</p>
+<p>​    JpaTransactionManager  主要针对于 JPA 开发。 </p>
+<p><strong>TransactionDefinition</strong>   </p>
+<p><strong>TransactionStatus</strong>   </p>
+<p><strong>声明式事务管理</strong></p>
 
           
         
@@ -389,7 +408,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -439,7 +458,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -452,7 +471,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
