@@ -276,7 +276,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/14/动态规划/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/14/搜索术/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ZhouYang">
@@ -295,7 +295,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/08/14/动态规划/" itemprop="url">动态规划</a></h1>
+                <a class="post-title-link" href="/2018/08/14/搜索术/" itemprop="url">搜索术</a></h1>
         
 
         <div class="post-meta">
@@ -347,45 +347,18 @@
       
         
           
-            <p>动态规划与分治方法相似，都是通过<strong>组合子问题的解</strong>来求解原问题。</p>
-<p><strong>钢条切割问题</strong>：</p>
-<p>如何切割长钢条以获取最大收益？</p>
-<table>
-<thead>
-<tr>
-<th>长度i</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th>10</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>价格pi</td>
-<td>1</td>
-<td>5</td>
-<td>8</td>
-<td>9</td>
-<td>10</td>
-<td>17</td>
-<td>17</td>
-<td>20</td>
-<td>24</td>
-<td>30</td>
-</tr>
-</tbody>
-</table>
-<h4 id="分而治之"><a href="#分而治之" class="headerlink" title="分而治之"></a>分而治之</h4><p>将问题划分为互不相交的子问题，递归求阶子问题。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 分而治之</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">cutWithRecurrence</span><span class="params">(<span class="keyword">int</span>[] priceTable, <span class="keyword">int</span> length)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (length &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> priceSum = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;length; i++) &#123;</span><br><span class="line">		<span class="keyword">int</span> priceIndex = i % priceTable.length;</span><br><span class="line">		priceSum = Math.max(priceSum, priceTable[priceIndex] + cutWithRecurrence(priceTable, length - <span class="number">1</span> - i));</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> priceSum;		</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span>[] priceTable = &#123;<span class="number">1</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>, <span class="number">17</span>, <span class="number">17</span>, <span class="number">20</span>, <span class="number">24</span>, <span class="number">30</span>&#125;;</span><br><span class="line">	<span class="keyword">long</span> start;</span><br><span class="line">	<span class="keyword">long</span> end;</span><br><span class="line">	<span class="keyword">int</span> maxEarning;</span><br><span class="line"><span class="comment">//		绳子长为  0 时，最大收益为：0，计算用时：0</span></span><br><span class="line"><span class="comment">//		……</span></span><br><span class="line"><span class="comment">//		绳子长为  12 时，最大收益为：35，计算用时：0</span></span><br><span class="line"><span class="comment">//		……</span></span><br><span class="line"><span class="comment">//		绳子长为  31 时，最大收益为：91，计算用时：10496</span></span><br><span class="line"><span class="comment">//		绳子长为  32 时，最大收益为：95，计算用时：18461</span></span><br><span class="line"><span class="comment">//		绳子长为  33 时，最大收益为：98，计算用时：36380</span></span><br><span class="line"><span class="comment">//		绳子长为  34 时，最大收益为：100，计算用时：76539</span></span><br><span class="line"><span class="comment">//		绳子长为  35 时，最大收益为：103，计算用时：152396</span></span><br><span class="line"><span class="comment">//		绳子长为  36 时，最大收益为：107，计算用时：303602</span></span><br><span class="line"><span class="comment">//		绳子长为  37 时，最大收益为：108，计算用时：602461</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;<span class="number">40</span>; i++) &#123;</span><br><span class="line">		start = System.currentTimeMillis();</span><br><span class="line">		maxEarning = cutWithRecurrence(priceTable, i);</span><br><span class="line">		end = System.currentTimeMillis();</span><br><span class="line">		System.out.println(<span class="string">"绳子长为  "</span> + i + <span class="string">" 时，"</span> + <span class="string">"最大收益为："</span> + maxEarning + <span class="string">"，计算用时："</span> + (end - start));</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h4><p>动态规划用于<strong>问题重叠</strong>的情况，即不同的子问题具有公共的子子问题，这种情况下，分治算法会反复求解那些公共子子问题。而动态规划算法对每个子子问题只求解一次，将其解保存在一个表格中，避免不必要的重复计算工作。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> List&lt;Integer&gt; memorized = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 带备忘的自顶向下法</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">cutWithTopDown</span><span class="params">(<span class="keyword">int</span>[] priceTable, <span class="keyword">int</span> length)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (length &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (length &lt;= memorized.size()) &#123;</span><br><span class="line">		<span class="keyword">return</span> memorized.get(length - <span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> priceSum = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;length; i++) &#123;</span><br><span class="line">		<span class="keyword">int</span> priceIndex = i % priceTable.length;</span><br><span class="line">		priceSum = Math.max(priceSum, priceTable[priceIndex] + cutWithTopDown(priceTable, length - <span class="number">1</span> - i));</span><br><span class="line">	&#125;</span><br><span class="line">	memorized.add(priceSum);</span><br><span class="line">	<span class="keyword">return</span> priceSum;		</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">test2</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span>[] priceTable = &#123;<span class="number">1</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>, <span class="number">17</span>, <span class="number">17</span>, <span class="number">20</span>, <span class="number">24</span>, <span class="number">30</span>&#125;;</span><br><span class="line">	<span class="keyword">long</span> start;</span><br><span class="line">	<span class="keyword">long</span> end;</span><br><span class="line">	<span class="keyword">int</span> maxEarning;</span><br><span class="line">	start = System.currentTimeMillis();</span><br><span class="line">	<span class="comment">// 绳子长为  10000 时，最大收益为：30000，计算用时：23692</span></span><br><span class="line">	maxEarning = cutWithTopDown(priceTable, <span class="number">10000</span>);</span><br><span class="line">	end = System.currentTimeMillis();</span><br><span class="line">	System.out.println(<span class="string">"绳子长为  10000 时，"</span> + <span class="string">"最大收益为："</span> + maxEarning + <span class="string">"，计算用时："</span> + (end - start));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            <blockquote>
+<p>偶然看到群里有人分享《12 堂超级搜索术》的教程，看完过后，觉得收获并不太大，简单总结下学习收获吧！</p>
+</blockquote>
+<h4 id="搜索心法"><a href="#搜索心法" class="headerlink" title="搜索心法"></a>搜索心法</h4><p>​    找什么：准确描述自己想要的搜索目标<br>    哪里找：准确找到垂直搜索渠道发现更多同类型网站<br>    怎么找：掌握高级搜索指令</p>
+<h4 id="信息搜索逻辑"><a href="#信息搜索逻辑" class="headerlink" title="信息搜索逻辑"></a>信息搜索逻辑</h4><p>​    搜狗微信、搜狗知乎<br>    大数据导航（大数据垂直网站）<br>    虫部落快搜（搜索集大成者）<br>    转变思路：应用商店搜索相关 APP</p>
+<h4 id="搜索技巧"><a href="#搜索技巧" class="headerlink" title="搜索技巧"></a>搜索技巧</h4><p>​    关键词搜索<br>    特定时间内的关键信息（关键词 20xx..20xx）<br>    特定网站（site） 关键词 空格 site:限定站点<br>    限定文件类型（filetype）<br>    将关键词限定在标题中（intitle）allinurl<br>    不包含某关键词（减号-）</p>
+<h4 id="收藏网站"><a href="#收藏网站" class="headerlink" title="收藏网站"></a>收藏网站</h4><p>猎手导航（磁链，搜索影视剧）</p>
+<p>网盘搜索、微盘搜索</p>
+<p>专业资源网站搜索</p>
+<p>​    图片：pexels、500px</p>
+<p>​    ppt 模板：officeplus、比格 ppt</p>
+<p>​    </p>
 
           
         
