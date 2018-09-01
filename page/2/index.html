@@ -276,7 +276,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/03/Spring/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/14/动态规划/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ZhouYang">
@@ -295,7 +295,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/08/03/Spring/" itemprop="url">Spring</a></h1>
+                <a class="post-title-link" href="/2018/08/14/动态规划/" itemprop="url">动态规划</a></h1>
         
 
         <div class="post-meta">
@@ -307,8 +307,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-03T00:00:00+08:00">
-                2018-08-03
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-14T00:00:00+08:00">
+                2018-08-14
               </time>
             
 
@@ -347,28 +347,45 @@
       
         
           
-            <h4 id="Spring-优点"><a href="#Spring-优点" class="headerlink" title="Spring 优点"></a>Spring 优点</h4><ul>
-<li>方便解耦，简化开发：将所有对象创建和依赖关系维护交给 Spring 管理；</li>
-<li>AOP 编程的支持；</li>
-<li>声明式事务的支持；</li>
-<li>方便程序的测试：通过注解方便的测试 Spring 程序；</li>
-<li>方便集成各种优秀框架，Struts、Hibernate、MyBatis、Quartz 等。</li>
-</ul>
-<h4 id="IOC-与-DI"><a href="#IOC-与-DI" class="headerlink" title="IOC 与 DI"></a>IOC 与 DI</h4><p>IOC 控制反转，是指对象实例化权利由 spring 容器来管理 ；</p>
-<p>DI 依赖注入，在 spring 创建对象的过程中，对象所依赖的属性通过配置注入对象中。   </p>
-<h4 id="Spring-在-web-开发中应用"><a href="#Spring-在-web-开发中应用" class="headerlink" title="Spring 在 web 开发中应用"></a>Spring 在 web 开发中应用</h4><ol>
-<li>导入 spring-web-4.2.4.RELEASE.jar 包;</li>
-<li>在 web.xml 文件中配置 listener：<code>&lt;listener&gt;&lt;listener-class&gt;org.springframework.web.ContextLoaderListener&lt;/listener-class&gt;&lt;/listener&gt;</code>，这个 ContextLoaderListener 实现了 ServletContextLister，当服务器启动时，将 ApplicationContext(其实是它的实现类 WebApplicationContext)对象存入到 ServletContext 中;</li>
-<li>在 web.xml 文件中配置 applicationContext.xml 文件的位置  ，<code>&lt;context_param&gt;&lt;param-name&gt;contextConfigLocation&lt;/param_name&gt;&lt;param-value&gt;classpath:applicationContext.xml&lt;/param-value&gt;&lt;/context_parm&gt;</code>。</li>
-</ol>
-<h4 id="Spring-事务管理"><a href="#Spring-事务管理" class="headerlink" title="Spring 事务管理"></a>Spring 事务管理</h4><p>Spring 事务管理主要提供三个接口来完成：</p>
-<p><strong>org.springframework.transaction.PlatformTransactionManager</strong> </p>
-<p>​    DataSourceTransactionManger 主要针对于 JdbcTemplate、MyBatis 开发；</p>
-<p>​    HibernateTransactionManasger 主要针对于 Hibernate 开发；</p>
-<p>​    JpaTransactionManager  主要针对于 JPA 开发。 </p>
-<p><strong>TransactionDefinition</strong>   </p>
-<p><strong>TransactionStatus</strong>   </p>
-<p><strong>声明式事务管理</strong></p>
+            <p>动态规划与分治方法相似，都是通过<strong>组合子问题的解</strong>来求解原问题。</p>
+<p><strong>钢条切割问题</strong>：</p>
+<p>如何切割长钢条以获取最大收益？</p>
+<table>
+<thead>
+<tr>
+<th>长度i</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+<th>10</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>价格pi</td>
+<td>1</td>
+<td>5</td>
+<td>8</td>
+<td>9</td>
+<td>10</td>
+<td>17</td>
+<td>17</td>
+<td>20</td>
+<td>24</td>
+<td>30</td>
+</tr>
+</tbody>
+</table>
+<h4 id="分而治之"><a href="#分而治之" class="headerlink" title="分而治之"></a>分而治之</h4><p>将问题划分为互不相交的子问题，递归求阶子问题。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 分而治之</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">cutWithRecurrence</span><span class="params">(<span class="keyword">int</span>[] priceTable, <span class="keyword">int</span> length)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (length &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> priceSum = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;length; i++) &#123;</span><br><span class="line">		<span class="keyword">int</span> priceIndex = i % priceTable.length;</span><br><span class="line">		priceSum = Math.max(priceSum, priceTable[priceIndex] + cutWithRecurrence(priceTable, length - <span class="number">1</span> - i));</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> priceSum;		</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span>[] priceTable = &#123;<span class="number">1</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>, <span class="number">17</span>, <span class="number">17</span>, <span class="number">20</span>, <span class="number">24</span>, <span class="number">30</span>&#125;;</span><br><span class="line">	<span class="keyword">long</span> start;</span><br><span class="line">	<span class="keyword">long</span> end;</span><br><span class="line">	<span class="keyword">int</span> maxEarning;</span><br><span class="line"><span class="comment">//		绳子长为  0 时，最大收益为：0，计算用时：0</span></span><br><span class="line"><span class="comment">//		……</span></span><br><span class="line"><span class="comment">//		绳子长为  12 时，最大收益为：35，计算用时：0</span></span><br><span class="line"><span class="comment">//		……</span></span><br><span class="line"><span class="comment">//		绳子长为  31 时，最大收益为：91，计算用时：10496</span></span><br><span class="line"><span class="comment">//		绳子长为  32 时，最大收益为：95，计算用时：18461</span></span><br><span class="line"><span class="comment">//		绳子长为  33 时，最大收益为：98，计算用时：36380</span></span><br><span class="line"><span class="comment">//		绳子长为  34 时，最大收益为：100，计算用时：76539</span></span><br><span class="line"><span class="comment">//		绳子长为  35 时，最大收益为：103，计算用时：152396</span></span><br><span class="line"><span class="comment">//		绳子长为  36 时，最大收益为：107，计算用时：303602</span></span><br><span class="line"><span class="comment">//		绳子长为  37 时，最大收益为：108，计算用时：602461</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;<span class="number">40</span>; i++) &#123;</span><br><span class="line">		start = System.currentTimeMillis();</span><br><span class="line">		maxEarning = cutWithRecurrence(priceTable, i);</span><br><span class="line">		end = System.currentTimeMillis();</span><br><span class="line">		System.out.println(<span class="string">"绳子长为  "</span> + i + <span class="string">" 时，"</span> + <span class="string">"最大收益为："</span> + maxEarning + <span class="string">"，计算用时："</span> + (end - start));</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h4><p>动态规划用于<strong>问题重叠</strong>的情况，即不同的子问题具有公共的子子问题，这种情况下，分治算法会反复求解那些公共子子问题。而动态规划算法对每个子子问题只求解一次，将其解保存在一个表格中，避免不必要的重复计算工作。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> List&lt;Integer&gt; memorized = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 带备忘的自顶向下法</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">cutWithTopDown</span><span class="params">(<span class="keyword">int</span>[] priceTable, <span class="keyword">int</span> length)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (length &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (length &lt;= memorized.size()) &#123;</span><br><span class="line">		<span class="keyword">return</span> memorized.get(length - <span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> priceSum = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;length; i++) &#123;</span><br><span class="line">		<span class="keyword">int</span> priceIndex = i % priceTable.length;</span><br><span class="line">		priceSum = Math.max(priceSum, priceTable[priceIndex] + cutWithTopDown(priceTable, length - <span class="number">1</span> - i));</span><br><span class="line">	&#125;</span><br><span class="line">	memorized.add(priceSum);</span><br><span class="line">	<span class="keyword">return</span> priceSum;		</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">test2</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span>[] priceTable = &#123;<span class="number">1</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>, <span class="number">17</span>, <span class="number">17</span>, <span class="number">20</span>, <span class="number">24</span>, <span class="number">30</span>&#125;;</span><br><span class="line">	<span class="keyword">long</span> start;</span><br><span class="line">	<span class="keyword">long</span> end;</span><br><span class="line">	<span class="keyword">int</span> maxEarning;</span><br><span class="line">	start = System.currentTimeMillis();</span><br><span class="line">	<span class="comment">// 绳子长为  10000 时，最大收益为：30000，计算用时：23692</span></span><br><span class="line">	maxEarning = cutWithTopDown(priceTable, <span class="number">10000</span>);</span><br><span class="line">	end = System.currentTimeMillis();</span><br><span class="line">	System.out.println(<span class="string">"绳子长为  10000 时，"</span> + <span class="string">"最大收益为："</span> + maxEarning + <span class="string">"，计算用时："</span> + (end - start));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
           
         
@@ -408,7 +425,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -458,7 +475,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

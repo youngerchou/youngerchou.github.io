@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title></title>
+    <url>%2F2018%2F08%2F18%2FHadoop%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E6%88%98%E6%89%8B%E5%86%8C%2F</url>
+    <content type="text"><![CDATA[第四章 HDFS 文件系统HDFS 系统特点： 可存储超大文件（block 默认为 64M，磁盘块一般为 512 字节），block 设计如此大，是为了最小化寻址开销。 运行在普通廉价的机器上。 易扩展、为用户提供性能不错的文件存储服务。 不适用于 HDFS 的场景： 低延迟 大量小文件（远小于 block size 的文件），每个小文件产生 metadata，Hadoop 通过 NN 存储，小文件过多，容易产生 NN 性能瓶颈 结构化数据 数据量并不大（TB、PB数据） 体系结构]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[动态规划]]></title>
+    <url>%2F2018%2F08%2F14%2F%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%2F</url>
+    <content type="text"><![CDATA[动态规划与分治方法相似，都是通过组合子问题的解来求解原问题。 钢条切割问题： 如何切割长钢条以获取最大收益？ 长度i 1 2 3 4 5 6 7 8 9 10 价格pi 1 5 8 9 10 17 17 20 24 30 分而治之将问题划分为互不相交的子问题，递归求阶子问题。 1234567891011121314151617181920212223242526272829303132333435363738/* * 分而治之 */public static int cutWithRecurrence(int[] priceTable, int length) &#123; if (length &lt;= 0) &#123; return 0; &#125; int priceSum = 0; for (int i=0; i&lt;length; i++) &#123; int priceIndex = i % priceTable.length; priceSum = Math.max(priceSum, priceTable[priceIndex] + cutWithRecurrence(priceTable, length - 1 - i)); &#125; return priceSum; &#125;public static void test1() &#123; int[] priceTable = &#123;1, 5, 8, 9, 10, 17, 17, 20, 24, 30&#125;; long start; long end; int maxEarning;// 绳子长为 0 时，最大收益为：0，计算用时：0// ……// 绳子长为 12 时，最大收益为：35，计算用时：0// ……// 绳子长为 31 时，最大收益为：91，计算用时：10496// 绳子长为 32 时，最大收益为：95，计算用时：18461// 绳子长为 33 时，最大收益为：98，计算用时：36380// 绳子长为 34 时，最大收益为：100，计算用时：76539// 绳子长为 35 时，最大收益为：103，计算用时：152396// 绳子长为 36 时，最大收益为：107，计算用时：303602// 绳子长为 37 时，最大收益为：108，计算用时：602461 for (int i=0; i&lt;40; i++) &#123; start = System.currentTimeMillis(); maxEarning = cutWithRecurrence(priceTable, i); end = System.currentTimeMillis(); System.out.println("绳子长为 " + i + " 时，" + "最大收益为：" + maxEarning + "，计算用时：" + (end - start)); &#125;&#125; 动态规划动态规划用于问题重叠的情况，即不同的子问题具有公共的子子问题，这种情况下，分治算法会反复求解那些公共子子问题。而动态规划算法对每个子子问题只求解一次，将其解保存在一个表格中，避免不必要的重复计算工作。 1234567891011121314151617181920212223242526272829303132public static final List&lt;Integer&gt; memorized = new ArrayList&lt;&gt;();/* * 带备忘的自顶向下法 */public static int cutWithTopDown(int[] priceTable, int length) &#123; if (length &lt;= 0) &#123; return 0; &#125; if (length &lt;= memorized.size()) &#123; return memorized.get(length - 1); &#125; int priceSum = 0; for (int i=0; i&lt;length; i++) &#123; int priceIndex = i % priceTable.length; priceSum = Math.max(priceSum, priceTable[priceIndex] + cutWithTopDown(priceTable, length - 1 - i)); &#125; memorized.add(priceSum); return priceSum; &#125;public static void test2() &#123; int[] priceTable = &#123;1, 5, 8, 9, 10, 17, 17, 20, 24, 30&#125;; long start; long end; int maxEarning; start = System.currentTimeMillis(); // 绳子长为 10000 时，最大收益为：30000，计算用时：23692 maxEarning = cutWithTopDown(priceTable, 10000); end = System.currentTimeMillis(); System.out.println("绳子长为 10000 时，" + "最大收益为：" + maxEarning + "，计算用时：" + (end - start));&#125;]]></content>
+      <tags>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[搜索术]]></title>
     <url>%2F2018%2F08%2F14%2F%E6%90%9C%E7%B4%A2%E6%9C%AF%2F</url>
     <content type="text"><![CDATA[偶然看到群里有人分享《12 堂超级搜索术》的教程，看完过后，觉得收获并不太大，简单总结下学习收获吧！ 搜索心法​ 找什么：准确描述自己想要的搜索目标 哪里找：准确找到垂直搜索渠道发现更多同类型网站 怎么找：掌握高级搜索指令 信息搜索逻辑​ 搜狗微信、搜狗知乎 大数据导航（大数据垂直网站） 虫部落快搜（搜索集大成者） 转变思路：应用商店搜索相关 APP 搜索技巧​ 关键词搜索 特定时间内的关键信息（关键词 20xx..20xx） 特定网站（site） 关键词 空格 site:限定站点 限定文件类型（filetype） 将关键词限定在标题中（intitle）allinurl 不包含某关键词（减号-） 收藏网站猎手导航（磁链，搜索影视剧） 网盘搜索、微盘搜索 专业资源网站搜索 ​ 图片：pexels、500px ​ ppt 模板：officeplus、比格 ppt ​]]></content>
@@ -62,7 +75,7 @@
   <entry>
     <title><![CDATA[Oracle 导出 sql 文件乱码]]></title>
     <url>%2F2018%2F07%2F06%2FOracle%E5%AF%BC%E5%87%BA%E8%A1%A8%E7%BB%93%E6%9E%84%E8%A1%A8%E6%95%B0%E6%8D%AE%2F</url>
-    <content type="text"><![CDATA[何为良好生活？陈嘉映说「行之于途而应于心」；路遥也曾说过「只有在无比沉重的劳动中,人才会活得更为充实」。在这个价值流失的年代如何自处，我想很简单，撸起袖子加油干，做好眼前事就行了，在做事行路的过程中自然就会找寻到意义，意义不是空想出来的，而是在实践中产生的。 这篇文章简单记录 Oracle 导出表结构表数据的关键点，使用常用的 plsql 工具。 Export Tables 的三种导出方式使用 plsql 工具导出表结构表数据其实很简单方便，打开 plsql 工具，选择 Tools 菜单栏下面的 Expor Tables 即可。点开你会发现如下界面： 第一种 Oracle Export 是导出为 .dmp 的文件格式，.dmp文件是二进制的，可以跨平台，还能包含权限，效率也很不错，用得最广 。 第二种 SQL Insert 是导出为.sql文件的，可用文本编辑器查看，通用性比较好，但效率不如第一种，适合小数据量导入导出。尤其注意的是表中不能有大字段（blob,clob,long），如果有，会提示不能导出(提示如下： table contains one or more LONG columns cannot export in sql format,user Pl/sql developer format instead)。 第三种是导出为.pde格式的，.pde为Pl/sql developer自有的文件格式，只能用Pl/sql developer自己导入导出，不能用编辑器查看。 需要注意的是： 就算你选择第一种 Oracle Export 方式导出为 .sql 文件，也是可以的，但是最终导出的 sql 文件打开会有乱码，我一开始并不清楚这三种导出方式的区别，使用第一种方式导出为 .sql 文件一直是乱码，浪费了不少时间。 导出的 SQL 文件中文乱码关于导出乱码的问题，网上有很多教程，但都是抄来抄去也写的不清晰，这里基于自己实际解决乱码问题的经验简单记录下： 问题的关键就在于 server、client 端的编码要一致， 将 client 端的编码方式修改为和 server 端一致即可。 Oracle 字符集： ORACLE的字符集名字由三部分组成：NLS_LANG=\_\.\ 比如常见的 nls_lang=AMERICAN_AMERICA.UTF8 ； nls_lang=SIMPLIFIED CHINESE_AMERICA.UTF8 查看 Server 字符集环境： 123456SELECT * FROM NLS_DATABASE_PARAMETERS;-- 我的查询结果如下：PARAMETER VALUENLS_LANGUAGE AMERICANNLS_TERRITORY AMERICANLS_CHARACTERSET AL32UTF8 数据库可用字符集参数设置： SELECT * FROM V$NLS_VALID_VALUES 注意：SELECT * FROM NLS_INSTANCE_PARAMETERS 是表示实例的字符集环境，而不是客户端。 查看 Client 字符集环境： SELECT USERENV(&#39;language&#39;) FROM DUAL; 修改 Client 字符集： 我使用的开发环境是 Windows，所以只写在 Windows 下的操作方法：修改注册表键值永久设置，HKEY_LOCAL_MACHINE/SOFTWARE/ORACLE/KEY_XXXX_home1/NLS_LANG，将值修改为 AMERICAN_AMERICA.AL32UTF8 后导出的 sql 文件编码正确，显示正常。 参考文章：Oracle 字符集基础知识]]></content>
+    <content type="text"><![CDATA[何为良好生活？陈嘉映说「行之于途而应于心」；路遥也曾说过「只有在无比沉重的劳动中,人才会活得更为充实」。在这个价值流失的年代如何自处，我想很简单，撸起袖子加油干，做好眼前事就行了，在做事行路的过程中自然就会找寻到意义，意义不是空想出来的，而是在实践中产生的。 这篇文章简单记录 Oracle 导出表结构表数据的关键点，使用常用的 plsql 工具。 Export Tables 的三种导出方式使用 plsql 工具导出表结构表数据其实很简单方便，打开 plsql 工具，选择 Tools 菜单栏下面的 Expor Tables 即可。点开你会发现如下界面： 第一种 Oracle Export 是导出为 .dmp 的文件格式，.dmp文件是二进制的，可以跨平台，还能包含权限，效率也很不错，用得最广 。 第二种 SQL Insert 是导出为.sql文件的，可用文本编辑器查看，通用性比较好，但效率不如第一种，适合小数据量导入导出。尤其注意的是表中不能有大字段（blob,clob,long），如果有，会提示不能导出(提示如下： table contains one or more LONG columns cannot export in sql format,user Pl/sql developer format instead)。 第三种是导出为.pde格式的，.pde为Pl/sql developer自有的文件格式，只能用Pl/sql developer自己导入导出，不能用编辑器查看。 需要注意的是： 就算你选择第一种 Oracle Export 方式导出为 .sql 文件，也是可以的，但是最终导出的 sql 文件打开会有乱码，我一开始并不清楚这三种导出方式的区别，使用第一种方式导出为 .sql 文件一直是乱码，浪费了不少时间。 导出的 SQL 文件中文乱码关于导出乱码的问题，网上有很多教程，但都是抄来抄去也写的不清晰，这里基于自己实际解决乱码问题的经验简单记录下： 问题的关键就在于 server、client 端的编码要一致， 将 client 端的编码方式修改为和 server 端一致即可。 Oracle 字符集： ORACLE的字符集名字由三部分组成：NLS_LANG=\_\.\ 比如常见的 nls_lang=AMERICAN_AMERICA.UTF8 ； nls_lang=SIMPLIFIED CHINESE_AMERICA.UTF8 查看 Server 字符集环境： 123456SELECT * FROM NLS_DATABASE_PARAMETERS;-- 我的查询结果如下：PARAMETER VALUENLS_LANGUAGE AMERICANNLS_TERRITORY AMERICANLS_CHARACTERSET AL32UTF8 数据库可用字符集参数设置： SELECT * FROM V$NLS_VALID_VALUES 注意：SELECT * FROM NLS_INSTANCE_PARAMETERS 是表示实例的字符集环境，而不是客户端。 查看 Client 字符集环境： SELECT USERENV(&#39;language&#39;) FROM DUAL; 修改 Client 字符集： 我使用的开发环境是 Windows，所以只写在 Windows 下的操作方法：修改注册表键值永久设置，HKEY_LOCAL_MACHINE/SOFTWARE/ORACLE/KEY_XXXX_home1/NLS_LANG，将值修改为 AMERICAN_AMERICA.AL32UTF8 后导出的 sql 文件编码正确，显示正常。 注意：oracle客户端在获取字符集设置信息时的优先级顺序依次为：session、环境变量、注册表、参数文件。 参考文章：Oracle 字符集基础知识]]></content>
       <tags>
         <tag>数据库</tag>
       </tags>
@@ -124,11 +137,11 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[动态规划]]></title>
-    <url>%2F2018%2F05%2F14%2F%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%2F</url>
-    <content type="text"><![CDATA[分而治之 动态规划]]></content>
+    <title><![CDATA[关于写博客]]></title>
+    <url>%2F2018%2F05%2F11%2F%E5%85%B3%E4%BA%8E%E5%86%99%E5%8D%9A%E5%AE%A2%2F</url>
+    <content type="text"><![CDATA[3 W 法是个分析问题的好方法，为了让自己更好的将「写博客」这件小事坚持下去， 尝试用 3 W 法对「怎样写好博客」这个问题作出回答，记录于此。 为什么写博客「记录世界记录你」，作为自己日常工作生活的一种记录方式。本来过去的我是一个非常活在未来的人，不喜欢回忆过去，也不喜欢拍照记录那些当下的幸福瞬间，总觉得更美好的东西永远在未来。可能现在年龄大了，也时常回忆起过去的事情，而且现在的我觉得，时间真的是一种美妙的东西（看完《三体》影响我很多，使我睁眼看到了时间的柔美）。有着过去珍贵的记忆、对当下生活的珍惜和对未来的美好想象，这才是一种更加丰满健全的生活态度。而人的记忆却并不那么可靠，所以从此刻开始，每当有些值得记录的事情或自己的所思所想，我都会记录于此。 「个人表达」能力在当今社会变得越来越为重要，而这恰恰是我非常欠缺的。自己是个相对内向（不高兴时一个人静静呆着就能积攒正能量开始新的一天）的人，没有才艺，不善社交，语言表达能力弱，所以「写作」应该就是一种最适合自己的表达方式了 。 「职业素养」，作为一个程序员，你怎么能没有自己的博客呢？写博客对码农的好处与必要性，网上已经有很多讨论了：加强记忆、加深对技术点的理解、倒闭输出成长大牛。 写什么内容首先当然就是技术相关的文章，写一些自己学习技术的过程和方法，总结工作学习中踩过的那些坑。 然后就是写一些自己日常的小思考。 准备怎么写技术类文章的写作，充分发挥程序员 CTRL + C 和 CTRL + V 的特长，记录学习过程（环境搭建、学习笔记）和踩坑经验（日常问题点及网上查找到的解决方法），即使是 CTRL + C/V 其实也是对自己思维的一种整理，对知识点的再吸收，解决问题经验的一种积累，长期坚持，相信也能慢慢写出高质量的博文。 个人小杂文的写作，初期当然就是瞎写啦，想到什么写什么。 关于坚持年龄越大就越会懂得坚持的力量，如何将写博客这件小事坚持下去呢？ 降低期望，不要太过在意自己写的文章烂，写的烂总比不写要强吧。 与人分享自己的文章，这样是对自己的一个激励反馈，也能发现自己文章的不足之处和提高的方向。 学习相关写作技巧，提高文章质量。 傻傻等待，傻傻等春暖花开。]]></content>
       <tags>
-        <tag>算法</tag>
+        <tag>瞎BB</tag>
       </tags>
   </entry>
   <entry>
@@ -137,14 +150,6 @@
     <content type="text"><![CDATA[日常开发中出现数据库锁表的情况时，不但影响自己开发，还会影响他人的开发测试，应当立即定位到被锁的表，并执行解锁操作。 Oracle 数据库锁表查询及解锁12345678-- 查询 SQL 如下：select dbaobj.owner, dbaobj.object_name, s.sid, s.serial#, lckobj.locked_mode from v$locked_object lckobj, dba_objects dbaobj, v$session swhere lckobj.object_id = dbaobj.object_id and lckobj.session_id = s.sidorder by s.logon_time;-- 解锁方法：alter system kill session &apos;sid,serial#&apos;; dba_objects 视图：记录数据库中所有对象 v$locked_object 视图 ：记录当前系统中哪些对象正被锁定 v$session 视图：记录所有会话信息 数据库锁分类按照锁的内容上区分：表锁、页锁、行锁 按照锁的性质上区分：共享锁、排他锁 / 独占锁、更新锁 当执行 select 时，加共享锁，当执行 insert，update，delete 等操作时，加排他锁 数据库隔离级别 脏读：对于两个事务T1，T2，T1读取了已经被T2更新但还没有提交的字段，之后，若T2回滚，T1读取到的内容就是临时无效的内容。 不可重复读：对于事务T1，T2，T1需要读取一个字段两次，在第一次和第二次读取之间，T2更新了该字段，导致T1第二次读取到的内容值不同。 幻读： 事务A读取与搜索条件相匹配的若干行。事务B以插入或删除行等方式来修改事务A的结果集，然后再提交。 幻读与不可重复读之间的区别是幻读强调的是新增或删除,而不可重复读强调的是修改。比如Mary两次查工资，中间有人改过工资，则两次结果不一样，这就是不可重复读。Mary要查工资一千的人数，第一次查到了10个，中间有人增加了一条工资为一千的人，下次查的时候就变成了11个，好像第一次查询的是幻觉一样。 事务的 4 个隔离级别： read uncommitted：可以读取已由其他事务修改但未提交的行； read committed：不能读取已由其他事务修改但未提交的行；其他事务可以在当前事务的各个语句之间更改数据，从而产生不可重复读取和幻读数据； repeatable read：不能读取已由其他事务修改但未提交的行，并且指定，其他任何事务都不能在当前事务完成之前修改当前事务读取的数据；其他事务可以插入与当前事务语句的搜索条件相匹配的新行，如果当前事务随后重复执行该语句，会检索新行，产生幻读； serializable：所有事务只能一个接一个串行执行，不能并发。 Oracle 支持两种隔离级别：read commited、serializable，默认的事务隔离级别是 read commited 乐观锁与悲观锁Java 开发中经常看到乐观锁，那么到底什么是乐观锁，什么是悲观锁呢？ 悲观锁：数据库实现。共享锁、排他锁都属于悲观锁，Java 关键字 synchronized 也属于悲观锁。 乐观锁：自己实现。操作数据时，不加锁，进行更新后，再去判断是否冲突了。举例如下 1231. 查询出商品信息，select (status,version) from t_goods where id=#&#123;id&#125;2. 根据商品信息生成订单3. 修改商品 status 为 2，update t_goods set status=2,version=version+1 where id=#&#123;id&#125; and version=#&#123;version&#125;; 参考链接Oracle 锁表问题处理 数据库隔离级别]]></content>
       <tags>
         <tag>数据库</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[关于写博客]]></title>
-    <url>%2F2018%2F05%2F11%2F%E5%85%B3%E4%BA%8E%E5%86%99%E5%8D%9A%E5%AE%A2%2F</url>
-    <content type="text"><![CDATA[3 W 法是个分析问题的好方法，为了让自己更好的将「写博客」这件小事坚持下去， 尝试用 3 W 法对「怎样写好博客」这个问题作出回答，记录于此。 为什么写博客「记录世界记录你」，作为自己日常工作生活的一种记录方式。本来过去的我是一个非常活在未来的人，不喜欢回忆过去，也不喜欢拍照记录那些当下的幸福瞬间，总觉得更美好的东西永远在未来。可能现在年龄大了，也时常回忆起过去的事情，而且现在的我觉得，时间真的是一种美妙的东西（看完《三体》影响我很多，使我睁眼看到了时间的柔美）。有着过去珍贵的记忆、对当下生活的珍惜和对未来的美好想象，这才是一种更加丰满健全的生活态度。而人的记忆却并不那么可靠，所以从此刻开始，每当有些值得记录的事情或自己的所思所想，我都会记录于此。 「个人表达」能力在当今社会变得越来越为重要，而这恰恰是我非常欠缺的。自己是个相对内向（不高兴时一个人静静呆着就能积攒正能量开始新的一天）的人，没有才艺，不善社交，语言表达能力弱，所以「写作」应该就是一种最适合自己的表达方式了 。 「职业素养」，作为一个程序员，你怎么能没有自己的博客呢？写博客对码农的好处与必要性，网上已经有很多讨论了：加强记忆、加深对技术点的理解、倒闭输出成长大牛。 写什么内容首先当然就是技术相关的文章，写一些自己学习技术的过程和方法，总结工作学习中踩过的那些坑。 然后就是写一些自己日常的小思考。 准备怎么写技术类文章的写作，充分发挥程序员 CTRL + C 和 CTRL + V 的特长，记录学习过程（环境搭建、学习笔记）和踩坑经验（日常问题点及网上查找到的解决方法），即使是 CTRL + C/V 其实也是对自己思维的一种整理，对知识点的再吸收，解决问题经验的一种积累，长期坚持，相信也能慢慢写出高质量的博文。 个人小杂文的写作，初期当然就是瞎写啦，想到什么写什么。 关于坚持年龄越大就越会懂得坚持的力量，如何将写博客这件小事坚持下去呢？ 降低期望，不要太过在意自己写的文章烂，写的烂总比不写要强吧。 与人分享自己的文章，这样是对自己的一个激励反馈，也能发现自己文章的不足之处和提高的方向。 学习相关写作技巧，提高文章质量。 傻傻等待，傻傻等春暖花开。]]></content>
-      <tags>
-        <tag>瞎BB</tag>
       </tags>
   </entry>
 </search>

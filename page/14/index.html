@@ -276,7 +276,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/21/学习方法/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/获取properites配置文件信息/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ZhouYang">
@@ -295,7 +295,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/05/21/学习方法/" itemprop="url">学习方法</a></h1>
+                <a class="post-title-link" href="/2018/06/11/获取properites配置文件信息/" itemprop="url">获取properites配置文件信息</a></h1>
         
 
         <div class="post-meta">
@@ -307,8 +307,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-21T00:00:00+08:00">
-                2018-05-21
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-11T00:00:00+08:00">
+                2018-06-11
               </time>
             
 
@@ -348,16 +348,16 @@
         
           
             <blockquote>
-<p>某大 V 说过：「看到好的文章，别收藏，一字不差的认真读一遍」</p>
-<p>微信公众号看到一篇关于「学习方法论」的文章，写的很好，是我认可且适合我的学习方法，记录在这里。</p>
+<p>最近在项目中看到别人使用 ResourceBundle 获取 properites 配置文件信息，感觉挺方便的，学习记录于此。</p>
 </blockquote>
-<h3 id="1-深入理解基本概念"><a href="#1-深入理解基本概念" class="headerlink" title="1. 深入理解基本概念"></a>1. 深入理解基本概念</h3><p>学习任何领域新知识，最恰当的做法就是深入学习最基本的概念，单点突破。概念就是在新领域与别人对话的共同语言。比如学习 Java 编程，你当然得知道什么是变量、什么是循环、什么是类、什么是对象、什么是方法……</p>
-<p>如今互联网上信息过载，各类质量参差不齐的学习资源唾手可得，可惜大部分人缺乏辨识胡乱收藏到网盘，看看这个视频又瞄瞄那个网课，最后缺乏系统思考而迟迟无法踏入编程的大门，这也就是我最初自学编程时的窘态，胡乱收藏各种牛逼的文章和开源代码，却因为基础不够扎实，从来没真正弄懂那些牛逼的点。</p>
-<h3 id="2-发现联系，理清脉络"><a href="#2-发现联系，理清脉络" class="headerlink" title="2. 发现联系，理清脉络"></a>2. 发现联系，理清脉络</h3><p>当深入理解了基本概念后，便能跟行业内的人交流并理解他的意思了，这时需要不断的强化练习，将一个个离散的概念点串起来，编织成自己的知识网络，融会贯通。</p>
-<p>这时就可以自己尝试去实现一些东西，将自己所学的知识运用起来，解决工作生活中的实际问题，比如 Java 学完基础语法后自己实现个小的项目，即使只是一些简单的工具类「文件递归查找、字符串处理等」也是可以的。</p>
-<h3 id="3-注重细节，踩坑总结"><a href="#3-注重细节，踩坑总结" class="headerlink" title="3. 注重细节，踩坑总结"></a>3. 注重细节，踩坑总结</h3><p>运用新领域所学知识并去解决实际问题过程中，一定会遇到问题，有些可能是别人遇到过能在网上查到的，也有些可能是别人没遇到过的，这时就需要根据自己的经验判断去摸索解决问题的办法，理清思路，注重细节，一坑一坑的踩过去，最后再将解决此问题的过程方法记录总结下来，与大家分享共同进步。</p>
-<h3 id="4-学习是件有意思的事情"><a href="#4-学习是件有意思的事情" class="headerlink" title="4. 学习是件有意思的事情"></a>4. 学习是件有意思的事情</h3><p>有人说，学习很苦，也有人说，学习很快乐，而我觉得学习是这世上少有的有意思的事情之一，因为学习总能让我发现新的东西，发现更宽广的世界，让自己能从这狭隘的世界抽身出去看到更广阔更美好的事物！</p>
-<h3 id="学习参考链接"><a href="#学习参考链接" class="headerlink" title="学习参考链接"></a>学习参考链接</h3><p><a href="https://mp.weixin.qq.com/s/KohGQwdIa6tjwI1jJaxiag" target="_blank" rel="noopener">方法论|进入数字货币和区块链的路线图</a></p>
+<h4 id="通过-getResourceAsStream-方式获取"><a href="#通过-getResourceAsStream-方式获取" class="headerlink" title="通过 getResourceAsStream 方式获取"></a>通过 getResourceAsStream 方式获取</h4><p>getResourceAsStream 这个函数寻找文件的起点是 <strong>JAVA 项目编译之后的根目录</strong> 。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">public class ConfigReader &#123;</span><br><span class="line">    public static String getProperty(final String propertyName) &#123;</span><br><span class="line">        return ConfigReader.reader.properties.getProperty(propertyName);</span><br><span class="line">    &#125;</span><br><span class="line">    private static final Properties properties = new Properties();</span><br><span class="line">    public static final ConfigReader reader = new ConfigReader();</span><br><span class="line"></span><br><span class="line">    private ConfigReader() &#123;</span><br><span class="line">        try &#123;</span><br><span class="line">        	//InputStream in = this.class.getClassLoader().getResourceAsStream(&quot;/config.properties&quot;);</span><br><span class="line">            InputStream in = this.class.getClassLoader().getResourceAsStream(&quot;config.properties&quot;);</span><br><span class="line">            this.properties.load(in);</span><br><span class="line">            in.close();</span><br><span class="line">        &#125; catch (IOException e) &#123;</span><br><span class="line">        	logger.error(e);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>参考链接：<a href="https://www.cnblogs.com/lixuwu/p/7337997.html" target="_blank" rel="noopener">（转）java getResourceAsStream的使用方法</a></p>
+<h4 id="通过-ResourceBundle-方式获取"><a href="#通过-ResourceBundle-方式获取" class="headerlink" title="通过 ResourceBundle 方式获取"></a>通过 ResourceBundle 方式获取</h4><p>只需要下面两行代码就可以搞定：</p>
+<p><code>ResourceBundle bundle = ResourceBundle.getBundle(file);</code> </p>
+<p><code>String value = bundle.getString(key);</code> </p>
+<p>网上说法，「ResourceBundle类通常是用于针对不同的语言来使用的属性文件。根据当前系统的国别语言信息（也可以程序指定），然后获取相应的properties文件的内容」。</p>
+<p><strong>我的理解是：需要程序动态获取 .properties 配置文件时使用 ResourceBundle 更加方便，但如果是获取静态的全局配置文件使用 getResourceAsStream 就好，加载一次，就存储在配置 Java 类里</strong></p>
 
           
         
@@ -397,7 +397,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/13/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/15/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/13/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><a class="extend next" rel="next" href="/page/15/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -447,7 +447,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

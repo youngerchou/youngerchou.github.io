@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="数据库,Java," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -79,20 +79,19 @@
 
 
 
-<meta name="description" content="唯有疼痛，方可刻骨铭心。  通过 ResultSet.getString() 方法取一个 Oracle 数据库中的 Date 类型的字段，取出的值变成了 2018-7-2 12.12.12.0，着实神奇。  1234567891011121314151617181920212223Statement stm = conn.createStatement(ResultSet.TYPE_SCROLL">
-<meta name="keywords" content="数据库,Java">
+<meta name="description" content="第四章  HDFS 文件系统HDFS 系统特点： 可存储超大文件（block 默认为 64M，磁盘块一般为 512 字节），block 设计如此大，是为了最小化寻址开销。 运行在普通廉价的机器上。 易扩展、为用户提供性能不错的文件存储服务。  不适用于 HDFS 的场景： 低延迟 大量小文件（远小于 block size 的文件），每个小文件产生 metadata，Hadoop 通过 NN 存储，">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ResultSet 使用总结">
-<meta property="og:url" content="http://yoursite.com/2018/07/15/ResultSet使用总结/index.html">
+<meta property="og:title" content="莫敢言">
+<meta property="og:url" content="http://yoursite.com/2018/08/18/Hadoop大数据实战手册/index.html">
 <meta property="og:site_name" content="莫敢言">
-<meta property="og:description" content="唯有疼痛，方可刻骨铭心。  通过 ResultSet.getString() 方法取一个 Oracle 数据库中的 Date 类型的字段，取出的值变成了 2018-7-2 12.12.12.0，着实神奇。  1234567891011121314151617181920212223Statement stm = conn.createStatement(ResultSet.TYPE_SCROLL">
+<meta property="og:description" content="第四章  HDFS 文件系统HDFS 系统特点： 可存储超大文件（block 默认为 64M，磁盘块一般为 512 字节），block 设计如此大，是为了最小化寻址开销。 运行在普通廉价的机器上。 易扩展、为用户提供性能不错的文件存储服务。  不适用于 HDFS 的场景： 低延迟 大量小文件（远小于 block size 的文件），每个小文件产生 metadata，Hadoop 通过 NN 存储，">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/images/1532163826372.png">
-<meta property="og:updated_time" content="2018-08-14T08:54:05.445Z">
+<meta property="og:image" content="d:/blog/source/images/image4.png">
+<meta property="og:updated_time" content="2018-08-19T14:05:15.931Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ResultSet 使用总结">
-<meta name="twitter:description" content="唯有疼痛，方可刻骨铭心。  通过 ResultSet.getString() 方法取一个 Oracle 数据库中的 Date 类型的字段，取出的值变成了 2018-7-2 12.12.12.0，着实神奇。  1234567891011121314151617181920212223Statement stm = conn.createStatement(ResultSet.TYPE_SCROLL">
-<meta name="twitter:image" content="http://yoursite.com/images/1532163826372.png">
+<meta name="twitter:title" content="莫敢言">
+<meta name="twitter:description" content="第四章  HDFS 文件系统HDFS 系统特点： 可存储超大文件（block 默认为 64M，磁盘块一般为 512 字节），block 设计如此大，是为了最小化寻址开销。 运行在普通廉价的机器上。 易扩展、为用户提供性能不错的文件存储服务。  不适用于 HDFS 的场景： 低延迟 大量小文件（远小于 block size 的文件），每个小文件产生 metadata，Hadoop 通过 NN 存储，">
+<meta name="twitter:image" content="d:/blog/source/images/image4.png">
 
 
 
@@ -122,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/07/15/ResultSet使用总结/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/08/18/Hadoop大数据实战手册/"/>
 
 
 
 
 
-  <title>ResultSet 使用总结 | 莫敢言</title>
+  <title> | 莫敢言</title>
   
 
 
@@ -279,7 +278,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/15/ResultSet使用总结/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/18/Hadoop大数据实战手册/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ZhouYang">
@@ -296,7 +295,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">ResultSet 使用总结</h1>
+          <h1 class="post-title" itemprop="name headline"></h1>
         
 
         <div class="post-meta">
@@ -308,8 +307,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-15T00:00:00+08:00">
-                2018-07-15
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-18T16:00:55+08:00">
+                2018-08-18
               </time>
             
 
@@ -346,34 +345,18 @@
       
 
       
-        <blockquote>
-<p>唯有疼痛，方可刻骨铭心。</p>
-</blockquote>
-<p><em>通过 ResultSet.getString() 方法取一个 Oracle 数据库中的 Date 类型的字段，取出的值变成了 2018-7-2 12.12.12.0，着实神奇。</em></p>
-<p><img src="../../../../images/1532163826372.png" alt="1532163826372"></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">Statement stm = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);</span><br><span class="line">ResultSet rs = stm.executeQuery(sql);</span><br><span class="line"><span class="keyword">if</span> (rs.next()) &#123;</span><br><span class="line">	System.out.println(rs.getString(<span class="number">2</span>));</span><br><span class="line">	System.out.println(rs.getDate(<span class="number">2</span>));</span><br><span class="line">	System.out.println(rs.getTime(<span class="number">2</span>));</span><br><span class="line">&#125;</span><br><span class="line">		</span><br><span class="line">Statement stm2 = conn.createStatement(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_UPDATABLE);</span><br><span class="line">ResultSet rs2 = stm2.executeQuery(sql);</span><br><span class="line"><span class="keyword">if</span> (rs2.next()) &#123;</span><br><span class="line">	System.out.println(rs2.getString(<span class="number">2</span>));</span><br><span class="line">	System.out.println(rs2.getDate(<span class="number">2</span>));</span><br><span class="line">	System.out.println(rs2.getTime(<span class="number">2</span>));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//运行结果如下：</span></span><br><span class="line"><span class="number">2018</span>-<span class="number">7</span>-<span class="number">2</span> <span class="number">15.34</span>.48.0</span><br><span class="line"><span class="number">2018</span>-<span class="number">07</span>-<span class="number">02</span></span><br><span class="line"><span class="number">15</span>:<span class="number">34</span>:<span class="number">48</span></span><br><span class="line"><span class="number">2018</span>-<span class="number">07</span>-<span class="number">02</span> <span class="number">15</span>:<span class="number">34</span>:<span class="number">48.0</span></span><br><span class="line"><span class="number">2018</span>-<span class="number">07</span>-<span class="number">02</span></span><br><span class="line"><span class="number">15</span>:<span class="number">34</span>:<span class="number">48</span></span><br></pre></td></tr></table></figure>
-<h4 id="ResultSet-的-Type-属性："><a href="#ResultSet-的-Type-属性：" class="headerlink" title="ResultSet 的 Type 属性："></a>ResultSet 的 Type 属性：</h4><p>Connection 的 <code>Statement createStatement(int resultSetType, int resultSetConcurrency) throws SQLException</code> 方法;</p>
-<p><strong>参数 resultSetType:</strong></p>
-<p>​    ResultSet.TYPE_FORWORD_ONLY 结果集的游标只能向下滚动。</p>
-<p>​    ResultSet.TYPE_SCROLL_INSENSITIVE 结果集的游标可以上下移动，当数据库变化时，当前结果集不变。 </p>
-<p>​    ResultSet.TYPE_SCROLL_SENSITIVE 返回可滚动的结果集，当数据库变化时，当前结果集同步改变。 </p>
-<p><strong>参数  resultSetConcurrency：</strong></p>
-<p>​    ResultSet.CONCUR_READ_ONLY 不能用结果集更新数据库中的表 。</p>
-<p>​    ResultSet.CONCUR_UPDATETABLE 能用结果集更新数据库中的表。  </p>
-<p>参考链接：<a href="https://www.cnblogs.com/catkins/p/5604686.html" target="_blank" rel="noopener">ResultSet 的Type属性 TYPE_FORWARD_ONLY</a></p>
-<h4 id="创建-Statement-的三种类型："><a href="#创建-Statement-的三种类型：" class="headerlink" title="创建 Statement 的三种类型："></a>创建 Statement 的三种类型：</h4><p><strong>最基本的 Statement st = conn.CreateStatement()</strong> </p>
-<p>​    只能使用 next() 方法，逐个的读取数据。</p>
-<p><strong>可滚动的、可更新的 ResultSet</strong> </p>
-<p>​    Statement st = conn.createStatement(int resultSetType, int resultSetConcurrency) ；</p>
-<p>​    ResultSet 有 insertRow()、deleteRow()、updateRow() 等各种方法，见 ResultSet 源码。</p>
-<p><strong>可保持的ResultSet</strong> </p>
-<p>​    Statement st = conn.createStatement(int resultsetscrollable,int resultsetupdateable,int resultsetSetHoldability) ，见 Connection 类源码；</p>
-<h4 id="疼痛总结："><a href="#疼痛总结：" class="headerlink" title="疼痛总结："></a>疼痛总结：</h4><ul>
-<li><strong>理论与实践并重。</strong>最初自学编程时总是看得多，动手少，最后学完很容易忘记，上手写代码脑中一片空白，充满挫败感；后来工作繁忙，便放松了基本理论的学习，又导致在项目开发中踩了不少深坑（其实都是些很基础的小问题），耽误了时间。</li>
-<li><strong>注重开发规范。</strong>有些同事（包括自己有时也是这样）写起代码来一把梭，全然不顾读代码人的感受，再加上项目都是多人协作，事先没个规范最后出问题 debug 时就是个深坑，出现各种问题，修复这个 bug 时又会出现另一个 bug，掉入不断修复 bug 的漩涡之中。</li>
-<li><strong>bug 最终还是要自己修复的。</strong>求助他人只是起到点拨作用，开阔自己解决问题的思路，最终问题还是得自己解决的。</li>
-<li><strong>源码里面找方法。</strong></li>
-</ul>
+        <h3 id="第四章-HDFS-文件系统"><a href="#第四章-HDFS-文件系统" class="headerlink" title="第四章  HDFS 文件系统"></a>第四章  HDFS 文件系统</h3><h4 id="HDFS-系统特点："><a href="#HDFS-系统特点：" class="headerlink" title="HDFS 系统特点："></a>HDFS 系统特点：</h4><ol>
+<li>可存储超大文件（block 默认为 64M，磁盘块一般为 512 字节），block 设计如此大，是为了最小化寻址开销。</li>
+<li>运行在普通廉价的机器上。</li>
+<li>易扩展、为用户提供性能不错的文件存储服务。</li>
+</ol>
+<h4 id="不适用于-HDFS-的场景："><a href="#不适用于-HDFS-的场景：" class="headerlink" title="不适用于 HDFS 的场景："></a>不适用于 HDFS 的场景：</h4><ol>
+<li>低延迟</li>
+<li>大量小文件（远小于 block size 的文件），每个小文件产生 metadata，Hadoop 通过 NN 存储，小文件过多，容易产生 NN 性能瓶颈</li>
+<li>结构化数据</li>
+<li>数据量并不大（TB、PB数据）</li>
+</ol>
+<h4 id="体系结构"><a href="#体系结构" class="headerlink" title="体系结构"></a>体系结构</h4><p><img src="D:\blog\source\images\image4.png" alt="img"> </p>
 
       
     </div>
@@ -389,14 +372,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/数据库/" rel="tag"># 数据库</a>
-          
-            <a href="/tags/Java/" rel="tag"># Java</a>
-          
-        </div>
-      
 
       
       
@@ -406,8 +381,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/07/14/SQLServer 转 Oracle/" rel="next" title="SQL Server 转 Oracle">
-                <i class="fa fa-chevron-left"></i> SQL Server 转 Oracle
+              <a href="/2018/08/14/动态规划/" rel="next" title="动态规划">
+                <i class="fa fa-chevron-left"></i> 动态规划
               </a>
             
           </div>
@@ -415,10 +390,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/07/24/任意进制转换/" rel="prev" title="任意进制转换">
-                任意进制转换 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -545,7 +516,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#ResultSet-的-Type-属性："><span class="nav-number">1.</span> <span class="nav-text">ResultSet 的 Type 属性：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建-Statement-的三种类型："><span class="nav-number">2.</span> <span class="nav-text">创建 Statement 的三种类型：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#疼痛总结："><span class="nav-number">3.</span> <span class="nav-text">疼痛总结：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#第四章-HDFS-文件系统"><span class="nav-number">1.</span> <span class="nav-text">第四章  HDFS 文件系统</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#HDFS-系统特点："><span class="nav-number">1.1.</span> <span class="nav-text">HDFS 系统特点：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#不适用于-HDFS-的场景："><span class="nav-number">1.2.</span> <span class="nav-text">不适用于 HDFS 的场景：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#体系结构"><span class="nav-number">1.3.</span> <span class="nav-text">体系结构</span></a></li></ol></li></ol></div>
             
 
           </div>

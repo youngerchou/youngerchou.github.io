@@ -276,7 +276,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/14/搜索术/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/18/Hadoop大数据实战手册/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ZhouYang">
@@ -295,7 +295,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/08/14/搜索术/" itemprop="url">搜索术</a></h1>
+                <a class="post-title-link" href="/2018/08/18/Hadoop大数据实战手册/" itemprop="url">Untitled</a></h1>
         
 
         <div class="post-meta">
@@ -307,8 +307,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-14T00:00:00+08:00">
-                2018-08-14
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-18T16:00:55+08:00">
+                2018-08-18
               </time>
             
 
@@ -347,18 +347,18 @@
       
         
           
-            <blockquote>
-<p>偶然看到群里有人分享《12 堂超级搜索术》的教程，看完过后，觉得收获并不太大，简单总结下学习收获吧！</p>
-</blockquote>
-<h4 id="搜索心法"><a href="#搜索心法" class="headerlink" title="搜索心法"></a>搜索心法</h4><p>​    找什么：准确描述自己想要的搜索目标<br>    哪里找：准确找到垂直搜索渠道发现更多同类型网站<br>    怎么找：掌握高级搜索指令</p>
-<h4 id="信息搜索逻辑"><a href="#信息搜索逻辑" class="headerlink" title="信息搜索逻辑"></a>信息搜索逻辑</h4><p>​    搜狗微信、搜狗知乎<br>    大数据导航（大数据垂直网站）<br>    虫部落快搜（搜索集大成者）<br>    转变思路：应用商店搜索相关 APP</p>
-<h4 id="搜索技巧"><a href="#搜索技巧" class="headerlink" title="搜索技巧"></a>搜索技巧</h4><p>​    关键词搜索<br>    特定时间内的关键信息（关键词 20xx..20xx）<br>    特定网站（site） 关键词 空格 site:限定站点<br>    限定文件类型（filetype）<br>    将关键词限定在标题中（intitle）allinurl<br>    不包含某关键词（减号-）</p>
-<h4 id="收藏网站"><a href="#收藏网站" class="headerlink" title="收藏网站"></a>收藏网站</h4><p>猎手导航（磁链，搜索影视剧）</p>
-<p>网盘搜索、微盘搜索</p>
-<p>专业资源网站搜索</p>
-<p>​    图片：pexels、500px</p>
-<p>​    ppt 模板：officeplus、比格 ppt</p>
-<p>​    </p>
+            <h3 id="第四章-HDFS-文件系统"><a href="#第四章-HDFS-文件系统" class="headerlink" title="第四章  HDFS 文件系统"></a>第四章  HDFS 文件系统</h3><h4 id="HDFS-系统特点："><a href="#HDFS-系统特点：" class="headerlink" title="HDFS 系统特点："></a>HDFS 系统特点：</h4><ol>
+<li>可存储超大文件（block 默认为 64M，磁盘块一般为 512 字节），block 设计如此大，是为了最小化寻址开销。</li>
+<li>运行在普通廉价的机器上。</li>
+<li>易扩展、为用户提供性能不错的文件存储服务。</li>
+</ol>
+<h4 id="不适用于-HDFS-的场景："><a href="#不适用于-HDFS-的场景：" class="headerlink" title="不适用于 HDFS 的场景："></a>不适用于 HDFS 的场景：</h4><ol>
+<li>低延迟</li>
+<li>大量小文件（远小于 block size 的文件），每个小文件产生 metadata，Hadoop 通过 NN 存储，小文件过多，容易产生 NN 性能瓶颈</li>
+<li>结构化数据</li>
+<li>数据量并不大（TB、PB数据）</li>
+</ol>
+<h4 id="体系结构"><a href="#体系结构" class="headerlink" title="体系结构"></a>体系结构</h4><p><img src="D:\blog\source\images\image4.png" alt="img"> </p>
 
           
         
@@ -398,7 +398,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -448,7 +448,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

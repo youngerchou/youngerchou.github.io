@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="数据库,Java," />
+  <meta name="keywords" content="算法," />
 
 
 
@@ -79,20 +79,18 @@
 
 
 
-<meta name="description" content="唯有疼痛，方可刻骨铭心。  通过 ResultSet.getString() 方法取一个 Oracle 数据库中的 Date 类型的字段，取出的值变成了 2018-7-2 12.12.12.0，着实神奇。  1234567891011121314151617181920212223Statement stm = conn.createStatement(ResultSet.TYPE_SCROLL">
-<meta name="keywords" content="数据库,Java">
+<meta name="description" content="动态规划与分治方法相似，都是通过组合子问题的解来求解原问题。 钢条切割问题： 如何切割长钢条以获取最大收益？    长度i 1 2 3 4 5 6 7 8 9 10     价格pi 1 5 8 9 10 17 17 20 24 30    分而治之将问题划分为互不相交的子问题，递归求阶子问题。 123456789101112131415161718192021222324252627282930">
+<meta name="keywords" content="算法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ResultSet 使用总结">
-<meta property="og:url" content="http://yoursite.com/2018/07/15/ResultSet使用总结/index.html">
+<meta property="og:title" content="动态规划">
+<meta property="og:url" content="http://yoursite.com/2018/08/14/动态规划/index.html">
 <meta property="og:site_name" content="莫敢言">
-<meta property="og:description" content="唯有疼痛，方可刻骨铭心。  通过 ResultSet.getString() 方法取一个 Oracle 数据库中的 Date 类型的字段，取出的值变成了 2018-7-2 12.12.12.0，着实神奇。  1234567891011121314151617181920212223Statement stm = conn.createStatement(ResultSet.TYPE_SCROLL">
+<meta property="og:description" content="动态规划与分治方法相似，都是通过组合子问题的解来求解原问题。 钢条切割问题： 如何切割长钢条以获取最大收益？    长度i 1 2 3 4 5 6 7 8 9 10     价格pi 1 5 8 9 10 17 17 20 24 30    分而治之将问题划分为互不相交的子问题，递归求阶子问题。 123456789101112131415161718192021222324252627282930">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/images/1532163826372.png">
-<meta property="og:updated_time" content="2018-08-14T08:54:05.445Z">
+<meta property="og:updated_time" content="2018-09-01T01:26:52.561Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ResultSet 使用总结">
-<meta name="twitter:description" content="唯有疼痛，方可刻骨铭心。  通过 ResultSet.getString() 方法取一个 Oracle 数据库中的 Date 类型的字段，取出的值变成了 2018-7-2 12.12.12.0，着实神奇。  1234567891011121314151617181920212223Statement stm = conn.createStatement(ResultSet.TYPE_SCROLL">
-<meta name="twitter:image" content="http://yoursite.com/images/1532163826372.png">
+<meta name="twitter:title" content="动态规划">
+<meta name="twitter:description" content="动态规划与分治方法相似，都是通过组合子问题的解来求解原问题。 钢条切割问题： 如何切割长钢条以获取最大收益？    长度i 1 2 3 4 5 6 7 8 9 10     价格pi 1 5 8 9 10 17 17 20 24 30    分而治之将问题划分为互不相交的子问题，递归求阶子问题。 123456789101112131415161718192021222324252627282930">
 
 
 
@@ -122,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/07/15/ResultSet使用总结/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/08/14/动态规划/"/>
 
 
 
 
 
-  <title>ResultSet 使用总结 | 莫敢言</title>
+  <title>动态规划 | 莫敢言</title>
   
 
 
@@ -279,7 +277,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/15/ResultSet使用总结/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/14/动态规划/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ZhouYang">
@@ -296,7 +294,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">ResultSet 使用总结</h1>
+          <h1 class="post-title" itemprop="name headline">动态规划</h1>
         
 
         <div class="post-meta">
@@ -308,8 +306,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-15T00:00:00+08:00">
-                2018-07-15
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-14T00:00:00+08:00">
+                2018-08-14
               </time>
             
 
@@ -346,34 +344,45 @@
       
 
       
-        <blockquote>
-<p>唯有疼痛，方可刻骨铭心。</p>
-</blockquote>
-<p><em>通过 ResultSet.getString() 方法取一个 Oracle 数据库中的 Date 类型的字段，取出的值变成了 2018-7-2 12.12.12.0，着实神奇。</em></p>
-<p><img src="../../../../images/1532163826372.png" alt="1532163826372"></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">Statement stm = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);</span><br><span class="line">ResultSet rs = stm.executeQuery(sql);</span><br><span class="line"><span class="keyword">if</span> (rs.next()) &#123;</span><br><span class="line">	System.out.println(rs.getString(<span class="number">2</span>));</span><br><span class="line">	System.out.println(rs.getDate(<span class="number">2</span>));</span><br><span class="line">	System.out.println(rs.getTime(<span class="number">2</span>));</span><br><span class="line">&#125;</span><br><span class="line">		</span><br><span class="line">Statement stm2 = conn.createStatement(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_UPDATABLE);</span><br><span class="line">ResultSet rs2 = stm2.executeQuery(sql);</span><br><span class="line"><span class="keyword">if</span> (rs2.next()) &#123;</span><br><span class="line">	System.out.println(rs2.getString(<span class="number">2</span>));</span><br><span class="line">	System.out.println(rs2.getDate(<span class="number">2</span>));</span><br><span class="line">	System.out.println(rs2.getTime(<span class="number">2</span>));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//运行结果如下：</span></span><br><span class="line"><span class="number">2018</span>-<span class="number">7</span>-<span class="number">2</span> <span class="number">15.34</span>.48.0</span><br><span class="line"><span class="number">2018</span>-<span class="number">07</span>-<span class="number">02</span></span><br><span class="line"><span class="number">15</span>:<span class="number">34</span>:<span class="number">48</span></span><br><span class="line"><span class="number">2018</span>-<span class="number">07</span>-<span class="number">02</span> <span class="number">15</span>:<span class="number">34</span>:<span class="number">48.0</span></span><br><span class="line"><span class="number">2018</span>-<span class="number">07</span>-<span class="number">02</span></span><br><span class="line"><span class="number">15</span>:<span class="number">34</span>:<span class="number">48</span></span><br></pre></td></tr></table></figure>
-<h4 id="ResultSet-的-Type-属性："><a href="#ResultSet-的-Type-属性：" class="headerlink" title="ResultSet 的 Type 属性："></a>ResultSet 的 Type 属性：</h4><p>Connection 的 <code>Statement createStatement(int resultSetType, int resultSetConcurrency) throws SQLException</code> 方法;</p>
-<p><strong>参数 resultSetType:</strong></p>
-<p>​    ResultSet.TYPE_FORWORD_ONLY 结果集的游标只能向下滚动。</p>
-<p>​    ResultSet.TYPE_SCROLL_INSENSITIVE 结果集的游标可以上下移动，当数据库变化时，当前结果集不变。 </p>
-<p>​    ResultSet.TYPE_SCROLL_SENSITIVE 返回可滚动的结果集，当数据库变化时，当前结果集同步改变。 </p>
-<p><strong>参数  resultSetConcurrency：</strong></p>
-<p>​    ResultSet.CONCUR_READ_ONLY 不能用结果集更新数据库中的表 。</p>
-<p>​    ResultSet.CONCUR_UPDATETABLE 能用结果集更新数据库中的表。  </p>
-<p>参考链接：<a href="https://www.cnblogs.com/catkins/p/5604686.html" target="_blank" rel="noopener">ResultSet 的Type属性 TYPE_FORWARD_ONLY</a></p>
-<h4 id="创建-Statement-的三种类型："><a href="#创建-Statement-的三种类型：" class="headerlink" title="创建 Statement 的三种类型："></a>创建 Statement 的三种类型：</h4><p><strong>最基本的 Statement st = conn.CreateStatement()</strong> </p>
-<p>​    只能使用 next() 方法，逐个的读取数据。</p>
-<p><strong>可滚动的、可更新的 ResultSet</strong> </p>
-<p>​    Statement st = conn.createStatement(int resultSetType, int resultSetConcurrency) ；</p>
-<p>​    ResultSet 有 insertRow()、deleteRow()、updateRow() 等各种方法，见 ResultSet 源码。</p>
-<p><strong>可保持的ResultSet</strong> </p>
-<p>​    Statement st = conn.createStatement(int resultsetscrollable,int resultsetupdateable,int resultsetSetHoldability) ，见 Connection 类源码；</p>
-<h4 id="疼痛总结："><a href="#疼痛总结：" class="headerlink" title="疼痛总结："></a>疼痛总结：</h4><ul>
-<li><strong>理论与实践并重。</strong>最初自学编程时总是看得多，动手少，最后学完很容易忘记，上手写代码脑中一片空白，充满挫败感；后来工作繁忙，便放松了基本理论的学习，又导致在项目开发中踩了不少深坑（其实都是些很基础的小问题），耽误了时间。</li>
-<li><strong>注重开发规范。</strong>有些同事（包括自己有时也是这样）写起代码来一把梭，全然不顾读代码人的感受，再加上项目都是多人协作，事先没个规范最后出问题 debug 时就是个深坑，出现各种问题，修复这个 bug 时又会出现另一个 bug，掉入不断修复 bug 的漩涡之中。</li>
-<li><strong>bug 最终还是要自己修复的。</strong>求助他人只是起到点拨作用，开阔自己解决问题的思路，最终问题还是得自己解决的。</li>
-<li><strong>源码里面找方法。</strong></li>
-</ul>
+        <p>动态规划与分治方法相似，都是通过<strong>组合子问题的解</strong>来求解原问题。</p>
+<p><strong>钢条切割问题</strong>：</p>
+<p>如何切割长钢条以获取最大收益？</p>
+<table>
+<thead>
+<tr>
+<th>长度i</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+<th>10</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>价格pi</td>
+<td>1</td>
+<td>5</td>
+<td>8</td>
+<td>9</td>
+<td>10</td>
+<td>17</td>
+<td>17</td>
+<td>20</td>
+<td>24</td>
+<td>30</td>
+</tr>
+</tbody>
+</table>
+<h4 id="分而治之"><a href="#分而治之" class="headerlink" title="分而治之"></a>分而治之</h4><p>将问题划分为互不相交的子问题，递归求阶子问题。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 分而治之</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">cutWithRecurrence</span><span class="params">(<span class="keyword">int</span>[] priceTable, <span class="keyword">int</span> length)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (length &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> priceSum = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;length; i++) &#123;</span><br><span class="line">		<span class="keyword">int</span> priceIndex = i % priceTable.length;</span><br><span class="line">		priceSum = Math.max(priceSum, priceTable[priceIndex] + cutWithRecurrence(priceTable, length - <span class="number">1</span> - i));</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> priceSum;		</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span>[] priceTable = &#123;<span class="number">1</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>, <span class="number">17</span>, <span class="number">17</span>, <span class="number">20</span>, <span class="number">24</span>, <span class="number">30</span>&#125;;</span><br><span class="line">	<span class="keyword">long</span> start;</span><br><span class="line">	<span class="keyword">long</span> end;</span><br><span class="line">	<span class="keyword">int</span> maxEarning;</span><br><span class="line"><span class="comment">//		绳子长为  0 时，最大收益为：0，计算用时：0</span></span><br><span class="line"><span class="comment">//		……</span></span><br><span class="line"><span class="comment">//		绳子长为  12 时，最大收益为：35，计算用时：0</span></span><br><span class="line"><span class="comment">//		……</span></span><br><span class="line"><span class="comment">//		绳子长为  31 时，最大收益为：91，计算用时：10496</span></span><br><span class="line"><span class="comment">//		绳子长为  32 时，最大收益为：95，计算用时：18461</span></span><br><span class="line"><span class="comment">//		绳子长为  33 时，最大收益为：98，计算用时：36380</span></span><br><span class="line"><span class="comment">//		绳子长为  34 时，最大收益为：100，计算用时：76539</span></span><br><span class="line"><span class="comment">//		绳子长为  35 时，最大收益为：103，计算用时：152396</span></span><br><span class="line"><span class="comment">//		绳子长为  36 时，最大收益为：107，计算用时：303602</span></span><br><span class="line"><span class="comment">//		绳子长为  37 时，最大收益为：108，计算用时：602461</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;<span class="number">40</span>; i++) &#123;</span><br><span class="line">		start = System.currentTimeMillis();</span><br><span class="line">		maxEarning = cutWithRecurrence(priceTable, i);</span><br><span class="line">		end = System.currentTimeMillis();</span><br><span class="line">		System.out.println(<span class="string">"绳子长为  "</span> + i + <span class="string">" 时，"</span> + <span class="string">"最大收益为："</span> + maxEarning + <span class="string">"，计算用时："</span> + (end - start));</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h4><p>动态规划用于<strong>问题重叠</strong>的情况，即不同的子问题具有公共的子子问题，这种情况下，分治算法会反复求解那些公共子子问题。而动态规划算法对每个子子问题只求解一次，将其解保存在一个表格中，避免不必要的重复计算工作。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> List&lt;Integer&gt; memorized = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 带备忘的自顶向下法</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">cutWithTopDown</span><span class="params">(<span class="keyword">int</span>[] priceTable, <span class="keyword">int</span> length)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (length &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (length &lt;= memorized.size()) &#123;</span><br><span class="line">		<span class="keyword">return</span> memorized.get(length - <span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> priceSum = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;length; i++) &#123;</span><br><span class="line">		<span class="keyword">int</span> priceIndex = i % priceTable.length;</span><br><span class="line">		priceSum = Math.max(priceSum, priceTable[priceIndex] + cutWithTopDown(priceTable, length - <span class="number">1</span> - i));</span><br><span class="line">	&#125;</span><br><span class="line">	memorized.add(priceSum);</span><br><span class="line">	<span class="keyword">return</span> priceSum;		</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">test2</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span>[] priceTable = &#123;<span class="number">1</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>, <span class="number">17</span>, <span class="number">17</span>, <span class="number">20</span>, <span class="number">24</span>, <span class="number">30</span>&#125;;</span><br><span class="line">	<span class="keyword">long</span> start;</span><br><span class="line">	<span class="keyword">long</span> end;</span><br><span class="line">	<span class="keyword">int</span> maxEarning;</span><br><span class="line">	start = System.currentTimeMillis();</span><br><span class="line">	<span class="comment">// 绳子长为  10000 时，最大收益为：30000，计算用时：23692</span></span><br><span class="line">	maxEarning = cutWithTopDown(priceTable, <span class="number">10000</span>);</span><br><span class="line">	end = System.currentTimeMillis();</span><br><span class="line">	System.out.println(<span class="string">"绳子长为  10000 时，"</span> + <span class="string">"最大收益为："</span> + maxEarning + <span class="string">"，计算用时："</span> + (end - start));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -391,9 +400,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/数据库/" rel="tag"># 数据库</a>
-          
-            <a href="/tags/Java/" rel="tag"># Java</a>
+            <a href="/tags/算法/" rel="tag"># 算法</a>
           
         </div>
       
@@ -406,8 +413,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/07/14/SQLServer 转 Oracle/" rel="next" title="SQL Server 转 Oracle">
-                <i class="fa fa-chevron-left"></i> SQL Server 转 Oracle
+              <a href="/2018/08/14/搜索术/" rel="next" title="搜索术">
+                <i class="fa fa-chevron-left"></i> 搜索术
               </a>
             
           </div>
@@ -416,8 +423,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/07/24/任意进制转换/" rel="prev" title="任意进制转换">
-                任意进制转换 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/08/18/Hadoop大数据实战手册/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -545,7 +552,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#ResultSet-的-Type-属性："><span class="nav-number">1.</span> <span class="nav-text">ResultSet 的 Type 属性：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建-Statement-的三种类型："><span class="nav-number">2.</span> <span class="nav-text">创建 Statement 的三种类型：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#疼痛总结："><span class="nav-number">3.</span> <span class="nav-text">疼痛总结：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#分而治之"><span class="nav-number">1.</span> <span class="nav-text">分而治之</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#动态规划"><span class="nav-number">2.</span> <span class="nav-text">动态规划</span></a></li></ol></div>
             
 
           </div>

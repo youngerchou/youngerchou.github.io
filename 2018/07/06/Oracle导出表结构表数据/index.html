@@ -88,7 +88,7 @@
 <meta property="og:description" content="何为良好生活？陈嘉映说「行之于途而应于心」；路遥也曾说过「只有在无比沉重的劳动中,人才会活得更为充实」。在这个价值流失的年代如何自处，我想很简单，撸起袖子加油干，做好眼前事就行了，在做事行路的过程中自然就会找寻到意义，意义不是空想出来的，而是在实践中产生的。  这篇文章简单记录 Oracle 导出表结构表数据的关键点，使用常用的 plsql 工具。 Export Tables 的三种导出方式使用">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/images/005.png">
-<meta property="og:updated_time" content="2018-08-14T08:53:31.825Z">
+<meta property="og:updated_time" content="2018-08-30T13:36:34.297Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Oracle 导出 sql 文件乱码">
 <meta name="twitter:description" content="何为良好生活？陈嘉映说「行之于途而应于心」；路遥也曾说过「只有在无比沉重的劳动中,人才会活得更为充实」。在这个价值流失的年代如何自处，我想很简单，撸起袖子加油干，做好眼前事就行了，在做事行路的过程中自然就会找寻到意义，意义不是空想出来的，而是在实践中产生的。  这篇文章简单记录 Oracle 导出表结构表数据的关键点，使用常用的 plsql 工具。 Export Tables 的三种导出方式使用">
@@ -370,6 +370,7 @@
 <p><code>SELECT USERENV(&#39;language&#39;) FROM DUAL;</code> </p>
 <p><strong>修改 Client 字符集：</strong></p>
 <p>我使用的开发环境是 Windows，所以只写在 Windows 下的操作方法：修改注册表键值永久设置，HKEY_LOCAL_MACHINE/SOFTWARE/ORACLE/KEY_XXXX_home1/NLS_LANG，将值修改为 AMERICAN_AMERICA.AL32UTF8 后导出的 sql 文件编码正确，显示正常。</p>
+<p><em>注意：oracle客户端在获取字符集设置信息时的优先级顺序依次为：session、环境变量、注册表、参数文件。</em> </p>
 <h4 id="参考文章："><a href="#参考文章：" class="headerlink" title="参考文章："></a>参考文章：</h4><p><a href="https://www.cnblogs.com/kerrycode/p/3749085.html" target="_blank" rel="noopener">Oracle 字符集基础知识</a></p>
 
       
@@ -494,7 +495,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
