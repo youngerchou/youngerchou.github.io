@@ -276,7 +276,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/11/数据库锁表怎么办/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/11/关于写博客/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ZhouYang">
@@ -295,7 +295,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/05/11/数据库锁表怎么办/" itemprop="url">数据库锁表怎么办？</a></h1>
+                <a class="post-title-link" href="/2018/05/11/关于写博客/" itemprop="url">关于写博客</a></h1>
         
 
         <div class="post-meta">
@@ -348,34 +348,24 @@
         
           
             <blockquote>
-<p>日常开发中出现数据库锁表的情况时，不但影响自己开发，还会影响他人的开发测试，应当立即定位到被锁的表，并执行解锁操作。</p>
+<p>3 W 法是个分析问题的好方法，为了让自己更好的将「写博客」这件小事坚持下去， 尝试用 3 W 法对「怎样写好博客」这个问题作出回答，记录于此。</p>
 </blockquote>
-<h3 id="Oracle-数据库锁表查询及解锁"><a href="#Oracle-数据库锁表查询及解锁" class="headerlink" title="Oracle 数据库锁表查询及解锁"></a>Oracle 数据库锁表查询及解锁</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">-- 查询 SQL 如下：</span><br><span class="line">select dbaobj.owner, dbaobj.object_name, s.sid, s.serial#, lckobj.locked_mode </span><br><span class="line">from v$locked_object lckobj, dba_objects dbaobj, v$session s</span><br><span class="line">where lckobj.object_id = dbaobj.object_id </span><br><span class="line">and lckobj.session_id = s.sid</span><br><span class="line">order by s.logon_time;</span><br><span class="line">-- 解锁方法：</span><br><span class="line">alter system kill session &apos;sid,serial#&apos;;</span><br></pre></td></tr></table></figure>
-<p><strong>dba_objects 视图</strong>：记录数据库中所有对象</p>
-<p><strong>v$locked_object 视图 </strong>：记录当前系统中哪些对象正被锁定</p>
-<p><strong>v$session 视图</strong>：记录所有会话信息</p>
-<h3 id="数据库锁分类"><a href="#数据库锁分类" class="headerlink" title="数据库锁分类"></a>数据库锁分类</h3><p>按照锁的内容上区分：表锁、页锁、行锁</p>
-<p>按照锁的性质上区分：共享锁、排他锁 / 独占锁、更新锁</p>
-<p>当执行 select 时，加共享锁，当执行 insert，update，delete 等操作时，加排他锁</p>
-<h3 id="数据库隔离级别"><a href="#数据库隔离级别" class="headerlink" title="数据库隔离级别"></a>数据库隔离级别</h3><ul>
-<li><strong>脏读</strong>：对于两个事务T1，T2，T1读取了已经被T2更新但还没有提交的字段，之后，若T2回滚，T1读取到的内容就是临时无效的内容。 </li>
-<li><strong>不可重复读</strong>：对于事务T1，T2，T1需要读取一个字段两次，在第一次和第二次读取之间，T2更新了该字段，导致T1第二次读取到的内容值不同。</li>
-<li><strong>幻读</strong>： 事务A读取与搜索条件相匹配的若干行。事务B以插入或删除行等方式来修改事务A的结果集，然后再提交。 幻读与不可重复读之间的区别是幻读强调的是新增或删除,而不可重复读强调的是修改。比如Mary两次查工资，中间有人改过工资，则两次结果不一样，这就是不可重复读。Mary要查工资一千的人数，第一次查到了10个，中间有人增加了一条工资为一千的人，下次查的时候就变成了11个，好像第一次查询的是幻觉一样。</li>
+<h3 id="为什么写博客"><a href="#为什么写博客" class="headerlink" title="为什么写博客"></a>为什么写博客</h3><p>「记录世界记录你」，作为自己日常工作生活的一种记录方式。本来过去的我是一个非常活在未来的人，不喜欢回忆过去，也不喜欢拍照记录那些当下的幸福瞬间，总觉得更美好的东西永远在未来。可能现在年龄大了，也时常回忆起过去的事情，而且现在的我觉得，时间真的是一种美妙的东西（看完《三体》影响我很多，使我睁眼看到了时间的柔美）。有着过去珍贵的记忆、对当下生活的珍惜和对未来的美好想象，这才是一种更加丰满健全的生活态度。而人的记忆却并不那么可靠，所以从此刻开始，每当有些值得记录的事情或自己的所思所想，我都会记录于此。 </p>
+<p>「个人表达」能力在当今社会变得越来越为重要，而这恰恰是我非常欠缺的。自己是个相对内向（不高兴时一个人静静呆着就能积攒正能量开始新的一天）的人，没有才艺，不善社交，语言表达能力弱，所以「写作」应该就是一种最适合自己的表达方式了 。</p>
+<p>「职业素养」，作为一个程序员，你怎么能没有自己的博客呢？写博客对码农的好处与必要性，网上已经有很多讨论了：加强记忆、加深对技术点的理解、倒闭输出成长大牛。 </p>
+<h3 id="写什么内容"><a href="#写什么内容" class="headerlink" title="写什么内容"></a>写什么内容</h3><p>首先当然就是技术相关的文章，写一些自己学习技术的过程和方法，总结工作学习中踩过的那些坑。</p>
+<p>然后就是写一些自己日常的小思考。</p>
+<h3 id="准备怎么写"><a href="#准备怎么写" class="headerlink" title="准备怎么写"></a>准备怎么写</h3><p>技术类文章的写作，充分发挥程序员 CTRL + C 和 CTRL + V 的特长，记录学习过程（环境搭建、学习笔记）和踩坑经验（日常问题点及网上查找到的解决方法），即使是 CTRL + C/V 其实也是对自己思维的一种整理，对知识点的再吸收，解决问题经验的一种积累，长期坚持，相信也能慢慢写出高质量的博文。</p>
+<p>个人小杂文的写作，初期当然就是瞎写啦，想到什么写什么。</p>
+<h3 id="关于坚持"><a href="#关于坚持" class="headerlink" title="关于坚持"></a>关于坚持</h3><p>年龄越大就越会懂得坚持的力量，如何将写博客这件小事坚持下去呢？</p>
+<ul>
+<li><p>降低期望，不要太过在意自己写的文章烂，写的烂总比不写要强吧。</p>
+</li>
+<li><p>与人分享自己的文章，这样是对自己的一个激励反馈，也能发现自己文章的不足之处和提高的方向。</p>
+</li>
+<li>学习相关写作技巧，提高文章质量。</li>
+<li>傻傻等待，傻傻等春暖花开。</li>
 </ul>
-<p>事务的 4 个隔离级别：</p>
-<ol>
-<li><strong>read uncommitted</strong>：可以读取已由其他事务修改但未提交的行；</li>
-<li><strong>read committed</strong>：不能读取已由其他事务修改但未提交的行；其他事务可以在当前事务的各个语句之间更改数据，从而产生不可重复读取和幻读数据；</li>
-<li><strong>repeatable read</strong>：不能读取已由其他事务修改但未提交的行，并且指定，其他任何事务都不能在当前事务完成之前修改当前事务读取的数据；其他事务可以插入与当前事务语句的搜索条件相匹配的新行，如果当前事务随后重复执行该语句，会检索新行，产生幻读；</li>
-<li><strong>serializable</strong>：所有事务只能一个接一个串行执行，不能并发。</li>
-</ol>
-<p><em>Oracle 支持两种隔离级别：read commited、serializable，默认的事务隔离级别是 read commited</em></p>
-<h3 id="乐观锁与悲观锁"><a href="#乐观锁与悲观锁" class="headerlink" title="乐观锁与悲观锁"></a>乐观锁与悲观锁</h3><p><em>Java 开发中经常看到乐观锁，那么到底什么是乐观锁，什么是悲观锁呢？</em></p>
-<p>悲观锁：数据库实现。共享锁、排他锁都属于悲观锁，Java 关键字 synchronized  也属于悲观锁。</p>
-<p>乐观锁：自己实现。操作数据时，不加锁，进行更新后，再去判断是否冲突了。举例如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. 查询出商品信息，select (status,version) from t_goods where id=#&#123;id&#125;</span><br><span class="line">2. 根据商品信息生成订单</span><br><span class="line">3. 修改商品 status 为 2，update t_goods set status=2,version=version+1 where id=#&#123;id&#125; and version=#&#123;version&#125;;</span><br></pre></td></tr></table></figure>
-<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><p><a href="https://troywu0.gitbooks.io/spark/content/%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB.html" target="_blank" rel="noopener">Oracle 锁表问题处理</a></p>
-<p><a href="https://troywu0.gitbooks.io/spark/content/%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB.html" target="_blank" rel="noopener">数据库隔离级别</a></p>
 
           
         
@@ -415,7 +405,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/18/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><span class="page-number current">19</span>
+    <a class="extend prev" rel="prev" href="/page/18/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><span class="page-number current">19</span><a class="page-number" href="/page/20/">20</a><a class="extend next" rel="next" href="/page/20/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -465,7 +455,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -478,7 +468,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

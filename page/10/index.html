@@ -276,7 +276,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/06/Oracle导出表结构表数据/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/14/SQLServer 转 Oracle/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ZhouYang">
@@ -295,7 +295,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/07/06/Oracle导出表结构表数据/" itemprop="url">Oracle 导出 sql 文件乱码</a></h1>
+                <a class="post-title-link" href="/2018/07/14/SQLServer 转 Oracle/" itemprop="url">SQL Server 转 Oracle</a></h1>
         
 
         <div class="post-meta">
@@ -307,8 +307,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-06T00:00:00+08:00">
-                2018-07-06
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-14T00:00:00+08:00">
+                2018-07-14
               </time>
             
 
@@ -348,31 +348,127 @@
         
           
             <blockquote>
-<p>何为良好生活？陈嘉映说「行之于途而应于心」；路遥也曾说过「只有在无比沉重的劳动中,人才会活得更为充实」。在这个价值流失的年代如何自处，我想很简单，撸起袖子加油干，做好眼前事就行了，在做事行路的过程中自然就会找寻到意义，意义不是空想出来的，而是在实践中产生的。</p>
+<p>工作中碰到需要把 SQL Server 的数据迁移到 Oracle 的情况，踩坑总结。</p>
 </blockquote>
-<p>这篇文章简单记录 Oracle 导出表结构表数据的关键点，使用常用的 plsql 工具。</p>
-<h4 id="Export-Tables-的三种导出方式"><a href="#Export-Tables-的三种导出方式" class="headerlink" title="Export Tables 的三种导出方式"></a>Export Tables 的三种导出方式</h4><p>使用 plsql 工具导出表结构表数据其实很简单方便，打开 plsql 工具，选择 Tools 菜单栏下面的 Expor Tables 即可。点开你会发现如下界面：</p>
-<p><img src="../../../../images/005.png" alt="img"> </p>
-<p><strong>第一种 Oracle Export 是导出为 .dmp 的文件格式，</strong>.dmp文件是二进制的，可以跨平台，还能包含权限，效率也很不错，用得最广 。 </p>
-<p><strong>第二种 SQL Insert 是导出为.sql文件的，</strong>可用文本编辑器查看，通用性比较好，但效率不如第一种，适合小数据量导入导出。尤其注意的是表中不能有大字段（blob,clob,long），如果有，会提示不能导出(提示如下： table contains one or more LONG columns cannot export in sql format,user Pl/sql developer format instead)。</p>
-<p><strong>第三种是导出为.pde格式的，</strong>.pde为Pl/sql developer自有的文件格式，只能用Pl/sql developer自己导入导出，不能用编辑器查看。</p>
-<p><em>需要注意的是：</em> 就算你选择第一种 Oracle Export 方式导出为 .sql 文件，也是可以的，但是最终导出的 sql 文件打开会有乱码，我一开始并不清楚这三种导出方式的区别，使用第一种方式导出为 .sql 文件一直是乱码，浪费了不少时间。</p>
-<h4 id="导出的-SQL-文件中文乱码"><a href="#导出的-SQL-文件中文乱码" class="headerlink" title="导出的 SQL 文件中文乱码"></a>导出的 SQL 文件中文乱码</h4><p>关于导出乱码的问题，网上有很多教程，但都是抄来抄去也写的不清晰，这里基于自己实际解决乱码问题的经验简单记录下：</p>
-<p>问题的关键就在于 <strong>server、client 端的编码要一致</strong>， 将 client 端的编码方式修改为和 server 端一致即可。</p>
-<p><strong>Oracle 字符集：</strong></p>
-<p>ORACLE的字符集名字由三部分组成：NLS_LANG=\<language>_\<territory>.\<clients characterset="">  </clients></territory></language></p>
-<p>比如常见的 nls_lang=AMERICAN_AMERICA.UTF8 ； nls_lang=SIMPLIFIED CHINESE_AMERICA.UTF8 </p>
-<p><strong>查看 Server 字符集环境：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM NLS_DATABASE_PARAMETERS;</span><br><span class="line">-- 我的查询结果如下：</span><br><span class="line">PARAMETER              VALUE</span><br><span class="line">NLS_LANGUAGE           AMERICAN</span><br><span class="line">NLS_TERRITORY          AMERICA</span><br><span class="line">NLS_CHARACTERSET       AL32UTF8</span><br></pre></td></tr></table></figure>
-<p><strong>数据库可用字符集参数设置：</strong></p>
-<p><code>SELECT * FROM V$NLS_VALID_VALUES</code></p>
-<p><em>注意：</em><code>SELECT * FROM NLS_INSTANCE_PARAMETERS</code> 是表示实例的字符集环境，而不是客户端。</p>
-<p><strong>查看 Client 字符集环境：</strong></p>
-<p><code>SELECT USERENV(&#39;language&#39;) FROM DUAL;</code> </p>
-<p><strong>修改 Client 字符集：</strong></p>
-<p>我使用的开发环境是 Windows，所以只写在 Windows 下的操作方法：修改注册表键值永久设置，HKEY_LOCAL_MACHINE/SOFTWARE/ORACLE/KEY_XXXX_home1/NLS_LANG，将值修改为 AMERICAN_AMERICA.AL32UTF8 后导出的 sql 文件编码正确，显示正常。</p>
-<p><em>注意：oracle客户端在获取字符集设置信息时的优先级顺序依次为：session、环境变量、注册表、参数文件。</em> </p>
-<h4 id="参考文章："><a href="#参考文章：" class="headerlink" title="参考文章："></a>参考文章：</h4><p><a href="https://www.cnblogs.com/kerrycode/p/3749085.html" target="_blank" rel="noopener">Oracle 字符集基础知识</a></p>
+<h4 id="一-使用-SQL-Server-本身提供的「导入导出」工具，将-SQL-Server-数据转到-Oracle-中"><a href="#一-使用-SQL-Server-本身提供的「导入导出」工具，将-SQL-Server-数据转到-Oracle-中" class="headerlink" title="一. 使用 SQL Server 本身提供的「导入导出」工具，将 SQL Server 数据转到 Oracle 中"></a>一. 使用 SQL Server 本身提供的「导入导出」工具，将 SQL Server 数据转到 Oracle 中</h4><p><em>环境：64 位 SQL Server、Oracle、「导入导出」工具。</em></p>
+<p>起初使用 32 位 Oracle 数据库，一直导入失败，后换用 64 位 Oracle 数据库后正常。注意：「导入导出」工具也要使用 64 位，否则也会出错。</p>
+<p>参考文章：&lt;a href=”<a href="https://blog.csdn.net/x541211190/article/details/72842149" target="_blank" rel="noopener">https://blog.csdn.net/x541211190/article/details/72842149</a> 将SQLServer表直接导入Oracle数据库（图文教程） </p>
+<blockquote>
+<p>注意：</p>
+</blockquote>
+<ol>
+<li>默认转换有些表和字段的映射会不太准确，一定要一一确认；</li>
+<li>SQL Server 导入 Oracle 的表和字段有区分大小写；</li>
+<li>表的主键、索引等信息都没有自动导入 Oracle 中去。</li>
+</ol>
+<h4 id="二-将转到-Oracle-中的所有表和字段全转为大写"><a href="#二-将转到-Oracle-中的所有表和字段全转为大写" class="headerlink" title="二. 将转到 Oracle 中的所有表和字段全转为大写"></a>二. 将转到 Oracle 中的所有表和字段全转为大写</h4><p>由于 Oracle 中的表和字段都是有区分大小写的，而 <strong>Oracle 执行 SQL 语句时会自动全部转为大写</strong>，所以这里需要将 Oracle 中的表和字段全转为大写，使用如下存储过程批量修改：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">-- 修改当前用户的所有表所有字段为大写</span><br><span class="line">begin</span><br><span class="line">  DBMS_OUTPUT.ENABLE(1000000);</span><br><span class="line">   for t in (select table_name tn from user_tables) loop</span><br><span class="line">       begin</span><br><span class="line">          for c in (select column_name cn from user_tab_columns where table_name=t.tn) loop</span><br><span class="line">              begin</span><br><span class="line">                 execute immediate &apos;alter table &apos;||t.tn||&apos; rename column &quot;&apos;||c.cn||&apos;&quot; to &apos;||upper(c.cn);</span><br><span class="line">              exception</span><br><span class="line">                 when others then</span><br><span class="line">                    dbms_output.put_line(t.tn||&apos;.&apos;||c.cn||&apos;已经存在&apos;);</span><br><span class="line">              end;</span><br><span class="line">          end loop;</span><br><span class="line">      </span><br><span class="line">          execute immediate &apos;alter table &quot;&apos;||t.tn||&apos;&quot; rename to &apos;||upper(t.tn);</span><br><span class="line">          exception</span><br><span class="line">             when others then</span><br><span class="line">                dbms_output.put_line(t.tn||&apos;已存在&apos;);</span><br><span class="line">       end;</span><br><span class="line">   end loop; </span><br><span class="line">end;</span><br></pre></td></tr></table></figure>
+<p>由于 SQL server 在录入时对录入内容区分大小写，但<strong>在查询时对代码不区分大小写</strong>，所以可能会出现同样的查询条件，原本在 SQL server 中正常查出结果的换到 Oracle 中却会查询错误的情况。</p>
+<h4 id="三-为-Oracle-中的表手动建立主键、索引等"><a href="#三-为-Oracle-中的表手动建立主键、索引等" class="headerlink" title="三. 为 Oracle 中的表手动建立主键、索引等"></a>三. 为 Oracle 中的表手动建立主键、索引等</h4><h4 id="SQL-server-和-Oracle-数据类型对应："><a href="#SQL-server-和-Oracle-数据类型对应：" class="headerlink" title="SQL server 和 Oracle 数据类型对应："></a>SQL server 和 Oracle 数据类型对应：</h4><table>
+<thead>
+<tr>
+<th>SQL Server 数据类型</th>
+<th>Oracle 数据类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>char(1-2000)</td>
+<td>CHAR(1-2000)</td>
+</tr>
+<tr>
+<td>char(2001-4000)</td>
+<td>VARCHAR2(2001-4000)</td>
+</tr>
+<tr>
+<td>nvarchar(1-1000)</td>
+<td>VARCHAR2(1-2000)</td>
+</tr>
+<tr>
+<td>varchar(1-4000)</td>
+<td>VARCHAR2(1-4000)</td>
+</tr>
+<tr>
+<td>date、datetime、smalldatetime</td>
+<td>DATE</td>
+</tr>
+<tr>
+<td>dateadd(year,1,a.EffDate)</td>
+<td>add_months(a.EffDate,12)</td>
+</tr>
+<tr>
+<td>int</td>
+<td>NUMBER(10,0)</td>
+</tr>
+<tr>
+<td>float</td>
+<td>FLOAT</td>
+</tr>
+</tbody>
+</table>
+<p>参考链接：<a href="https://www.cnblogs.com/benbenfishfish/p/8675075.html" target="_blank" rel="noopener">博客园：Oracle和sqlserver数据类型对应</a></p>
+<h4 id="SQL-server-和-Oracle-常用函数对应："><a href="#SQL-server-和-Oracle-常用函数对应：" class="headerlink" title="SQL server 和 Oracle 常用函数对应："></a>SQL server 和 Oracle 常用函数对应：</h4><table>
+<thead>
+<tr>
+<th>SQL Server 函数</th>
+<th>Oracle 函数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>convert(char(20),getdate(),120)</td>
+<td>to_char(sysdate, ‘yyyy-mm-dd hh24:mi:ss’)</td>
+</tr>
+<tr>
+<td>CONVERT(varchar(100), GETDATE(),   23)</td>
+<td>to_char(sysdate, ‘yyyy-mm-dd’)</td>
+</tr>
+<tr>
+<td>CONVERT(varchar(100), GETDATE(), 24)</td>
+<td>to_char(sysdate, ‘hh24:mi:ss’)</td>
+</tr>
+<tr>
+<td>datediff(YEAR,EffDate,getdate())</td>
+<td>(extract(year from sysdate)-extract(year from EffDate))</td>
+</tr>
+<tr>
+<td>dateadd(year,1,a.EffDate)</td>
+<td>add_months(a.EffDate,12)</td>
+</tr>
+<tr>
+<td>isnull(n.cnt, 0)</td>
+<td>nvl(n.cnt, 0)</td>
+</tr>
+<tr>
+<td>cast(-1.002 as int)</td>
+<td>trunc(-1.002)</td>
+</tr>
+<tr>
+<td>charindex(‘s’,’sdsq’,2)</td>
+<td>instr(‘sdsq’,’s’,2)</td>
+</tr>
+<tr>
+<td>substring(‘abcdefg’,2,3)</td>
+<td>substr(‘abcdefg’,2,3)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="SQL-Server-相关知识点："><a href="#SQL-Server-相关知识点：" class="headerlink" title="SQL Server 相关知识点："></a>SQL Server 相关知识点：</h4><p><strong>数据库还原失败「.bak 文件」： </strong></p>
+<p>​    勾选 – 覆盖现有数据库</p>
+<p>​    取消勾选 – 还原前进行结尾日志备份</p>
+<p>​    参考文章：<a href="https://www.cnblogs.com/xuanxiaochen/p/5701784.html" target="_blank" rel="noopener">SQLserver 备份和还原 失败</a></p>
+<p><strong>SSMS 无法执行大小超过 100M 的 sql 文件：</strong></p>
+<p>​    在 cmd 窗口使用 <code>osql -E -i input_file</code> 命令执行 .sql 文件</p>
+<p>​    参考文章：<a href="https://blog.csdn.net/longtingjing/article/details/46369941" target="_blank" rel="noopener">sql server 执行上100mb sql sql sql server 无法执行脚本 没有足够的内存继续执行</a></p>
+<h4 id="Oracle-相关知识点："><a href="#Oracle-相关知识点：" class="headerlink" title="Oracle 相关知识点："></a>Oracle 相关知识点：</h4><p><strong>Oracle 数据库创建新用户并授予 DBA 权限：</strong></p>
+<p>​    <code>create user abc identified by 123456;</code> </p>
+<p>​    <code>grant connect,resource,dba to abc;</code> </p>
+<p><strong>为什么 varchar2 很少用：</strong></p>
+<p>​    网上查来的答案：「The NVARCHAR2 is a Unicode-only datatype. Note also that some features won’t work with NVARCHAR2 」，参考链接：<a href="(https://stackoverflow.com/questions/4508351/difference-between-varchar210-char-and-nvarchar210">Difference between VARCHAR2(10 CHAR) and NVARCHAR2(10)</a></p>
+<p>​    查看数据库字符集：<code>SELECT * FROM NLS_DATABASE_PARAMETERS;</code></p>
+<p><strong>Oracle Date Timestamp 类型区别：</strong></p>
+<p> Oracle 毫秒的存储必须字段类型为 timestamp(6) – 数字表示存储的毫秒位数 </p>
+<p><code>select to_char(systimestamp,&#39;yyyy-mm-dd hh24:mi:ss.ff6&#39;) from dual; -- 2018-07-21 16:40:53.829000</code> </p>
 
           
         
@@ -412,7 +508,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/9/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><a class="extend next" rel="next" href="/page/11/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/9/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><a class="extend next" rel="next" href="/page/11/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -462,7 +558,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -475,7 +571,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
